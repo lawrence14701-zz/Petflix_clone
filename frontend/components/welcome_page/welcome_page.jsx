@@ -1,16 +1,26 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 
 
 class WelcomePage extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            tabItem: false,
+        }
+        // this.tabItem = this.tabItem.bind(this)
+    }
 
-        ".tab-item"
-
+    // tabItem(e){
+    //     debugger
+    //    const currentState = this.state.tabItem;
+    //     // this.setState({tabItem: !currentState})
+    // }
 
 
     render(){
-        var self = this
         return (
           <>
             <header className="showcase">
@@ -37,7 +47,8 @@ class WelcomePage extends React.Component {
                   <i className="fas fa-door-open fa-3x"></i>
                   <p className="hide-sm">Cancel Anytime</p>
                 </div>
-                <div id="tab-2" className="tab-item">
+                <div id="tab-2" className="tab-item"
+                >
                   <i className="fas fa-tablet-alt fa-3x"></i>
                   <p className="hide-sm">Watch Anywhere</p>
                 </div>
@@ -79,16 +90,16 @@ class WelcomePage extends React.Component {
                 </div>
 
                 {/* TAB 3 CONTENT */}
-                <div id="tab-3-content" class="tab-content-item">
-                  <div class="text-center">
-                    <p class="text-lg">
+                <div id="tab-3-content" className="tab-content-item">
+                  <div className="text-center">
+                    <p className="text-lg">
                       Choose one plan and watch everything on Netflix.
                     </p>
-                    <a href="#" class="btn btn-lg">
+                    <a href="#" className="btn btn-lg">
                       Watch Free For 30 Days
                     </a>
                   </div>
-                  <table class="table">
+                  <table className="table">
                     <thead>
                       <tr>
                         <th></th>
@@ -107,25 +118,25 @@ class WelcomePage extends React.Component {
                       <tr>
                         <td>HD Available</td>
                         <td>
-                          <i class="fas fa-times"></i>
+                          <i className="fas fa-times"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                       </tr>
                       <tr>
                         <td>Ultra HD Available</td>
                         <td>
-                          <i class="fas fa-times"></i>
+                          <i className="fas fa-times"></i>
                         </td>
                         <td>
-                          <i class="fas fa-times"></i>
+                          <i className="fas fa-times"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                       </tr>
                       <tr>
@@ -137,49 +148,49 @@ class WelcomePage extends React.Component {
                       <tr>
                         <td>Watch on your laptop, TV, phone and tablet</td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                       </tr>
                       <tr>
                         <td>Unlimited movies and TV shows</td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                       </tr>
                       <tr>
                         <td>Cancel anytime</td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                       </tr>
                       <tr>
                         <td>First month free</td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                         <td>
-                          <i class="fas fa-check"></i>
+                          <i className="fas fa-check"></i>
                         </td>
                       </tr>
                     </tbody>
@@ -195,7 +206,7 @@ class WelcomePage extends React.Component {
                   <li>
                     <a href="https://www.linkedin.com/in/lawrencenicastro">
                       <span>LinkedIn </span>
-                      <i class="fab fa-linkedin"></i>
+                      <i className="fab fa-linkedin"></i>
                     </a>
                   </li>
                 </ul>
