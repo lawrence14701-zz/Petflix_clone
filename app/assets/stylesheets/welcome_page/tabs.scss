@@ -1,0 +1,141 @@
+// tabs
+
+.tabs {
+  background: var(--dark-color);
+  padding-top: 1rem;
+  border-bottom: 3px solid #3d3d3d;
+}
+
+.tabs .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  max-width: 70%;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+// text-styles
+.text-xl {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.text-lg {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-dark {
+  color: #999;
+}
+
+.tabs p {
+  font-size: 1.2rem;
+  padding-top: 0.5rem;
+  text-align: center;
+}
+
+.tabs .container > div {
+  padding: 1.5rem 0;
+}
+
+.tabs .container > div:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.tab-border {
+  border-bottom: var(--primary-color) 4px solid;
+}
+
+// tab content
+
+.tab-content {
+  padding: 3rem 0;
+  background: #000;
+  color: #fff;
+}
+
+// first-tab
+#tab-1-content .tab-1-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// second tab
+#tab-2-content .tab-1-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.table{
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table thead th {
+    text-transform: uppercase;
+    padding: 0.8rem;
+}
+
+.table tbody tr td {
+    color: #999;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+}
+
+.table tbody tr td:first-child {
+    text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+    background: #222;
+}
+
+
+.footer {
+    max-width: 75%;
+    margin: 1rem auto;
+    overflow: auto;
+}
+
+.footer, .footer a {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;;
+}
+
+.footer p{
+    margin-bottom: 1.5rem;
+}
+
+.footer li{
+    line-height: 1.9rem;
+}
+
+
+
+

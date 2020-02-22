@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Netflix</title>
+    <title>Petflix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application'%>
+    
+    <script type="text/javascript">window.tabContentOne="<%= image_url('tab-content-1.png')%>"</script>
+    <script type="text/javascript">window.tabContentTwoOne="<%= image_url('tab-content-2-1.png')%>"</script>
+    <script type="text/javascript">window.tabContentTwoTwo="<%= image_url('tab-content-2-2.png')%>"</script>
+    <script type="text/javascript">window.tabContentTwoThree="<%= image_url('tab-content-2-3.png')%>"</script>
+
+
+    <script src="https://kit.fontawesome.com/dc2325b068.js" crossorigin="anonymous"></script>
+
   </head>
 
   <body>

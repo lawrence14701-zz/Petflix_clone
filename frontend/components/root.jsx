@@ -1,8 +1,8 @@
 import React from "react";
 import App from "./app";
 
-const Root = ({ store }) => (
+const root = ({ store }) => (
     <App/>
 );
 
-export default Root;
+export default root;
