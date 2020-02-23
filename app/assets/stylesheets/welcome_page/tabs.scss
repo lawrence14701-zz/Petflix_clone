@@ -19,7 +19,7 @@
   max-width: 70%;
   margin: auto;
   overflow: hidden;
-  padding: 0 2rem;
+  padding: 0 4.5rem;
 }
 
 // text-styles
@@ -111,29 +111,10 @@
 }
 
 
-.footer {
-    max-width: 75%;
-    margin: 1rem auto;
-    overflow: auto;
-}
 
-.footer, .footer a {
-    color: #999;
-    font-size: 0.9rem;
-}
 
-.footer .footer-cols {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2rem;;
-}
-
-.footer p{
-    margin-bottom: 1.5rem;
-}
-
-.footer li{
-    line-height: 1.9rem;
+.hide-tab-item{
+    display: none;
 }
 
 
