@@ -73,7 +73,7 @@ class WelcomePage extends React.Component {
           <div className="container">
             <div
               id="tab-1-content"
-              className={this.state.switchOn[0] ? "tab-item" : "hide-tab-item"}
+              className={this.state.switchOn[0] ? "tab-item-content" : "hide-tab-item"}
             >
               <div className="tab-1-content-inner">
                 <div>
@@ -90,7 +90,7 @@ class WelcomePage extends React.Component {
             {/* TAB TWO CONTENT */}
             <div
               id="tab-2-content"
-              className={this.state.switchOn[1] ? "tab-item" : "hide-tab-item"}
+              className={this.state.switchOn[1] ? "tab-item-content" : "hide-tab-item"}
             >
               <div className="tab-2-content-inner">
                 <div>
@@ -106,7 +106,7 @@ class WelcomePage extends React.Component {
             {/* TAB 3 CONTENT */}
             <div
               id="tab-3-content"
-              className={this.state.switchOn[2] ? "tab-item" : "hide-tab-item"}
+              className={this.state.switchOn[2] ? "tab-item-content" : "hide-tab-item"}
             >
               <div className="text-center">
                 <p className="text-lg">
