@@ -1,0 +1,121 @@
+.session-container {
+  background: image-url("dog.jpg") no-repeat center center/cover;
+  width: 100%;
+  position: relative;
+}
+
+.session-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 80px 80px 250px #000000, inset -80px -80px 250px #000000;
+}
+
+.auth-header {
+  position: relative;
+  height: 90px;
+  z-index: 2;
+}
+
+.auth-header img {
+  width: 170px;
+  vertical-align: middle;
+}
+
+.image-container {
+  margin-left: 3%;
+  display: inline-block;
+  line-height: 90px;
+}
+
+.login-container {
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: transparent;
+  max-width: 450px;
+  position: relative;
+}
+
+.login-content {
+  min-height: 660px;
+  padding: 60px 68px 40px;
+  margin-bottom: 90px;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 2;
+}
+
+.login-container h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 28px;
+  z-index: 2;
+}
+
+.user-registration-container {
+  padding-bottom: 16px;
+  z-index: 2;
+}
+
+.user-registration {
+  border-radius: 4px;
+  background: #333;
+  border: 0;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 20px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+.loggin-btn {
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 24px 0 12px;
+  background-color: var(--primary-color);
+  width: 100%;
+  padding: 16px;
+  color: #fff;
+  border: none;
+  z-index: 2;
+}
+
+.login-footer {
+  min-height: 236px;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  color: #999;
+  background: rgba(0, 0, 0, 0.75);
+  min-width: 190px;
+  width: 100%;
+}
+
+.site-footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 90%;
+  font-size: 1em;
+  font-family: "Helvetica Neue";
+  z-index: 2;
+  color: #999;
+}
+
+.footer-top {
+  padding: 0;
+  margin: 0 0 30px;
+  z-index: 2;
+}

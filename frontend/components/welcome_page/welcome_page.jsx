@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 class WelcomePage extends React.Component {
   constructor(props) {
@@ -23,9 +24,9 @@ class WelcomePage extends React.Component {
         <header className="showcase">
           <div className="showcase-top">
               <img src={window.logo} alt="logo"/>
-            <a href="" className="btn btn-rounded">
+            <Link to='/login' className="btn btn-rounded">
               Sign In
-            </a>
+            </Link>
           </div>
           <div className="showcase-content">
             <h1>See what's next</h1>
