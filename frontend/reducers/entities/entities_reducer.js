@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import userReducer from "./userReducer";
+import userReducer from "./user_reducer";
 import moviesReducer from "./movies_reducer";
-import genresReducer from "./genres_reducers";
+import genresReducer from "./genres_reducer";
 
 const entitiesReducer = combineReducers({
-  user: userReducer,
-//   genres: genresReducer,
-//   movies: moviesReducer
+  genres: genresReducer,
+  movies: moviesReducer,
+  user: userReducer
 });
 
 export default entitiesReducer;

@@ -1,0 +1,54 @@
+$font: "Lato", sams-serif;
+$red: #c62828;
+$grey: #949494;
+$white: #ffffff;
+
+#Header {
+  padding: 20px 60px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 5;
+}
+
+#Logo {
+  path {
+    fill: #d81f26;
+  }
+  height: 4vw;
+  width: 12vw;
+  vertical-align: middle;
+  margin-right: 10px;
+  transition: margin 0.125s ease;
+
+  &:hover {
+    path {
+      fill: $white !important;
+    }
+    cursor: pointer;
+  }
+}
+
+#Navigation {
+  display: flex;
+  padding: 0 40px;
+  height: 2rem;
+  align-items: center;
+  a {
+    color: lightgray;
+    font-size: 1.8vw;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 7px 10px;
+    transition: background 0.125s ease;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

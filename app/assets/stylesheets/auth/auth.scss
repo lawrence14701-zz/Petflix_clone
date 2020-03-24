@@ -1,20 +1,32 @@
-.session-container {
-  background: image-url("dog.jpg") no-repeat center center/cover;
-  width: 100%;
+.session-container{
+    width: 100%;
+    height: 100%;
+  position: relative;
+    background: image-url("dog.jpg") no-repeat center center/cover;
+
+}
+
+.shadow-background{
+  // background: image-url("dog.jpg") no-repeat center center/cover;
+  width: inherit;
+  height: inherit;
   position: relative;
 }
 
-.session-container::after {
+.shadow-background::after{
   content: "";
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 80px 80px 250px #000000, inset -80px -80px 250px #000000;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: inherit;
   height: 100%;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: inset 80px 80px 250px #000000, inset -80px -80px 250px #000000;
+  z-index: 0;
+
 }
+
+
 
 .auth-header {
   position: relative;
@@ -39,6 +51,7 @@
   background-color: transparent;
   max-width: 450px;
   position: relative;
+  z-index: 1;
 }
 
 .login-content {
@@ -101,6 +114,7 @@
   background: rgba(0, 0, 0, 0.75);
   min-width: 190px;
   width: 100%;
+  z-index: 1;
 }
 
 .site-footer {

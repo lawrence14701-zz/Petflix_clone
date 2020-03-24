@@ -1,16 +1,21 @@
 import React from "react";
 import WelcomePage from "./welcome_page/welcome_page";
 import Login from "./auth/login_form_container";
-import Signup from "./auth/signup_form_container";
+import SignUp from "./auth/signup_form_container";
+import home from './home/home_movies_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Link, Switch, Route } from "react-router-dom";
+import Nav from './nav/nav_container'
 
 
 const app = () => {
   return (
     <div>
       <Route exact path="/" component={WelcomePage} />
-      <AuthRoute path="/signup" component={Signup} />
+      {/* <ProtectedRoute exact path="/nav" component={Nav} /> */}
+
+      <ProtectedRoute exact path="/home" component={home} />
+      <AuthRoute path="/signup" component={SignUp} />
       <AuthRoute path="/login" component={Login} />
     </div>
   );

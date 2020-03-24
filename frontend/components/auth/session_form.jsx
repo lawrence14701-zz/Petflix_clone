@@ -56,53 +56,60 @@ class SessionForm extends React.Component {
     });
 
     return (
-      <div className="session-container">
-        <header className="auth-header">
-          <div className="image-container">
-            <Link to='/'>
-              <img src={window.logo} alt="logo" />
-            </Link>
-          </div>
-        </header>
+      <>
+        <div className="session-container">
+          <div className='shadow-background'>
+            <header className="auth-header">
+              <div className="image-container">
+                <Link to="/">
+                  <img src={window.logo} alt="logo" />
+                </Link>
+              </div>
+            </header>
 
-        <div className="login-container">
-          <div className="login-content">
-            <h1>{this.props.formType}</h1>
-            <div className="user-registration-container">
-              <label className="place-label">
-                <input
-                  type="text"
-                  onChange={this.handleChange("username")}
-                  value={this.state.username}
-                  placeholder="Username"
-                  className="user-registration"
-                />
-              </label>
+            <div className="login-container">
+              <div className="login-content">
+                <form onSubmit={this.handleSubmit} className="auth">
+                  <h1>{this.props.formType}</h1>
+                  <div className="user-registration-container">
+                    <label className="place-label">
+                      <input
+                        type="text"
+                        onChange={this.handleChange("username")}
+                        value={this.state.username}
+                        placeholder="Username"
+                        className="user-registration"
+                      />
+                    </label>
+                  </div>
+
+                  <div className="user-registration-container">
+                    <label className="place-label">
+                      <input
+                        type="password"
+                        onChange={this.handleChange("password")}
+                        value={this.state.password}
+                        placeholder="Password"
+                        className="user-registration"
+                      />
+                    </label>
+                  </div>
+                  <button className="loggin-btn" type="submit">
+                    {this.props.formType}
+                  </button>
+                  <div>{otherLink()}</div>
+                </form>
+              </div>
             </div>
 
-            <div className="user-registration-container">
-              <label className="place-label">
-                <input
-                  type="password"
-                  onChange={this.handleChange("password")}
-                  value={this.state.password}
-                  placeholder="Password"
-                  className="user-registration"
-                />
-              </label>
+          <footer className="login-footer">
+            <div className="site-footer">
+              <p className="footer-top">Designed by Lawrence Nicastro</p>
             </div>
-            <button className="loggin-btn" type="submit">
-              {this.props.formType}
-            </button>
+          </footer>
           </div>
         </div>
-
-        <footer className="login-footer">
-          <div className="site-footer">
-            <p className="footer-top">Designed by Lawrence Nicastro</p>
-          </div>
-        </footer>
-      </div>
+      </>
     );
   }
 }

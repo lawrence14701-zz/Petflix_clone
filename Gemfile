@@ -25,7 +25,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'pry-rails'
+gem 'annotate'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -37,6 +42,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'rails-ujs'
+gem "aws-sdk-s3"
+gem 'ez_download', git: 'https://github.com/OscarAlvarez8830/EZDownload.git'
+gem 'streamio-ffmpeg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
