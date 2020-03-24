@@ -17,8 +17,9 @@ class Home extends React.Component {
       genre.movie_ids.forEach(movieId =>{
         movieCategory.push(movies[movieId]);
       })
-    //  return( <div key={genre.id} className='test'>{genre.name}</div>)
-    return ( <VideoRow title={genre.name} movies={movieCategory}/>)
+    return ( 
+        <VideoRow key={genre.id} title={genre.name} movies={movieCategory}/>
+    )
     })
     return (
       <>
