@@ -30,6 +30,7 @@ class VideoRow extends React.Component {
   }
 
   updateSliderItems(baseShowItem = this.state.showItems) {
+      const {movies} = this.props;
     let { totalItems, startId } = this.state;
 
     //centerData represents the movies that are currently showing on the slider
@@ -65,10 +66,25 @@ class VideoRow extends React.Component {
         rightDataId.push(x - totalItems);
       }
     }
+    rightDataId.reverse();
 
-    console.log("left", leftDataId);
-    console.log("center", centerDataId);
-    console.log("right", rightDataId);
+
+    // console.log("left", leftDataId);
+    // console.log("center", centerDataId);
+    // console.log("right", rightDataId);
+
+    let selectIds = [...leftDataId,...centerDataId,...rightDataId];
+    let sliderItem = [];
+
+    if(movies.length){
+        selectIds.map((e) => {
+            sliderItem.push(movies[e])
+        })
+    }
+
+    this.setState({
+
+    })
   }
 
   updateSliderState() {
@@ -95,27 +111,30 @@ class VideoRow extends React.Component {
 
   leftArrowClick() {
     const { showItems, startId, totalItems, mc } = this.state;
-    let plusNext = startId + showItems;
+    let reducePrev = startId + showItems;
     let resetStartId = 0;
-    if(plusNext >= totalItems){
-        resetStartId = plusNext - totalItems;
+    if(reducePrev < 0){
+        resetStartId = totalItems - reducePrev;
     } else {
-        resetStartId = plusNext;
+        resetStartId = reducePrev;
     }
     this.updateSliderItems();
   }
   rightArrowClick() {
-       const { showItems, startId, totalItems, mc } = this.state;
-       let plusNext = startId + showItems;
-       let resetStartId = 0;
-       if (plusNext >= totalItems) {
-    }
-    this.updateSliderItems();
+     const { showItems, startId, totalItems, mc } = this.state;
+     let plusNext = startId + showItems;
+     let resetStartId = 0;
+     if (plusNext >= totalItems) {
+       resetStartId = plusNext - totalItems;
+     } else {
+       resetStartId = plusNext;
+     }
+     this.updateSliderItems();
   }
 
   render() {
     const { title, movies } = this.props;
-    const rowOfMovies = movies.map(movie => {
+    const rowOfMovies = this.state.sliderItems.map(movie => {
       return <MovieItem key={movie.id} movie={movie} />;
     });
     return (
