@@ -25,29 +25,6 @@ class Home extends React.Component {
       <>
       {rowOfVideos}
       </>
-      // <div className="wrapper">
-      //   <h1 className="page-head">Petflix Originals</h1>
-
-      //   <div className="whole-slider">
-      //     <div className="slider-wrapper">
-      //       <div className="slider-item">
-      //         <div className='slider-item-inner'></div>
-      //       </div>
-      //       <div className="slider-item">
-      //         <div className='slider-item-inner'></div>
-      //       </div>
-      //       <div className="slider-item">
-      //         <div className='slider-item-inner'></div>
-      //       </div>
-      //       <div className="slider-item">
-      //         <div className='slider-item-inner'></div>
-      //       </div>
-      //       <div className="slider-item">
-      //         <div className='slider-item-inner'></div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
     );
   }
 }

@@ -193,7 +193,7 @@ joinsadCatWithCat = Join.create({
 
 catMom= Movie.create({
     title: 'Cat Mom',
-    description: 'Prince Michael steps in to help a group of ducklings cross the road and turns into their Mother.
+    description: 'Prince Michael steps in to help a group of ducklings cross the road and turns into their Mother. He is a true hero.
  '
 })
 
@@ -217,9 +217,9 @@ joincatMomWithCat = Join.create({
 
 coffeeCat= Movie.create({
     title: 'Coffee cat',
-    description: 'Uh oh it looks like someone had too much coffee adn is going to stay up past there bedtime,
-    Weve all been there, had a cup of joe too many. But what if a cat has too much coffee. Uh oh, then we dont want to know what happens,
-    but for people who are extra curious, check out this episode of cats gone wild when they had a little too much coffee to drink.
+    description: 'Uh oh it looks like someone had too much coffee and is going to stay up past thier bedtime,
+    Weve all been there, had a cup of joe too many. But what if a cat has too much coffee? Uh oh, then we dont want to know what happens,
+    but for people who are extra curious, check out this episode of cats gone wild when they had a little too to drink.
  '
 })
 
@@ -241,10 +241,9 @@ joincoffeeCatWithCat = Join.create({
 #-------------------Piper Bird----------------------
 piperBird= Movie.create({
     title: 'Piper',
-    description: 'Uh oh it looks like someone had too much coffee adn is going to stay up past there bedtime,
-    Weve all been there, had a cup of joe too many. But what if a cat has too much coffee. Uh oh, then we dont want to know what happens,
-    but for people who are extra curious, check out this episode of cats gone wild when they had a little too much coffee to drink.
- '
+    description: 'Do you like cute birds? Well then this is the show for you. Piper is a tiny little fellow who is super curious about the world around him. 
+    He explores the beautiful ocean side while learning so much there is to life.'
+ 
 })
 
 piperBirdVid=  EzDownload.open("https://petflix-development.s3.amazonaws.com/piperMovie.mp4")
@@ -474,7 +473,7 @@ theBirdsCover = open('https://petflix-development.s3.amazonaws.com/thebirds.jpg'
 theBirds.cover.attach(io: theBirdsCover, filename: 'theBirdsCover.jpg')
 
 
-jointheBirdsWithhamster = Join.create({
+jointheBirdsWithBirds = Join.create({
     genreId: birdGenere.id,
     movieId: theBirds.id
 })
