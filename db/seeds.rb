@@ -77,8 +77,6 @@ joinCatAndDogWithCat = Join.create({
     movieId: catch_me_if_you_can.id
 })
 
-
-
 #------------------------The cat who caught the laser ------------------------------------
 the_cat_who_caught_the_laser= Movie.create({
     title: 'The cat who caught the laser',
@@ -143,4 +141,58 @@ how_to_make_a_cat_video.cover.attach(io: how_to_make_a_cat_video_cover, filename
 join_with_cat_genre = Join.create({
     genreId: catGenre.id,
     movieId: how_to_make_a_cat_video.id
+})
+#------------------------cat tries vr ------------------------------------
+cat_tries_vr= Movie.create({
+    title: 'Cat tries VR',
+    description: 'VR is such a cool technology. But do you know what is even cooler? The answer equals a cat using VR. Now that is super cool. Name one thing cooler than that. I dare you.',
+})
+cat_tries_vr_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/cat_tries_vr.mp4")
+cat_tries_vr.video.attach(io: cat_tries_vr_video,filename: 'cat_tries_vr_video.mp4', content_type: 'video/mp4')
+cat_tries_vr_cover = open('https://petflix-development.s3.amazonaws.com/cat_tries_vr.jpg')
+cat_tries_vr.cover.attach(io: cat_tries_vr_cover, filename: 'cat_tries_vr_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: cat_tries_vr.id
+})
+#------------------------the fake girlfriend ------------------------------------
+the_fake_girl_friend= Movie.create({
+    title: 'The fake girl friend',
+    description: 'Watch Michael try his best to find the perfect mate for his owner. A mate as in a girlfriend. Will Michael be successful in his quest to find the best girlfriend?',
+})
+the_fake_girl_friend_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/the_fake_girl_friend.mp4")
+the_fake_girl_friend.video.attach(io: the_fake_girl_friend_video,filename: 'the_fake_girl_friend_video.mp4', content_type: 'video/mp4')
+the_fake_girl_friend_cover = open('https://petflix-development.s3.amazonaws.com/the_fake_girl_friend.jpg')
+the_fake_girl_friend.cover.attach(io: the_fake_girl_friend_cover, filename: 'the_fake_girl_friend_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: the_fake_girl_friend.id
+})
+#------------------------How to be a better purr-son ------------------------------------
+how_to_be_a_better_purr_son= Movie.create({
+    title: 'how to be a better purr-son',
+    description: 'Everyone wants to be a better person, right? But what about being a better purr-son? Well, Michael wants to try and achieve that, so he embarked on a mission to improve his life by doing good deeds. Let us see what happens.',
+})
+how_to_be_a_better_purr_son_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/how_to_be_a_better_purr_son.mp4")
+how_to_be_a_better_purr_son.video.attach(io: how_to_be_a_better_purr_son_video,filename: 'how_to_be_a_better_purr_son_video.mp4', content_type: 'video/mp4')
+how_to_be_a_better_purr_son_cover = open('https://petflix-development.s3.amazonaws.com/how_to_be_a_better_purr_son.jpg')
+how_to_be_a_better_purr_son.cover.attach(io: how_to_be_a_better_purr_son_cover, filename: 'how_to_be_a_better_purr_son_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: how_to_be_a_better_purr_son.id
+})
+#------------------------When cats drink coffee ------------------------------------
+when_cats_drink_coffee= Movie.create({
+    title: 'When cats drink coffee',
+    description: 'Uh oh, it looks like someone had too much coffee and is going to stay up past there bedtime,
+    We`ve all been there, had a cup of joe too many. But what if a cat has too much coffee. Uh oh, then we don`t want to know what happens,
+    but for extra curious people, check out this episode of cats gone wild when they had a little too much coffee to drink.',
+})
+when_cats_drink_coffee_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/when_cats_drink_coffee.mp4")
+when_cats_drink_coffee.video.attach(io: when_cats_drink_coffee_video,filename: 'when_cats_drink_coffee_video.mp4', content_type: 'video/mp4')
+when_cats_drink_coffee_cover = open('https://petflix-development.s3.amazonaws.com/when_cats_drink_coffee.jpg')
+when_cats_drink_coffee.cover.attach(io: when_cats_drink_coffee_cover, filename: 'when_cats_drink_coffee_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: when_cats_drink_coffee.id
 })

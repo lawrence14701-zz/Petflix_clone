@@ -95,9 +95,9 @@ class VideoRow extends React.Component {
     let windowWidth = window.innerWidth;
     let showItems = 1;
     if (windowWidth > 1800) {
-      showItems = 4  //6; //change later when i put more movies in
+      showItems = 6  
     } else if (windowWidth > 1260) {
-      showItems = 4
+      showItems = 5
     } else if (windowWidth > 980) {
       showItems = 4;
     } else if (windowWidth > 768) {
@@ -114,7 +114,7 @@ class VideoRow extends React.Component {
 
   leftArrowClick() {
     const { showItems, startId, totalItems, mc, mv } = this.state;
-    let reducePrev = startId + showItems;
+    let reducePrev = startId - showItems;
     let resetStartId = 0;
     let slider = this.refs.slider; //what does this do
 

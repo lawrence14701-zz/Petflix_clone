@@ -10,6 +10,7 @@
 
 .slider {
   max-width: 100vw;
+  // overflow: hidden; //i want to remove this and only use my JS function to update amount of slider items based on width of page
   padding: 10px 0;
   z-index: 1;
   position: relative;
