@@ -1,5 +1,5 @@
 import React from "react";
-import WelcomePage from "./welcome_page/welcome_page";
+import WelcomePage from "./welcome_page/welcome_page_container";
 import Login from "./auth/login_form_container";
 import SignUp from "./auth/signup_form_container";
 import home from './home/home_movies_container';

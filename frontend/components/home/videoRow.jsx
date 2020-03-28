@@ -39,7 +39,6 @@ class VideoRow extends React.Component {
     let { totalItems, startId } = this.state;
 
     //centerData represents the movies that are currently showing on the slider
-    debugger
     let centerDataId = [];
     for (let i = 0; i < baseShowItem; i++) { //3
       let x = startId + i;
@@ -65,7 +64,6 @@ class VideoRow extends React.Component {
     //rightData represents the movies to the right of the slider that are not showing
     let rightDataId = [];
     for (let i = 0; i < baseShowItem + 1 ; i++) { 
-        debugger
         console.log(x)
       let x = startId + baseShowItem + i; //4
       if (x < totalItems - baseShowItem + baseShowItem) { 
@@ -147,7 +145,6 @@ class VideoRow extends React.Component {
     }, 7500);
   }
   rightArrowClick() {
-    debugger
     const { showItems, startId, totalItems, mv, click } = this.state;
     let plusNext = startId + showItems;  
     let resetStartId = 0;

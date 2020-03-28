@@ -8,6 +8,17 @@ class WelcomePage extends React.Component {
       switchOn: [true, false, false]
     };
     this.switchOnOff = this.switchOnOff.bind(this);
+    this.demoUser = this.demoUser.bind(this);
+  }
+
+  demoUser(e) {
+    e.preventDefault();
+    const demoUser = {
+      username: "username",
+      password: "password"
+    };
+    this.props.processForm(demoUser);
+    this.props.history.push(`/home`);
   }
 
   switchOnOff(index) {
@@ -23,16 +34,16 @@ class WelcomePage extends React.Component {
       <>
         <header className="showcase">
           <div className="showcase-top">
-              <img src={window.logo} alt="logo"/>
-            <Link to='/login' className="btn btn-rounded">
+            <img src={window.logo} alt="logo" />
+            <Link to="/login" className="btn btn-rounded">
               Sign In
             </Link>
           </div>
           <div className="showcase-content">
             <h1>See what's next</h1>
             <p>Watch anywhere. Cancel anytime</p>
-            <a href="" className="btn btn-xl">
-              watch free for 30 days{" "}
+            <a href="" className="btn btn-xl" onClick={this.demoUser}>
+              Click here for a Demo
               <i className="fas fa-chevron-right btn-icon"></i>
             </a>
           </div>
@@ -52,7 +63,9 @@ class WelcomePage extends React.Component {
             </div>
             <div
               id="tab-2"
-              className={this.state.switchOn[1] ? "tab-item tab-border" : "tab-item"}
+              className={
+                this.state.switchOn[1] ? "tab-item tab-border" : "tab-item"
+              }
               onClick={this.switchOnOff(1)}
             >
               <i className="fas fa-tablet-alt fa-3x"></i>
@@ -60,7 +73,9 @@ class WelcomePage extends React.Component {
             </div>
             <div
               id="tab-3"
-              className={this.state.switchOn[2] ? "tab-item tab-border" : "tab-item"}
+              className={
+                this.state.switchOn[2] ? "tab-item tab-border" : "tab-item"
+              }
               onClick={this.switchOnOff(2)}
             >
               <i className="fas fa-tags fa-3x"></i>
@@ -74,14 +89,16 @@ class WelcomePage extends React.Component {
           <div className="container">
             <div
               id="tab-1-content"
-              className={this.state.switchOn[0] ? "tab-item-content" : "hide-tab-item"}
+              className={
+                this.state.switchOn[0] ? "tab-item-content" : "hide-tab-item"
+              }
             >
               <div className="tab-1-content-inner">
                 <div>
                   <p className="text-lg text-center">Watch everywhere.</p>
                   <p className="text-center">
-                    Stream unlimited pet movies and pet TV shows on your phone, tablet,
-                    laptop, and TV without paying more.
+                    Stream unlimited pet movies and pet TV shows on your phone,
+                    tablet, laptop, and TV without paying more.
                   </p>
                 </div>
                 <img src={window.tabContentOne} alt="content-1" />
@@ -91,13 +108,18 @@ class WelcomePage extends React.Component {
             {/* TAB TWO CONTENT */}
             <div
               id="tab-2-content"
-              className={this.state.switchOn[1] ? "tab-item-content" : "hide-tab-item"}
+              className={
+                this.state.switchOn[1] ? "tab-item-content" : "hide-tab-item"
+              }
             >
               <div className="tab-2-content-inner">
                 <div>
-                  <p className="text-lg text-center">Browse the latest pet films.</p>
+                  <p className="text-lg text-center">
+                    Browse the latest pet films.
+                  </p>
                   <p className="text-center">
-                    Search through endless amounts of pet films until you find the right one.
+                    Search through endless amounts of pet films until you find
+                    the right one.
                   </p>
                 </div>
                 <img src={window.tabContentTwo} alt="content-1" />
@@ -107,7 +129,9 @@ class WelcomePage extends React.Component {
             {/* TAB 3 CONTENT */}
             <div
               id="tab-3-content"
-              className={this.state.switchOn[2] ? "tab-item-content" : "hide-tab-item"}
+              className={
+                this.state.switchOn[2] ? "tab-item-content" : "hide-tab-item"
+              }
             >
               <div className="text-center">
                 <p className="text-lg">
