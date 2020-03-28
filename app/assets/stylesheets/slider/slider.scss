@@ -23,6 +23,7 @@
 
 .slider-item {
   display: inline-block;
+  overflow: hidden;
   width: 100%;
   position: relative;
   z-index: 1;

@@ -116,7 +116,7 @@ class VideoRow extends React.Component {
     const { showItems, startId, totalItems, mc, mv } = this.state;
     let reducePrev = startId - showItems;
     let resetStartId = 0;
-    let slider = this.refs.slider; //what does this do
+    let slider = this.refs.slider;
 
     if (reducePrev < 0) {
       resetStartId = totalItems - reducePrev;
@@ -148,9 +148,9 @@ class VideoRow extends React.Component {
     const { showItems, startId, totalItems, mv, click } = this.state;
     let plusNext = startId + showItems;  
     let resetStartId = 0;
-    let slider = this.refs.slider; //what does this do
+    let slider = this.refs.slider; 
     if (plusNext >= totalItems) { //if you overflow the row
-      resetStartId = 0;// plusNext - totalItems; 
+      resetStartId = plusNext - totalItems; 
     } else {
       resetStartId = plusNext;
     }
@@ -171,6 +171,15 @@ class VideoRow extends React.Component {
         });
       }, 750);
     } else {
+       $(slider).css({
+         transform: "translate3d(-2" + mv + "%,0,0)"
+       });
+       setTimeout(() => {
+         //cant transform translate for 750ms
+         $(slider).css({
+           transform: "translate3d(-2" + mv + "%,0,0)"
+         });
+       }, 750);
       $(slider).css({
         transform: "translate3d(-2" + mv + "%,0,0)"
       });
