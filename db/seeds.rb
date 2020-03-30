@@ -196,3 +196,16 @@ join_with_cat_genre = Join.create({
     genreId: catGenre.id,
     movieId: when_cats_drink_coffee.id
 })
+#------------------------Worlds first cat lifeguard------------------------------------
+words_first_cat_lifeguard= Movie.create({
+    title: 'When cats drink coffee',
+    description: 'Did someone say lifeguard kitty? Watch this hot hunk of a lifeguard save people from drowning. He does it oh so puurrrfectly. Don`t miss tonight`s episode of lifeguard kitty',
+})
+words_first_cat_lifeguard_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/words_first_cat_lifeguard.mp4")
+words_first_cat_lifeguard.video.attach(io: words_first_cat_lifeguard_video,filename: 'words_first_cat_lifeguard_video.mp4', content_type: 'video/mp4')
+words_first_cat_lifeguard_cover = open('https://petflix-development.s3.amazonaws.com/words_first_cat_lifeguard.jpg')
+words_first_cat_lifeguard.cover.attach(io: words_first_cat_lifeguard_cover, filename: 'words_first_cat_lifeguard_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: words_first_cat_lifeguard.id
+})
