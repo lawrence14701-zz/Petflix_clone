@@ -197,15 +197,42 @@ join_with_cat_genre = Join.create({
     movieId: when_cats_drink_coffee.id
 })
 #------------------------Worlds first cat lifeguard------------------------------------
-words_first_cat_lifeguard= Movie.create({
-    title: 'When cats drink coffee',
+worlds_first_cat_lifeguard= Movie.create({
+    title: 'Worlds first cat lifeguard',
     description: 'Did someone say lifeguard kitty? Watch this hot hunk of a lifeguard save people from drowning. He does it oh so puurrrfectly. Don`t miss tonight`s episode of lifeguard kitty',
 })
-words_first_cat_lifeguard_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/words_first_cat_lifeguard.mp4")
-words_first_cat_lifeguard.video.attach(io: words_first_cat_lifeguard_video,filename: 'words_first_cat_lifeguard_video.mp4', content_type: 'video/mp4')
-words_first_cat_lifeguard_cover = open('https://petflix-development.s3.amazonaws.com/words_first_cat_lifeguard.jpg')
-words_first_cat_lifeguard.cover.attach(io: words_first_cat_lifeguard_cover, filename: 'words_first_cat_lifeguard_cover.jpg')
+worlds_first_cat_lifeguard_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/worlds_first_cat_lifeguard.mp4")
+worlds_first_cat_lifeguard.video.attach(io: worlds_first_cat_lifeguard_video,filename: 'worlds_first_cat_lifeguard_video.mp4', content_type: 'video/mp4')
+worlds_first_cat_lifeguard_cover = open('https://petflix-development.s3.amazonaws.com/worlds_first_cat_lifeguard.jpg')
+worlds_first_cat_lifeguard.cover.attach(io: worlds_first_cat_lifeguard_cover, filename: 'worlds_first_cat_lifeguard_cover.jpg')
 join_with_cat_genre = Join.create({
     genreId: catGenre.id,
-    movieId: words_first_cat_lifeguard.id
+    movieId: worlds_first_cat_lifeguard.id
+})
+#------------------------Mind control------------------------------------
+mind_control= Movie.create({
+    title: 'Mind Control',
+    description: 'Phil and Michael discover a piece of technology that changes their lives. What will they do with their new-found technology? Will they use it for good or evil. Who knows.',
+})
+mind_control_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/mind_control.mp4")
+mind_control.video.attach(io: mind_control_video,filename: 'mind_control_video.mp4', content_type: 'video/mp4')
+mind_control_cover = open('https://petflix-development.s3.amazonaws.com/mind_control.jpg')
+mind_control.cover.attach(io: mind_control_cover, filename: 'mind_control_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: mind_control.id
+})
+#------------------------The saddest day------------------------------------
+the_saddest_day= Movie.create({
+    title: 'The saddest day',
+    description: 'Aww no one likes a sad kitty; someone needs to help this little guy and turn his frown upside down.
+ Follow this little guys adventure and see how he finally learns how to be happy again',
+})
+the_saddest_day_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/the_saddest_day.mp4")
+the_saddest_day.video.attach(io: the_saddest_day_video,filename: 'the_saddest_day_video.mp4', content_type: 'video/mp4')
+the_saddest_day_cover = open('https://petflix-development.s3.amazonaws.com/the_saddest_day.jpg')
+the_saddest_day.cover.attach(io: the_saddest_day_cover, filename: 'the_saddest_day_cover.jpg')
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: the_saddest_day.id
 })

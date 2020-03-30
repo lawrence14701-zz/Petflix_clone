@@ -26,21 +26,16 @@ class VideoRow extends React.Component {
       totalItems: movies.length,
       sliderItems: movies
     });
-  }
-
-  componentWillMount() {
-    if (typeof window !== "undefined") {
-      $(window).on("resize", this.updateSliderState.bind(this));
+    if(typeof(window) !== 'undefined'){
+      window.addEventListener("resize", this.updateSliderState.bind(this));
     }
   }
 
-  updateSliderItems(baseShowItem = this.state.showItems) { //how many items are we showing
-    const { movies } = this.props;
+  updateSliderItems(baseShowItem = this.state.showItems) {
     let { totalItems, startId } = this.state;
 
-    //centerData represents the movies that are currently showing on the slider
     let centerDataId = [];
-    for (let i = 0; i < baseShowItem; i++) { //3
+    for (let i = 0; i < baseShowItem; i++) {
       let x = startId + i;
       if (x < totalItems) {
         centerDataId.push(x);
@@ -49,55 +44,51 @@ class VideoRow extends React.Component {
       }
     }
 
-    //leftData represents the movies to the left of the slider that are not showing
     let leftDataId = [];
-    for (let i = 0; i < baseShowItem + 1; i++) { //+1
+    for (let i = 0; i < baseShowItem + 1; i++) {
       let x = startId - i - 1;
       if (x >= 0) {
         leftDataId.push(x);
       } else {
-        leftDataId.push(totalItems + x);
+        leftDataId.push(x + totalItems);
       }
     }
     leftDataId.reverse();
 
-    //rightData represents the movies to the right of the slider that are not showing
     let rightDataId = [];
-    for (let i = 0; i < baseShowItem + 1 ; i++) { 
-        console.log(x)
-      let x = startId + baseShowItem + i; //4
-      if (x < totalItems - baseShowItem + baseShowItem) { 
-            rightDataId.push(x);
-          } else {
-            rightDataId.push(x - totalItems);
-          }
+    for (let i = 0; i < baseShowItem + 1; i++) {
+      let x = startId + baseShowItem + i;
+      if (x < totalItems - baseShowItem + baseShowItem) {
+        rightDataId.push(x);
+      } else {
+        rightDataId.push(x - totalItems);
+      }
     }
-    console.log('totalMovies',movies.length)
-    console.log("left", leftDataId);
-    console.log("center", centerDataId);
-    console.log("right", rightDataId);
-
-    let selectIds = [...leftDataId, ...centerDataId, ...rightDataId]; //a reorganization of indexes in our movie array
-    console.log('allmovies',selectIds)
+    // console.log("left", leftDataId);
+    // console.log("center", centerDataId);
+    // console.log("right", rightDataId);
+    let selectIds = [...leftDataId,...centerDataId,...rightDataId];
     let sliderItems = [];
 
-    if (movies.length) {
-      selectIds.map(e => {
-        sliderItems.push(movies[e]);
-      });
+    const {movies} = this.props;
+    if (movies.length){
+      selectIds.map((e) => {
+        sliderItems.push(movies[e])
+      })
     }
-
-    this.setState({ sliderItems });
+    this.setState({
+      sliderItems
+    })
+    // console.log(sliderItems)
   }
 
   updateSliderState() {
-    //create a dynamic slider that changes as window size changes
     let windowWidth = window.innerWidth;
     let showItems = 1;
     if (windowWidth > 1800) {
-      showItems = 6  
+      showItems = 6;
     } else if (windowWidth > 1260) {
-      showItems = 5
+      showItems = 5;
     } else if (windowWidth > 980) {
       showItems = 4;
     } else if (windowWidth > 768) {
@@ -105,7 +96,7 @@ class VideoRow extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    let mv = 100 / showItems; //make our css transition dynamic 
+    let mv = 100 / showItems;
     this.setState({
       showItems,
       mv
@@ -113,120 +104,53 @@ class VideoRow extends React.Component {
   }
 
   leftArrowClick() {
-    const { showItems, startId, totalItems, mc, mv } = this.state;
+    console.log("left");
+    const { showItems, startId, totalItems, mv } = this.state;
     let reducePrev = startId - showItems;
     let resetStartId = 0;
-    let slider = this.refs.slider;
-
     if (reducePrev < 0) {
-      resetStartId = totalItems - reducePrev;
+      resetStartId = reducePrev + totalItems;
     } else {
       resetStartId = reducePrev;
     }
-    this.setState({
-      startId: resetStartId,
-      moving: true
-    });
-    $(slider).css({
-      transform: "translate3d(-" + mv + "%,0,0)"
-    });
-    setTimeout(() => {
-      //cant transform translate for 750ms
-      $(slider).css({
-        transform: "translate3d(-1" + mv + "%,0,0)"
-      });
-    }, 750);
-    setTimeout(() => {
-        this.setState({
-            moving:false,
-        })
-      // timer set between button clicks
-      this.updateSliderItems();
-    }, 7500);
+    this.updateSliderItems();
   }
+
   rightArrowClick() {
-    const { showItems, startId, totalItems, mv, click } = this.state;
-    let plusNext = startId + showItems;  
+    console.log("right");
+    const { showItems, startId, totalItems, mv } = this.state;
+    let plusNext = startId + showItems;
     let resetStartId = 0;
-    let slider = this.refs.slider; 
-    if (plusNext >= totalItems) { //if you overflow the row
-      resetStartId = plusNext - totalItems; 
+    if (plusNext >= totalItems) {
+      resetStartId = plusNext - totalItems;
     } else {
       resetStartId = plusNext;
     }
-    this.setState({
-      startId: resetStartId,
-      moving: true,
-      click: true
-    });
-
-    if (!click) { 
-      $(slider).css({
-        transform: "translate3d(-100%,0,0)"
-      });
-      setTimeout(() => {
-        //cant transform translate for 750ms
-        $(slider).css({
-          transform: "translate3d(-1" + mv + "%,0,0)"
-        });
-      }, 750);
-    } else {
-       $(slider).css({
-         transform: "translate3d(-2" + mv + "%,0,0)"
-       });
-       setTimeout(() => {
-         //cant transform translate for 750ms
-         $(slider).css({
-           transform: "translate3d(-2" + mv + "%,0,0)"
-         });
-       }, 750);
-      $(slider).css({
-        transform: "translate3d(-2" + mv + "%,0,0)"
-      });
-      setTimeout(() => {
-        //cant transform translate for 750ms
-        $(slider).css({
-          transform: "translate3d(-1" + mv + "%,0,0)"
-        });
-      }, 750);
-    }
-
-    setTimeout(() => {
-      this.setState({
-        moving: false
-      });
-      this.updateSliderItems();
-    }, 750);
+    this.updateSliderItems();
   }
 
   render() {
-    const { sliderItems, moving, click } = this.state;
-    const sliderClass = classNames({
-      sliderMask: true,
-      moving
-    });
-    const { title, movies } = this.props;
-    console.log(sliderItems)
+    const {sliderItems} = this.state;
+    const { title } = this.props;
     const rowOfMovies = sliderItems.map(movie => {
-      return <MovieItem movie={movie} />;
+      return <MovieItem key={movie.id} movie={movie} />;
     });
     return (
       <>
         <div className="wrapper">
           <h1 className="page-head">{title}</h1>
           <div className="slider">
-            <div className={sliderClass} ref="slider">
+            <div className="sliderMask" ref="slider">
               {rowOfMovies}
             </div>
-            {click && (
-              <div
-                className="leftArrow arrow"
-                ref="leftArrow"
-                onClick={this.handleOnLeftArrowClick}
-              >
-                <i className="fas fa-chevron-left"></i>
-              </div>
-            )}
+
+            <div
+              className="leftArrow arrow"
+              ref="leftArrow"
+              onClick={this.handleOnLeftArrowClick}
+            >
+              <i className="fas fa-chevron-left"></i>
+            </div>
 
             <div
               className="rightArrow arrow"
