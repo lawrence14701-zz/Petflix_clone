@@ -1,6 +1,5 @@
 import React from "react";
 import MovieItem from "./movieItem";
-import classNames from "classnames/bind";
 
 class VideoRow extends React.Component {
   constructor(props) {

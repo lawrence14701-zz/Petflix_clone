@@ -12,8 +12,10 @@ render(){
     return (
       <div className="sliderItem">
         <div className="sliderItemInner">
+          <img className="cover" src={movie.cover} />
+
           <div className="zoom">
-            <img className="cover" src={movie.cover} />
+            <img className="zoomCover" src={movie.cover} />
           </div>
         </div>
       </div>
