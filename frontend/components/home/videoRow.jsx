@@ -1,6 +1,9 @@
 import React from "react";
+import style from "./slider.css";
 import MovieItem from "./movieItem";
-import classNames from "classnames";
+import classNames from "classnames/bind";
+
+const cx = classNames.bind(style);
 
 class VideoRow extends React.Component {
   constructor(props) {
@@ -26,7 +29,7 @@ class VideoRow extends React.Component {
       totalItems: movies.length,
       sliderItems: movies
     });
-    if(typeof(window) !== 'undefined'){
+    if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updateSliderState.bind(this));
     }
   }
@@ -67,18 +70,18 @@ class VideoRow extends React.Component {
     // console.log("left", leftDataId);
     // console.log("center", centerDataId);
     // console.log("right", rightDataId);
-    let selectIds = [...leftDataId,...centerDataId,...rightDataId];
+    let selectIds = [...leftDataId, ...centerDataId, ...rightDataId];
     let sliderItems = [];
 
-    const {movies} = this.props;
-    if (movies.length){
-      selectIds.map((e) => {
-        sliderItems.push(movies[e])
-      })
+    const { movies } = this.props;
+    if (movies.length) {
+      selectIds.map(e => {
+        sliderItems.push(movies[e]);
+      });
     }
     this.setState({
       sliderItems
-    })
+    });
     // console.log(sliderItems)
   }
 
@@ -113,7 +116,13 @@ class VideoRow extends React.Component {
     } else {
       resetStartId = reducePrev;
     }
-    this.updateSliderItems();
+    this.setState({
+      startId: resetStartId,
+      moving: true
+    });
+    setTimeout(() => {
+      this.updateSliderItems();
+    }, 400);
   }
 
   rightArrowClick() {
@@ -126,26 +135,37 @@ class VideoRow extends React.Component {
     } else {
       resetStartId = plusNext;
     }
-    this.updateSliderItems();
+    this.setState({
+      startId: resetStartId,
+      moving: true
+    });
+
+    setTimeout(() => {
+      this.updateSliderItems();
+    }, 400);
   }
 
   render() {
-    const {sliderItems} = this.state;
+    const { sliderItems, moving } = this.state;
+    const sliderClass = cx({
+      slider: true,
+      moving
+    });
     const { title } = this.props;
     const rowOfMovies = sliderItems.map(movie => {
       return <MovieItem key={movie.id} movie={movie} />;
     });
     return (
       <>
-        <div className="wrapper">
-          <h1 className="page-head">{title}</h1>
-          <div className="slider">
-            <div className="sliderMask" ref="slider">
+        <div className={style.wrapper}>
+          <h1 className={style.pageHead}>{title}</h1>
+          <div className={style.slider}>
+            <div className={style.sliderMask} ref="slider">
               {rowOfMovies}
             </div>
 
             <div
-              className="leftArrow arrow"
+              className={style.leftArrow}
               ref="leftArrow"
               onClick={this.handleOnLeftArrowClick}
             >
@@ -153,7 +173,7 @@ class VideoRow extends React.Component {
             </div>
 
             <div
-              className="rightArrow arrow"
+              className={style.rightArrow}
               ref="RightArrow"
               onClick={this.handleOnRightArrowClick}
             >
