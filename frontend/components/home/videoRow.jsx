@@ -78,7 +78,6 @@ class VideoRow extends React.Component {
     this.setState({
       sliderItems
     });
-    // console.log(sliderItems)
   }
 
   updateSliderState() {
