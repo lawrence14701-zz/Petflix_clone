@@ -1,5 +1,4 @@
 import React from "react";
-import style from './slider.css';
 
 
 
@@ -11,11 +10,13 @@ class MovieItem extends React.Component {
 render(){
     const {movie} = this.props
     return (
-          <div className={style.sliderItem}>
-            <div className={style.sliderItemInner}>
-              <img className={style.cover} src={movie.cover} />
-            </div>
+      <div className="sliderItem">
+        <div className="sliderItemInner">
+          <div className="zoom">
+            <img className="cover" src={movie.cover} />
           </div>
+        </div>
+      </div>
     );
   }
 }
