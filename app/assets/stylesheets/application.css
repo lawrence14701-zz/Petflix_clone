@@ -40,6 +40,17 @@ html {
   box-sizing: inherit;
 }
 
+button,
+input {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #141414;

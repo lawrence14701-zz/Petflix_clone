@@ -76,6 +76,14 @@
       border: solid 1px rgba(white, 0.4);
     }
   }
+
+  .openContent {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    font-size: 2.5rem;
+    transform: translate(-50%);
+  }
 }
 
 .playVideo {
@@ -107,7 +115,7 @@
   .preview {
     display: block;
   }
-  .cover{
-      opacity: 0;
+  .cover {
+    opacity: 0;
   }
 }

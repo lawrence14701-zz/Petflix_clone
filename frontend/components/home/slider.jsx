@@ -44,7 +44,6 @@ class Slider extends React.Component {
       showItems = 2;
     }
     let mv = 100 / showItems;
-    console.log(mv)
     this.setState({
       showItems,
       mv
