@@ -122,7 +122,7 @@ class VideoRow extends React.Component {
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%,0,0)"
+          transform: 'translate3d(-1' + mv + '%,0,0)'
         });
       }, 750);
 
@@ -157,16 +157,16 @@ class VideoRow extends React.Component {
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%,0,0)"
+          transform: 'translate3d(-1' + mv + '%,0,0)'
         });
       }, 750);
     } else {
       $(slider).css({
-        transform: "translate3d(-2" + mv + "%,0,0)"
+        transform: 'translate3d(-2' + mv + '%,0,0)'
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%,0,0)"
+          transform: 'translate3d(-1' + mv + '%,0,0)'
         });
       }, 750);
     }

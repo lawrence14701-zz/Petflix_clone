@@ -1,5 +1,5 @@
 import React from "react";
-import VideoRow from './videoRow';
+import Slider from "./slider";
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,22 +10,18 @@ class Home extends React.Component {
   }
 
   render() {
-    const {genres,movies} = this.props;
-    const rowOfVideos = genres.map(genre => {
+    const { genres, movies } = this.props;
+    const sliders = genres.map(genre => {
       //find the movies that belong to a specific genre
       let movieCategory = [];
-      genre.movie_ids.forEach(movieId =>{
+      genre.movie_ids.forEach(movieId => {
         movieCategory.push(movies[movieId]);
-      })
-    return ( 
-        <VideoRow key={genre.id} title={genre.name} movies={movieCategory}/>
-    )
-    })
-    return (
-      <>
-      {rowOfVideos}
-      </>
-    );
+      });
+      return (
+        <Slider key={genre.id} title={genre.name} movies={movieCategory} />
+      );
+    });
+    return <>{sliders}</>;
   }
 }
 

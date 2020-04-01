@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { fetchAllGenres } from '../../actions/video_actions';
 import { logout } from "../../actions/session_actions";
-import home from './home_react';
+import HomePage from './homePage';
 
 
 
@@ -26,4 +26,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(home)
+)(HomePage)
