@@ -159,7 +159,7 @@ class Slider extends React.Component {
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%, 0, 0)"
+          transform: "translate3d(-2" + mv + "%, 0, 0)"
         });
       }, 400);
     }

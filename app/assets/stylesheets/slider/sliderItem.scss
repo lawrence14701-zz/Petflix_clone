@@ -1,4 +1,3 @@
-
 .sliderItem {
   display: inline-block;
   width: 100%;
@@ -22,12 +21,86 @@
   }
 }
 
-.sliderItemInner{
-    margin: 0 5px;
-    border-radius: 2px;
-    position: relative;
+.sliderItemInner {
+  margin: 0 5px;
+  border-radius: 2px;
+  position: relative;
 }
-.cover{
+.cover {
+  width: 100%;
+  height: auto;
+}
+
+//---------------- Scaling effect for hovering over a movieItem ----------------------
+
+.preview {
+  display: none;
+  height: 200%;
+  width: 200%;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: 2;
+  transition: all 0.4s ease;
+  transform: scale(0.5);
+
+  .info {
+    display: block;
     width: 100%;
-    height: auto;
+    margin-bottom: 0.3vw;
+    font-size: 0;
+
+    .movieTitle {
+      display: block;
+      width: 100%;
+      font-size: 0.7vw;
+      font-weight: 600;
+      margin-bottom: 0.3vw;
+    }
+    .duration {
+      display: inline-block;
+      width: auto;
+      font-size: 0.5vw;
+    }
+    .age {
+      display: inline-block;
+      position: relative;
+      width: auto;
+      font-size: 0.5vw;
+      padding: 0 0.4em;
+      margin-right: 0.4vw;
+      border: solid 1px rgba(white, 0.4);
+    }
+  }
+}
+
+.playVideo {
+  max-width: 100%;
+  height: auto;
+}
+
+.sliderItem {
+  transition: transform 300ms ease 100ms;
+  overflow: visible;
+}
+
+.sliderItem:after {
+  content: "";
+  display: block;
+}
+
+.sliderMask:hover .sliderItem {
+  transform: translateX(-25%);
+}
+
+.sliderItem:hover ~ .sliderItem {
+  transform: translateX(25%);
+}
+
+.sliderMask .sliderItem:hover {
+  transform: scale(1.5);
+
+  .preview {
+    display: block;
+  }
 }

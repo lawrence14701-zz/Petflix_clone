@@ -1,93 +1,3 @@
-// $scale: 1.4;
-
-// .pageHead {
-//   padding: 15px 0 72px 0;
-//   min-height: 44px;
-//   display: inline-block;
-//   font-size: 26px;
-//   font-weight: bold;
-//   color: #999;
-//   margin: 0 60px;
-// }
-
-// .slider {
-//   max-width: 100vw;
-//   padding: 10px 0;
-//   z-index: 1;
-//   position: relative;
-// }
-
-// .sliderMask {
-//   // overflow: hidden;
-//   white-space: nowrap;
-//   padding: 0 60px;
-
-// }
-
-// .sliderItem {
-//   display: inline-block;
-//   width: 100%;
-//   position: relative;
-//   z-index: 1;
-//   @media all and (min-width: 600px) {
-//     width: calc(100% / 2);
-//   }
-//   @media all and (min-width: 768px) {
-//     width: calc(100% / 3);
-//   }
-//   @media all and (min-width: 980px) {
-//     width: calc(100% / 4);
-//   }
-//   @media all and (min-width: 1260px) {
-//     width: calc(100% / 5);
-//   }
-//   @media all and (min-width: 1800px) {
-//     width: calc(100% / 6);
-//   }
-
-//   &:hover{
-//     .zoom{
-//       z-index: 6;
-//       transform: scale(1);
-//     }
-//   }
-// }
-
-// .sliderItemInner {
-//   margin: 0 5px;
-//   border-radius: 2px;
-//   position: relative;
-// }
-
-// .cover {
-//   width: 100%;
-//   height: auto;
-// }
-
-
-// .arrow{
-//     position: absolute;
-//     top:10px;
-//     width: 60px;
-//     z-index: 10;
-//     cursor: pointer;
-//     height: calc(99% - 20px);
-//     color: #fff;
-//     font-size: 50px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-// .leftArrow{
-//     background: linear-gradient(to left, rgba(35,35,35,0.5), rgba(35,35,35,1) );
-//     left: 0;
-// }
-// .rightArrow{
-//     background: linear-gradient(to right, rgba(35,35,35,0.5), rgba(35,35,35,1) );
-//     right: 0;
-
-// }
 
 // .zoom{
 //   height: 200%;
@@ -117,16 +27,6 @@
 // }
 
 .wrapper {
-  color: #fff;
-  line-height: 1.2;
-  cursor: default;
-  user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 .pageHead {
@@ -144,12 +44,13 @@
   padding: 10px 0;
   z-index: 1;
   position: relative;
-  height: 150px;
+  height: 100%;
 }
 .sliderMask {
   white-space: nowrap;
   padding: 0 60px;
-  height: 150px;
+  height: 100%;
+  position: relative;
 }
 
 .arrow {
@@ -163,7 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(99%);
+  height: calc(99% - 20px);
 }
 
 .leftArrow {
@@ -183,7 +84,6 @@
   right: 0;
 }
 
-
-.moving{
-    transition: all .75s ease;;
+.moving {
+  transition: all 0.75s ease;
 }
