@@ -64,9 +64,6 @@
 //   height: auto;
 // }
 
-// .moving{
-//     transition: all .75s ease;;
-// }
 
 // .arrow{
 //     position: absolute;
@@ -184,4 +181,9 @@
     rgba(35, 35, 35, 1)
   );
   right: 0;
+}
+
+
+.moving{
+    transition: all .75s ease;;
 }

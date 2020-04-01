@@ -96,7 +96,7 @@ class Slider extends React.Component {
       sliderItems
     });
   }
-leftArrowClick() {
+  leftArrowClick() {
     const { showItems, startId, totalItems, mv } = this.state;
     let reducePrev = startId - showItems;
     let resetStartId = 0;
@@ -111,14 +111,14 @@ leftArrowClick() {
       moving: true
     });
 
+    $(slider).css({
+      transform: "translate3d(-" + mv + "%,0,0)"
+    });
+    setTimeout(() => {
       $(slider).css({
-        transform: 'translate3d(-' + mv + '%,0,0)'
+        transform: "translate3d(-1" + mv + "%,0,0)"
       });
-      setTimeout(() => {
-        $(slider).css({
-          transform: 'translate3d(-1' + mv + '%,0,0)'
-        });
-      }, 750);
+    }, 750);
 
     setTimeout(() => {
       this.setState({
@@ -146,49 +146,62 @@ leftArrowClick() {
 
     if (!click) {
       $(slider).css({
-        transform: "translate3d(-100%,0,0)"
+        transform: "translate3d(-100%, 0, 0)"
       });
       setTimeout(() => {
         $(slider).css({
-          transform: 'translate3d(-1' + mv + '%,0,0)'
+          transform: "translate3d(-1" + mv + "%, 0, 0)"
         });
       }, 750);
     } else {
       $(slider).css({
-        transform: 'translate3d(-2' + mv + '%,0,0)'
+        transform: "translate3d(-2" + mv + "%, 0, 0)" //why does this only get applied the first time and not after?
       });
       setTimeout(() => {
         $(slider).css({
-          transform: 'translate3d(-1' + mv + '%,0,0)'
+          transform: "translate3d(-2" + mv + "%, 0, 0)"
         });
       }, 750);
+      setTimeout(() => {
+        this.setState({
+          moving: false
+        });
+        this.updateSliderItems();
+      }, 750);
     }
-}
+  }
   render() {
-    const { title} = this.props;
-    const { sliderItems } = this.state;
+    const { title } = this.props;
+    const { sliderItems, click, moving } = this.state;
     return (
       <div className="wrapper">
         <h1 className="pageHead">{title}</h1>
         <div className="slider">
-          <div className="sliderMask">
+          <div
+            className={moving ? "moving sliderMask" : "sliderMask"}
+            ref="slider"
+          >
             {sliderItems.map((e, i) => {
               return <SliderItem key={i} movie={e} />;
             })}
           </div>
-          <div
-            className="leftArrow arrow"
-            ref="leftArrow"
-            onClick={this.handleOnLeftArrowClick}
-          >
-            <i className="fas fa-chevron-left"></i>
-          </div>
+
+          {click && (
+            <div
+              className="leftArrow arrow"
+              ref="leftArrow"
+              onClick={this.handleOnLeftArrowClick}
+            >
+              <i className="fas fa-chevron-left"></i>
+            </div>
+          )}
+
           <div
             className="rightArrow arrow"
-            ref="rightArrow"
+            ref="RightArrow"
             onClick={this.handleOnRightArrowClick}
           >
-            <i className="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right"></i>{" "}
           </div>
         </div>
       </div>
