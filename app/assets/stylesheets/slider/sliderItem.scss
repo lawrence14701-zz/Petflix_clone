@@ -3,7 +3,6 @@
   display: inline-block;
   width: 100%;
   position: relative;
-  overflow: hidden;
   height: 150px;
   z-index: 1;
   @media all and (min-width: 600px) {
@@ -29,6 +28,6 @@
     position: relative;
 }
 .cover{
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
