@@ -44,6 +44,7 @@ class Slider extends React.Component {
       showItems = 2;
     }
     let mv = 100 / showItems;
+    console.log(mv)
     this.setState({
       showItems,
       mv
@@ -112,14 +113,13 @@ class Slider extends React.Component {
     });
 
     $(slider).css({
-      transform: "translate3d(-" + mv + "%,0,0)"
+      transform: "translate3d(-" + mv + "%, 0, 0)"
     });
     setTimeout(() => {
       $(slider).css({
-        transform: "translate3d(-1" + mv + "%,0,0)"
+        transform: "translate3d(-1" + mv + "%, 0, 0)" //why is this not applying my transition effect, same with right slider
       });
     }, 750);
-
     setTimeout(() => {
       this.setState({
         moving: false
@@ -155,20 +155,20 @@ class Slider extends React.Component {
       }, 750);
     } else {
       $(slider).css({
-        transform: "translate3d(-2" + mv + "%, 0, 0)" //why does this only get applied the first time and not after?
+        transform: "translate3d(-2" + mv + "%, 0, 0)"
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-2" + mv + "%, 0, 0)"
+          transform: "translate3d(-1" + mv + "%, 0, 0)"
         });
-      }, 750);
-      setTimeout(() => {
-        this.setState({
-          moving: false
-        });
-        this.updateSliderItems();
-      }, 750);
+      }, 400);
     }
+    setTimeout(() => {
+      this.setState({
+        moving: false
+      });
+      this.updateSliderItems();
+    }, 750);
   }
   render() {
     const { title } = this.props;
