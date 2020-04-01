@@ -43,8 +43,12 @@
   z-index: 2;
   transition: all 0.4s ease;
   transform: scale(0.5);
+  text-shadow: 0 1px 1px rgba(black, 0.6);
 
   .info {
+    position: absolute;
+    top: 60%;
+    left: 10%;
     display: block;
     width: 100%;
     margin-bottom: 0.3vw;
@@ -53,20 +57,20 @@
     .movieTitle {
       display: block;
       width: 100%;
-      font-size: 0.7vw;
+      font-size: 2vw;
       font-weight: 600;
       margin-bottom: 0.3vw;
     }
     .duration {
       display: inline-block;
       width: auto;
-      font-size: 0.5vw;
+      font-size: 1.5vw;
     }
     .age {
       display: inline-block;
       position: relative;
       width: auto;
-      font-size: 0.5vw;
+      font-size: 1.5vw;
       padding: 0 0.4em;
       margin-right: 0.4vw;
       border: solid 1px rgba(white, 0.4);
@@ -102,5 +106,8 @@
 
   .preview {
     display: block;
+  }
+  .cover{
+      opacity: 0;
   }
 }
