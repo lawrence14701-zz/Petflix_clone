@@ -12,15 +12,15 @@ class SliderItem extends React.Component {
       const { onOpen, movie } = this.props;
       onOpen(movie)
   }
-   
+
 
   render() {
-    const { movie } = this.props;
+    const { movie, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
     const { cover, title, video } = movie;
     const duration = `${Math.floor(video.length / 60)} min ${video.length %
       60} sec`;
     return (
-      <div className="sliderItem">
+      <div className= "sliderItem">
         <div className="sliderItemInner">
           <img className="cover" src={cover} />
 

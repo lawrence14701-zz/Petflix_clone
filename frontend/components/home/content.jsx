@@ -6,7 +6,7 @@ class Content extends React.Component {
   }
 
   render() {
-       const movie = this.props.movie;
+       const {movie, onClose} = this.props;
        const { cover, description, title } = movie;
 
     return (
@@ -15,7 +15,7 @@ class Content extends React.Component {
           <div className="content__background__shadow" />
           <div
             className="content__background__image"
-            style={{ "background-image": `url(${cover})` }}
+            style={{ "backgroundImage": `url(${cover})` }}
           />
         </div>
         <div className="content__area">
@@ -25,7 +25,7 @@ class Content extends React.Component {
               {description}
             </div>
           </div>
-          <button className="content__close">
+          <button className="content__close" onClick = {onClose}>
             <i className="fas fa-times"></i>
           </button>
         </div>
