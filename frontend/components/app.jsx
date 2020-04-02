@@ -4,12 +4,11 @@ import Login from "./auth/login_form_container";
 import SignUp from "./auth/signup_form_container";
 
 import HomePage from './home/homePageContainer';
-// import HomePage from './homePage/homePage_container';
 
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Link, Switch, Route } from "react-router-dom";
-import Nav from './nav/nav_container'
+// import Nav from './nav/nav_container'
 
 
 const app = () => {

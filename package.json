@@ -34,6 +34,10 @@
     "webpack": "webpack --mode=development --watch",
     "postinstall": "webpack"
   },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lawrence14701/Petflix_clone.git"

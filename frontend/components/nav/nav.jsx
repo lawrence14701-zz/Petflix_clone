@@ -1,16 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navigation from "./Navigation"; //navigation links
 
 
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
   constructor(props) {
     super(props);
   }
-
-
- 
 
   render() {
     return (
@@ -18,8 +14,9 @@ export default class Nav extends React.Component {
           <Link to="/">
             <img src={window.logo} id="Logo"></img>
           </Link>
-          <Navigation />
       </header>
     );
   }
 }
+
+export default Nav;
