@@ -4,6 +4,7 @@ import Login from "./auth/login_form_container";
 import SignUp from "./auth/signup_form_container";
 
 import HomePage from './home/homePageContainer';
+import NavBar from './nav_bar/nav_container'
 
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -16,7 +17,9 @@ const app = () => {
     <div>
       <Route exact path="/" component={WelcomePage} />
 
-      <ProtectedRoute exact path="/home" component={HomePage} />
+      <ProtectedRoute exact path='/nav' component={NavBar} />
+      {/* <ProtectedRoute exact path="/home" component={HomePage} /> */}
+
       <AuthRoute path="/signup" component={SignUp} />
       <AuthRoute path="/login" component={Login} />
     </div>

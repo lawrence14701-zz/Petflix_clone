@@ -1,54 +1,70 @@
-$font: "Lato", sams-serif;
-$red: #c62828;
-$grey: #949494;
-$white: #ffffff;
 
-#Header {
-  padding: 20px 60px;
-  display: flex;
-  align-items: center;
+
+header {
+  line-height: ;
+  padding: 20px 20px 0 20px;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.7);
   top: 0;
-  left: 0;
-  width: 100vw;
-  z-index: 5;
+  display: grid;  
+  grid-gap:5px;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas: 
+   "nt mn mn sb . . . "; 
+  background-color:  #141414;
+  width: 100%;
+  margin-bottom: 0px;  
 }
 
-#Logo {
-  path {
-    fill: #d81f26;
-  }
-  height: 4vw;
-  width: 12vw;
-  vertical-align: middle;
-  margin-right: 10px;
-  transition: margin 0.125s ease;
-
-  &:hover {
-    path {
-      fill: $white !important;
-    }
-    cursor: pointer;
-  }
+.netflixLogo {
+  grid-area: nt;
+  object-fit: cover;
+  width: 100px;
+  max-height: 100%;
+  
+  padding-left: 30px;
+  padding-top: 0px;  
 }
 
-#Navigation {
-  display: flex;
-  padding: 0 40px;
-  height: 2rem;
-  align-items: center;
-  a {
-    color: lightgray;
-    font-size: 1.8vw;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 7px 10px;
-    transition: background 0.125s ease;
-    border-radius: 3px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
+.netflixLogo img {  
+  height: 35px;     
 }
+
+#logo {
+  color: #E50914;  
+  margin: 0; 
+  padding: 0; 
+}
+
+
+.main-nav {
+  grid-area: mn;
+  padding: 0 30px 0 20px;
+}
+
+.main-nav a {
+  color: #F3F3F3;
+  text-decoration: none;
+  margin: 5px;  
+}
+
+.main-nav a:hover {
+  color:#686868;
+}
+
+.sub-nav {
+  grid-area: sb;
+  padding: 0 40px 0 40px;
+}
+
+.sub-nav a {
+  color:  #F3F3F3;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.sub-nav a:hover {
+  color: #686868;
+}
+
+
+
