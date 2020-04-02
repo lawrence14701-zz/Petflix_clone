@@ -1,11 +1,14 @@
 import React from "react";
 import SliderItem from "./sliderItem";
+import Content from "./content";
 
 class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.handleOnLeftArrowClick = this.leftArrowClick.bind(this);
     this.handleOnRightArrowClick = this.rightArrowClick.bind(this);
+    this.handleClose = this.onClose.bind(this);
+    this.handleOpen = this.onOpen.bind(this);
     this.state = {
       moving: false,
       click: false,
@@ -13,7 +16,8 @@ class Slider extends React.Component {
       startId: 0,
       showItems: 1,
       totalItems: 0,
-      sliderItems: []
+      sliderItems: [],
+      currentSlide: null //movie that has content open
     };
   }
 
@@ -169,9 +173,16 @@ class Slider extends React.Component {
       this.updateSliderItems();
     }, 750);
   }
+
+  onClose() {
+    this.setState({ currentSlide: null });
+  }
+  onOpen(movie){
+     this.setState({currentSlide: movie})
+  }
   render() {
     const { title } = this.props;
-    const { sliderItems, click, moving } = this.state;
+    const { sliderItems, click, moving, currentSlide } = this.state;
     return (
       <div className="wrapper">
         <h1 className="pageHead">{title}</h1>
@@ -181,7 +192,7 @@ class Slider extends React.Component {
             ref="slider"
           >
             {sliderItems.map((e, i) => {
-              return <SliderItem key={i} movie={e} />;
+              return <SliderItem key={i} movie={e} onOpen={this.handleOpen}/>; 
             })}
           </div>
 
@@ -203,6 +214,7 @@ class Slider extends React.Component {
             <i className="fas fa-chevron-right"></i>{" "}
           </div>
         </div>
+        {currentSlide && <Content movie={currentSlide} onClose={this.handleClose} />}
       </div>
     );
   }

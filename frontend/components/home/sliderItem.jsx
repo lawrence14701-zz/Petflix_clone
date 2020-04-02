@@ -1,24 +1,18 @@
 import React from "react";
 import Slider from "./slider";
-import Content from "./content";
 
 class SliderItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleOnClick = this.openContent.bind(this);
-    // this.state = {
-    //   activeMovieId: null,
-    //   closeContent: false
-    // };
+    this.handleSubmit = this.handleSubmit.bind(this)
+ 
   }
 
-  openContent() {
-    // const { activeMovieId } = this.state;
-    // const currentSliderItem = this.props.movies[activeMovieId];
-    console.log('working')
-    // const {movie} = this.props;
-    // return (<Content movie={movie} />);
+  handleSubmit(){
+      const { onOpen, movie } = this.props;
+      onOpen(movie)
   }
+   
 
   render() {
     const { movie } = this.props;
@@ -37,7 +31,7 @@ class SliderItem extends React.Component {
               <h3 className="age">TV-14</h3>
               <h3 className="duration">{duration}</h3>
             </div>
-            <button className="openContent" onClick={this.handleOnClick}>
+            <button className="openContent" onClick={this.handleSubmit}>
               <i className="fas fa-chevron-down"></i>
             </button>
           </div>
