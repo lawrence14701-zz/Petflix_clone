@@ -2,6 +2,7 @@ import React from "react";
 import SliderItem from "./sliderItem";
 import Content from "./content";
 
+
 class Slider extends React.Component {
   constructor(props) {
     super(props);
@@ -193,7 +194,7 @@ class Slider extends React.Component {
             ref="slider"
           >
             {sliderItems.map((e, i) => {
-              return <SliderItem key={i} movie={e} onOpen={this.handleOpen} isContentOpen={currentSlide}/>; 
+              return<SliderItem key={i} movie={e} onOpen={this.handleOpen} isContentOpen={currentSlide}/>; 
             })}
           </div>
 

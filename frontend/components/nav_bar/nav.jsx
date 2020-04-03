@@ -10,7 +10,7 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <header>
+      <header id='main-header'>
       <div class="petflixLogo">
         <a id="logo" href=""><img src={window.logo} alt="Logo Image"/></a>
       </div>      

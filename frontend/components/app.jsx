@@ -4,6 +4,7 @@ import Login from "./auth/login_form_container";
 import SignUp from "./auth/signup_form_container";
 
 import HomePage from './home/homePageContainer';
+import PlayMovie from './play_movie/play_movie_container';
 import NavBar from './nav_bar/nav_container'
 
 
@@ -17,8 +18,10 @@ const app = () => {
     <div>
       <Route exact path="/" component={WelcomePage} />
 
-      <ProtectedRoute exact path='/nav' component={NavBar} />
-      {/* <ProtectedRoute exact path="/home" component={HomePage} /> */}
+      {/* <ProtectedRoute exact path='/nav' component={NavBar} /> */}
+      <ProtectedRoute exact path="/home" component={HomePage} />
+      <ProtectedRoute exact path="/movies/:movieId" component={PlayMovie}/>
+
 
       <AuthRoute path="/signup" component={SignUp} />
       <AuthRoute path="/login" component={Login} />
