@@ -58,7 +58,7 @@ class WelcomePage extends React.Component {
               }
               onClick={this.switchOnOff(0)}
             >
-              <i className="fas fa-door-open fa-3x"></i>
+              <i className="fas fa-paw fa-3x"></i>
               <p className="hide-sm">Cancel Anytime</p>
             </div>
             <div
@@ -68,7 +68,7 @@ class WelcomePage extends React.Component {
               }
               onClick={this.switchOnOff(1)}
             >
-              <i className="fas fa-tablet-alt fa-3x"></i>
+              <i className="fas fa-bone fa-3x"></i>
               <p className="hide-sm">Watch Anywhere</p>
             </div>
             <div
@@ -78,7 +78,7 @@ class WelcomePage extends React.Component {
               }
               onClick={this.switchOnOff(2)}
             >
-              <i className="fas fa-tags fa-3x"></i>
+              <i className="fas fa-dog fa-3x"></i>
               <p className="hide-sm">Pick your price</p>
             </div>
           </div>
@@ -101,7 +101,7 @@ class WelcomePage extends React.Component {
                     tablet, laptop, and TV without paying more.
                   </p>
                 </div>
-                <img src={window.tabContentOne} alt="content-1" />
+                <img className='tab-image' src={window.tabContentOne} alt="content-1" />
               </div>
             </div>
 
@@ -122,7 +122,7 @@ class WelcomePage extends React.Component {
                     the right one.
                   </p>
                 </div>
-                <img src={window.tabContentTwo} alt="content-1" />
+                <img className='tab-image' src={window.tabContentTwo} alt="content-1" />
               </div>
             </div>
 
@@ -135,30 +135,30 @@ class WelcomePage extends React.Component {
             >
               <div className="text-center">
                 <p className="text-lg">
-                  Choose one plan and watch everything on Netflix.
+                  Choose one plan and watch everything on Petflix.
                 </p>
-                <a href="#" className="btn btn-lg">
-                  Watch Free For 30 Days
+                <a href="#" className="btn btn-lg" onClick={this.demoUser}>
+                  Click for A Demo
                 </a>
               </div>
               <table className="table">
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Basic</th>
-                    <th>Standard</th>
-                    <th>Premium</th>
+                    <th>Pupperino</th>
+                    <th>Purrfect</th>
+                    <th>Pugtastic</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Monthly price after free month ends</td>
-                    <td>$8.99</td>
-                    <td>$12.99</td>
-                    <td>$15.99</td>
+                    <td>$1.00</td>
+                    <td>$2.00</td>
+                    <td>$3.00</td>
                   </tr>
                   <tr>
-                    <td>HD Available</td>
+                    <td>Puppies in HD</td>
                     <td>
                       <i className="fas fa-times"></i>
                     </td>
@@ -170,7 +170,7 @@ class WelcomePage extends React.Component {
                     </td>
                   </tr>
                   <tr>
-                    <td>Ultra HD Available</td>
+                    <td>Puppies in Ultra HD</td>
                     <td>
                       <i className="fas fa-times"></i>
                     </td>
@@ -182,7 +182,7 @@ class WelcomePage extends React.Component {
                     </td>
                   </tr>
                   <tr>
-                    <td>Screens you can watch on at the same time</td>
+                    <td>Screens you can watch puppies on at the same time</td>
                     <td>1</td>
                     <td>2</td>
                     <td>4</td>
@@ -200,7 +200,7 @@ class WelcomePage extends React.Component {
                     </td>
                   </tr>
                   <tr>
-                    <td>Unlimited movies and TV shows</td>
+                    <td>Unlimited short films of pets</td>
                     <td>
                       <i className="fas fa-check"></i>
                     </td>

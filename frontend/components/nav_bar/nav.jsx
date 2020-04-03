@@ -19,7 +19,7 @@ class Nav extends React.Component {
         <a href="#tvShows">Genres</a>
         <a href="#movies">Movies</a>
         <a href="#">My List</a>
-        <a target="_blank" href="">Portfolio</a>        
+        <a target="_blank" href="https://github.com/lawrence14701?tab=repositories">Portfolio</a>        
       </nav>
       <nav class="sub-nav">
         <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
@@ -32,8 +32,3 @@ class Nav extends React.Component {
 }
 
 export default Nav;
-// <header id="Header">
-//     <Link to="/">
-//       <img src={window.logo} id="Logo"></img>
-//     </Link>
-// </header>
