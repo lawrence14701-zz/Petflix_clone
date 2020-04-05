@@ -148,31 +148,23 @@ class Slider extends React.Component {
       click: true
     });
 
-    if (!click) {
+
+    const transformRate = (window.innerWidth / mv) + 20
       $(slider).css({
-        transform: "translate3d(-100%, 0, 0)"
+        transform: "translate3d(-1" + transformRate + "%, 0, 0)" //moving
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%, 0, 0)"
+          transform: "translate3d(-" + transformRate + "%, 0, 0)" //stop translating
         });
-      }, 750);
-    } else {
-      $(slider).css({
-        transform: "translate3d(-2" + mv + "%, 0, 0)"
-      });
-      setTimeout(() => {
-        $(slider).css({
-          transform: "translate3d(-2" + mv + "%, 0, 0)"
-        });
-      }, 400);
-    }
+      }, 900);
+
     setTimeout(() => {
       this.setState({
         moving: false
       });
       this.updateSliderItems();
-    }, 750);
+    }, 900);
   }
 
   onClose() {
@@ -191,7 +183,7 @@ class Slider extends React.Component {
         <div className="slider">
           <div
             className={moving ? "moving sliderMask" : "sliderMask"}
-            ref="slider"
+            ref='slider'
           >
             {sliderItems.map((e, i) => {
               return<SliderItem key={i} movie={e} onOpen={this.handleOpen} isContentOpen={currentSlide}/>; 
@@ -223,3 +215,9 @@ class Slider extends React.Component {
 }
 
 export default Slider;
+
+
+
+// constructor => this.element = React.createRef()
+
+// <div ref={this.element}

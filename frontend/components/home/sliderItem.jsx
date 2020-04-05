@@ -19,26 +19,24 @@ class SliderItem extends React.Component {
   render() {
     const { movie, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
     const { cover, title, video } = movie;
-    const duration = `${Math.floor(video.length / 60)} min ${video.length %
-      60} sec`;
+    const duration = `${Math.floor(video.length / 60)} min ${video.length % 60} sec`;
     return (
       <div className="sliderItem">
-        <Link to={`/movies/${movie.id}`}>
-          <div className="sliderItemInner">
-            <img className="cover" src={cover} />
-            <div className="preview">
-              <video className="playVideo" src={video}></video>
-              <div className="info">
-                <h3 className="movieTitle">{title}</h3>
-                <h3 className="age">TV-14</h3>
-                <h3 className="duration">{duration}</h3>
-              </div>
-              <button className="openContent" onClick={this.handleSubmit}>
-                <i className="fas fa-chevron-down"></i>
-              </button>
+        <div className="sliderItemInner">
+          <img className="cover" src={cover} />
+          <div className="preview">
+            <video className="playVideo" src={video}></video>
+            <Link to={`/watch/${movie.id}`}><div id="play"><i className="far fa-play-circle"></i></div></Link>
+            <div className="info">
+              <h3 className="movieTitle">{title}</h3>
+              <h3 className="age">TV-14</h3>
+              <h3 className="duration">{duration}</h3>
             </div>
+            <button className="openContent" onClick={this.handleSubmit}>
+              <i className="fas fa-chevron-down"></i>
+            </button>
           </div>
-        </Link>
+        </div>
       </div>
     );
   }

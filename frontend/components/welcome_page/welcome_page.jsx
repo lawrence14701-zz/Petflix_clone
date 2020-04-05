@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import {Link} from 'react-router-dom';
 
 class WelcomePage extends React.Component {
@@ -18,7 +18,7 @@ class WelcomePage extends React.Component {
       password: "password"
     };
     this.props.processForm(demoUser);
-    this.props.history.push(`/home`);
+    this.props.history.push(`/browse`);
   }
 
   switchOnOff(index) {

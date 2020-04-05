@@ -5,12 +5,11 @@ Rails.application.routes.draw do
       resources :users, only: [:create,:show]
       resource :session, only: [:create,:destroy]
 
-      resources :genres, only: [:show,:index] do
-        resources :movies, only: [:index]
-      end
+      resources :genres, only: [:show,:index]
+
+      resources :movies, only: [:show]
     end
 
-    resources :movies, only:[:show]
 
 
     root to: "static_pages#root"

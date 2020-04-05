@@ -17,7 +17,7 @@ export const fetchGenre = (genreId) => {
 
 export const fetchMovie = (movieId) => {
     return $.ajax({
-        method: 'Get',
+        method: 'GET',
         url: `/api/movies/${movieId}`
     })
 }

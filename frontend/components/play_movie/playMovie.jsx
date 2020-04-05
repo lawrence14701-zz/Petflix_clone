@@ -6,7 +6,6 @@ class PlayMovie extends React.Component {
   }
 
   componentDidMount() {
-      debugger
     this.props.fetchMovie(this.props.match.params.movieId);
   }
 
@@ -23,7 +22,6 @@ class PlayMovie extends React.Component {
             onMouseOut={this.pauseVideo}
             onMouseEnter={this.playVideo}
             controls
-            autoPlay
           />
         </>
       );

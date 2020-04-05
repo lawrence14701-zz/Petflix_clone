@@ -3,7 +3,6 @@ import { fetchMovie } from "../../actions/video_actions";
 import PlayMovie from "./playMovie";
 
 const mstp = (state, ownprops) => {
-    debugger
   return {
     movie: state.entities.movies[ownprops.match.params.movieId]
   };

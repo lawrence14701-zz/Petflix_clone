@@ -17,10 +17,11 @@ const app = () => {
   return (
     <div>
       <Route exact path="/" component={WelcomePage} />
-
       {/* <ProtectedRoute exact path='/nav' component={NavBar} /> */}
-      <ProtectedRoute exact path="/home" component={HomePage} />
-      <ProtectedRoute exact path="/movies/:movieId" component={PlayMovie}/>
+      <NavBar/>
+      <ProtectedRoute exact path="/browse" component={HomePage} />
+      
+      <ProtectedRoute exact path="/watch/:movieId" component={PlayMovie}/>
 
 
       <AuthRoute path="/signup" component={SignUp} />
