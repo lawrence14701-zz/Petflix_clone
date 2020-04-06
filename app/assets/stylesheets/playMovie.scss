@@ -1,0 +1,60 @@
+.play-container {
+  display: flex;
+  background: #ccc;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#play-video {
+  width: 100%;
+  max-width: 800px; //getting rid of this later
+  position: relative;
+}
+
+.full-screen-movie {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.buttons button {
+  cursor: pointer;
+  // width: 30px;
+  // height: 30px;
+  // display: inline-block;
+  // font-size: 28px;
+  // color: #fff;
+  // -webkit-font-smoothing: antialiased;
+}
+
+.buttons button:before {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  font-size: 28px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.buttons {
+  padding: 10px;
+}
+
+#pause-movie:before {
+  content: "\f04c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+#play-movie:before {
+   content: "\f04b";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}

@@ -1,0 +1,32 @@
+.vid-container {
+  width: 100%;
+  // position: relative; //problem with nav bar and this
+  
+  .advertise-video {
+    width: 100%;
+    opacity: 0.8;
+  }
+
+  .ad-info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 55%;
+    left: 5%;
+  }
+  #ad-buttons {
+    //why is this not working
+    // display: flex;
+    // width: 100px;
+    // background-color: red($color: #000000);
+  }
+  #ad-title {
+    font-size: 60px;
+    margin-bottom: 1rem;
+  }
+  #ad-description {
+    width: 50%;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+}
