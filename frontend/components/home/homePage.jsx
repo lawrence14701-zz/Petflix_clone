@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from './slider';
+import Slider from "./slider";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -10,20 +10,25 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const {genres,movies} = this.props;
-    const sliders = genres.map(genre => {
+    const { genres, movies } = this.props;
+    const randomMovie = Object.values(movies)[Math.floor(Math.random())];
+    const advertisement = randomMovie === undefined ? null : <video src={randomMovie.video}></video>;
+    const sliders = genres.map((genre) => {
       //find the movies that belong to a specific genre
       let movieCategory = [];
-      genre.movie_ids.forEach(movieId =>{
+      genre.movie_ids.forEach((movieId) => {
         movieCategory.push(movies[movieId]);
-      })
-    return ( 
-        <Slider key={genre.id} title={genre.name} movies={movieCategory}/>
-    )
-    })
+      });
+      return (
+        <Slider key={genre.id} title={genre.name} movies={movieCategory} />
+      );
+    });
     return (
       <>
-      {sliders}
+        <div className="advertise">
+          {advertisement}
+        </div>
+        {sliders}
       </>
     );
   }

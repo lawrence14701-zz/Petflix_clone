@@ -5,9 +5,13 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    this.props.fetchAllGenres();
+  }
 
   render() {
     let jsx = "";
+    const { genres } = this.props;
     if (this.props.currentUser) {
       jsx = (
         <header id="main-header">
@@ -17,8 +21,15 @@ class Nav extends React.Component {
             </a>
           </div>
           <nav className="main-nav">
-            <Link to='/browse'>Home</Link>
-            <a href="#tvShows">Genres</a>
+            <Link to="/browse">Home</Link>
+            <a id="genre-link" href="#genres">
+              Genres
+              <ul className="genre-list">
+                {genres.map((genre) => {
+                  return <li key={genre.id}>{genre.name}</li>;
+                })}
+              </ul>
+            </a>
             <a href="#movies">Movies</a>
             <a href="#">My List</a>
             <a
@@ -40,9 +51,7 @@ class Nav extends React.Component {
         </header>
       );
     }
-    return (
-      jsx
-      );
+    return jsx;
   }
 }
 

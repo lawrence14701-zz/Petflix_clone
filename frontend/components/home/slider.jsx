@@ -48,7 +48,7 @@ class Slider extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    let mv = 100 / showItems;
+    let mv = 100 / (showItems);
     this.setState({
       showItems,
       mv
@@ -117,11 +117,11 @@ class Slider extends React.Component {
     });
 
     $(slider).css({
-      transform: "translate3d(-" + mv + "%, 0, 0)"
+      transform: "translate3d(-" + mv + "%, 0, 0)" // probably need the !clicked if statement becuase
     });
     setTimeout(() => {
       $(slider).css({
-        transform: "translate3d(-1" + mv + "%, 0, 0)" //why is this not applying my transition effect, same with right slider
+        transform: "translate3d(-1" + mv + "%, 0, 0)" 
       });
     }, 750);
     setTimeout(() => {
@@ -149,13 +149,13 @@ class Slider extends React.Component {
     });
 
 
-    const transformRate = (window.innerWidth / mv) + 20
+    const transformRate = window.innerWidth / this.showItems //(window.innerWidth / mv)
       $(slider).css({
-        transform: "translate3d(-1" + transformRate + "%, 0, 0)" //moving
+        transform: "translate3d(-1" + mv + "%, 0, 0)" //moving
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-" + transformRate + "%, 0, 0)" //stop translating
+          transform: "translate3d(-" + mv + "%, 0, 0)" //stop translating
         });
       }, 900);
 

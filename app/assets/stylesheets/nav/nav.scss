@@ -67,3 +67,33 @@
 .sub-nav a:hover {
   color: #686868;
 }
+
+
+
+// ---------- dropdown menu-------------
+.genre-list{
+  display:none;
+}
+
+#genre-link:hover{
+  .genre-list{
+   position: absolute;
+    border: solid white 1px;
+    width: 100px;
+    height: 150px;
+    top: 100%;
+    transform: translate(-50%);
+    display: inline;
+    color: white;
+    z-index: 100000000;
+  }
+
+  .genre-list li {
+    margin-top: 5px;
+  }
+
+
+  .genre-list li:hover{
+    color:#686868;
+  }
+}

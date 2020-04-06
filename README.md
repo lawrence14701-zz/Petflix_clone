@@ -1,24 +1,16 @@
-# README
+# Petflix
+* Petflix is a Netflix clone made with React, Redux, and Rails. Users can browse short videos of pets, such as cats, organized in genres.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Live site demo
+* Demo: [Link](https://petflix-clone.herokuapp.com/#/)
 
-Things you may want to cover:
+# Video Demo
+* will post a video when i am done
 
-* Ruby version
+# Tech Stack
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# MVPs
+* Search Bar 
+* Display Movies
+* Movie carousel
+* My List 
