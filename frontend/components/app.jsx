@@ -17,10 +17,9 @@ const app = () => {
   return (
     <div>
       <Route exact path="/" component={WelcomePage} />
-      {/* <ProtectedRoute exact path='/nav' component={NavBar} /> */}
-      <NavBar/>
+
+      <ProtectedRoute exact path='/browse' component={NavBar} />
       <ProtectedRoute exact path="/browse" component={HomePage} />
-      
       <ProtectedRoute exact path="/watch/:movieId" component={PlayMovie}/>
 
 

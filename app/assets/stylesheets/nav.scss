@@ -73,9 +73,7 @@
 .genre-list {
   display: none;
 }
-
-#genre-link:hover .genre-list{
-
+.genre-list{
     position: absolute;
     background: black;
     border-radius: 3px;
@@ -84,19 +82,21 @@
     height: 150px;
     top: 90%;
     transform: translate(-50%);
-    display: inline;
     color: white;
     z-index: 100000000;
+    display: none;
+}
 
+.genre-list li {
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: 15px;
+}
 
-  }
-  
-  .genre-list li {
-    margin-top: 10px;
-    margin-left: 5px;
-    font-size: 15px;
-  }
+.genre-list li:hover {
+  color: #686868;
+}
 
-  .genre-list li:hover {
-    color: #686868;
+#genre-link:hover .genre-list{
+    display: inline;
   }
