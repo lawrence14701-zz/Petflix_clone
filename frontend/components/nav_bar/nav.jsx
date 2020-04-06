@@ -17,7 +17,7 @@ class Nav extends React.Component {
             </a>
           </div>
           <nav className="main-nav">
-            <a href="#home">Home</a>
+            <Link to='/browse'>Home</Link>
             <a href="#tvShows">Genres</a>
             <a href="#movies">Movies</a>
             <a href="#">My List</a>
