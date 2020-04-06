@@ -10,6 +10,10 @@
   width: 100%;
   max-width: 800px; //getting rid of this later
   position: relative;
+  overflow: hidden;
+}
+#play-video:hover .controls{
+    transform: translateY(0);
 }
 
 .full-screen-movie {
@@ -23,6 +27,8 @@
   bottom: 0;
   flex-wrap: wrap;
   background: rgba(0, 0, 0, 0.7);
+  transform: translateY(100%) translateY(-10px); //-10px shoes part of the bar
+  transition: all .2s;
 }
 
 .buttons button {
@@ -57,4 +63,28 @@
    content: "\f04b";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
+}
+
+.bar{
+    height: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: gray;
+
+    .bar-color{
+        height: 10px;
+        width: 100px;
+        background-color:red ;
+    }
+}
+
+
+#back{
+    position: absolute;
+    top: 2%;
+    left: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 10;
 }
