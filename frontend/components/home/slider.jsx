@@ -2,7 +2,6 @@ import React from "react";
 import SliderItem from "./sliderItem";
 import Content from "./content";
 
-
 class Slider extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +17,7 @@ class Slider extends React.Component {
       showItems: 1,
       totalItems: 0,
       sliderItems: [],
-      currentSlide: null //movie that has content open
+      currentSlide: null, //movie that has content open
     };
   }
 
@@ -27,7 +26,7 @@ class Slider extends React.Component {
     this.updateSliderState();
     this.setState({
       totalItems: movies.length,
-      sliderItems: movies
+      sliderItems: movies,
     });
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updateSliderState.bind(this));
@@ -48,10 +47,10 @@ class Slider extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    let mv = 100 / (showItems);
+    let mv = 100 / showItems;
     this.setState({
       showItems,
-      mv
+      mv,
     });
   }
 
@@ -93,12 +92,12 @@ class Slider extends React.Component {
 
     const { movies } = this.props;
     if (movies.length) {
-      selectIds.map(e => {
+      selectIds.map((e) => {
         sliderItems.push(movies[e]);
       });
     }
     this.setState({
-      sliderItems
+      sliderItems,
     });
   }
   leftArrowClick() {
@@ -113,23 +112,23 @@ class Slider extends React.Component {
     }
     this.setState({
       startId: resetStartId,
-      moving: true
+      moving: true,
     });
 
     $(slider).css({
-      transform: "translate3d(-" + mv + "%, 0, 0)" // probably need the !clicked if statement becuase
+      transform: "translate3d(-" + mv + "%, 0, 0)", 
     });
     setTimeout(() => {
       $(slider).css({
-        transform: "translate3d(-1" + mv + "%, 0, 0)" 
+        transform: "translate3d(-1" + mv + "%, 0, 0)",
       });
-    }, 750);
+    }, 900);
     setTimeout(() => {
       this.setState({
-        moving: false
+        moving: false,
       });
       this.updateSliderItems();
-    }, 750);
+    }, 900);
   }
 
   rightArrowClick() {
@@ -145,23 +144,34 @@ class Slider extends React.Component {
     this.setState({
       startId: resetStartId,
       moving: true,
-      click: true
+      click: true,
     });
 
+    const transformRate = window.innerWidth / this.showItems; //(window.innerWidth / mv)
 
-    const transformRate = window.innerWidth / this.showItems //(window.innerWidth / mv)
+    if (!click) {
       $(slider).css({
-        transform: "translate3d(-1" + mv + "%, 0, 0)" //moving
+        transform: "translate3d(-100%, 0, 0)", 
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-" + mv + "%, 0, 0)" //stop translating
+          transform: "translate3d(-1" + mv + "%, 0, 0)", 
         });
       }, 900);
+    } else {
+      $(slider).css({
+        transform: "translate3d(-2" + mv + "%, 0, 0)", 
+      });
+      setTimeout(() => {
+        $(slider).css({
+          transform: "translate3d(-1" + mv + "%, 0, 0)",
+        });
+      }, 900);
+    }
 
     setTimeout(() => {
       this.setState({
-        moving: false
+        moving: false,
       });
       this.updateSliderItems();
     }, 900);
@@ -170,9 +180,9 @@ class Slider extends React.Component {
   onClose() {
     this.setState({ currentSlide: null });
   }
-  onOpen(movie){
-     this.setState({currentSlide: movie})
-     // I also want to apply some styling to this movie, give it a white border
+  onOpen(movie) {
+    this.setState({ currentSlide: movie });
+    // I also want to apply some styling to this movie, give it a white border
   }
   render() {
     const { title } = this.props;
@@ -183,10 +193,17 @@ class Slider extends React.Component {
         <div className="slider">
           <div
             className={moving ? "moving sliderMask" : "sliderMask"}
-            ref='slider'
+            ref="slider"
           >
             {sliderItems.map((e, i) => {
-              return<SliderItem key={i} movie={e} onOpen={this.handleOpen} isContentOpen={currentSlide}/>; 
+              return (
+                <SliderItem
+                  key={i}
+                  movie={e}
+                  onOpen={this.handleOpen}
+                  isContentOpen={currentSlide}
+                />
+              );
             })}
           </div>
 
@@ -208,15 +225,15 @@ class Slider extends React.Component {
             <i className="fas fa-chevron-right"></i>{" "}
           </div>
         </div>
-        {currentSlide && <Content movie={currentSlide} onClose={this.handleClose} />}
+        {currentSlide && (
+          <Content movie={currentSlide} onClose={this.handleClose} />
+        )}
       </div>
     );
   }
 }
 
 export default Slider;
-
-
 
 // constructor => this.element = React.createRef()
 

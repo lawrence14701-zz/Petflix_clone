@@ -1,30 +1,8 @@
 
-// .zoom{
-//   height: 200%;
-//   width: 200%;
-//   position: absolute;
-//   top:-50%;
-//   left:-50%;
-//   z-index: 2;
-//   transition: all .4s ease;
-//   transform: scale(.5);
-// }
+html{
+  scroll-behavior: smooth;
+}
 
-// .zoomCover{
-//   width: 100%;
-//   height: auto;
-//   position: relative;
-//   z-index: 1;
-// }
-
-// .zoomCover2{
-//   opacity: 2;
-//   width: 100%;
-//   height: auto;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
 
 .wrapper {
 }
@@ -51,6 +29,7 @@
   padding: 0 60px;
   height: 100%;
   position: relative;
+  scroll-behavior: smooth222;
 }
 
 .arrow {

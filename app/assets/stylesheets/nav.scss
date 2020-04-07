@@ -80,7 +80,7 @@
     opacity: 0.8;
     width: 100px;
     height: 150px;
-    top: 90%;
+    top: 80%;
     transform: translate(-50%);
     color: white;
     z-index: 100000000;
@@ -98,5 +98,9 @@
 }
 
 #genre-link:hover .genre-list{
+    display: inline;
+  }
+
+  .genre-list:hover {
     display: inline;
   }

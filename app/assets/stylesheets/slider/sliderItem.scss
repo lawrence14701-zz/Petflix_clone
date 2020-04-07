@@ -86,7 +86,7 @@
     transform: translate(-50%);
   }
 
-  #play {
+  .play {
   position: absolute;
     top: 20%;
     bottom: 50%;
@@ -95,7 +95,7 @@
     font-size: 100px;
   }
 
-  #play:hover{
+  .play:hover{
     opacity: 0.6;
     transition: 0.3s;
     cursor: pointer;

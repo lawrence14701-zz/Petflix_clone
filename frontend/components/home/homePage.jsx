@@ -4,6 +4,9 @@ import Slider from "./slider";
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      playingAd: true, //i want to pass this state down to slider item and set it to false when i hover over a movie or add an event listener to the video
+    };
   }
   componentDidMount() {
     this.props.fetchAllGenres();
@@ -11,22 +14,27 @@ class HomePage extends React.Component {
 
   render() {
     const { genres, movies } = this.props;
-    const randomMovie = Object.values(movies)[Math.floor(Math.random())]; //why is it always on the same movie no matter what, shouldn't it be random
+    console.log(Object.values(movies)[Math.floor(Math.random()) * 20]);
+    const randomMovie = Object.values(movies)[Math.floor(Math.random() * 20)];
 
     const advertisement =
       randomMovie === undefined ? null : (
         <div className="vid-container">
-          <video className="advertise-video" src={randomMovie.video}></video>
+          <video
+            className="advertise-video"
+            src={randomMovie.video}
+            ref="movieAd"
+          />
           <div className="ad-info">
             <div id="ad-title">{randomMovie.title}</div>
             <div id="ad-description">{randomMovie.description}</div>
-            <div id="ad-buttons"> why is this not showing??!?!?!?!?!?!?!??!!?!
-              {/* <button id="ad-play">
+            <div id="ad-buttons">
+              <button id="ad-play">
                 <i className="fas fa-play"></i>Play
               </button>
               <button id="ad-list">
                 <i className="fas fa-plus-circle"></i>Add to my list
-              </button> */}
+              </button>
             </div>
           </div>
         </div>
@@ -44,9 +52,7 @@ class HomePage extends React.Component {
     });
     return (
       <>
-        <div className="advertise">
-          {advertisement}
-        </div>
+        <div className="advertise">{advertisement}</div>
         {sliders}
       </>
     );

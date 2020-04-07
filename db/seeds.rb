@@ -236,3 +236,136 @@ join_with_cat_genre = Join.create({
     genreId: catGenre.id,
     movieId: the_saddest_day.id
 })
+
+#------------------------Dog reviews food------------------------------------
+dog_reviews_food= Movie.create({
+    title: 'Dog reviews food',
+    description: 'Tuker`s wife came over for a play date and Tuker wanted his first taste test as husband and wife. Disclaimer: All foods used in this video are safe for dogs, in moderation. Before feeding these foods to your dog, always test them in small amounts. Each pup is different',
+})
+dog_reviews_food_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/dog_reviews_food.mp4")
+dog_reviews_food.video.attach(io: dog_reviews_food_video,filename: 'dog_reviews_food_video.mp4', content_type: 'video/mp4')
+dog_reviews_food_cover = open('https://petflix-development.s3.amazonaws.com/dog_reviews_food.jpg')
+dog_reviews_food.cover.attach(io: dog_reviews_food_cover, filename: 'dog_reviews_food_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: dog_reviews_food.id
+})
+
+
+#------------------------Dog reacts to giant mouse------------------------------------
+dog_reacts_to_giant_mouse= Movie.create({
+    title: 'Dog reacts to giant mouse',
+    description: 'Another hilarious round of Tukers`s priceless reactions! This time he takes on a giant caterpillar and a giant mouse! Who will win this round?'
+})
+dog_reacts_to_giant_mouse_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/dog_reacts_to_giant_mouse.mp4")
+dog_reacts_to_giant_mouse.video.attach(io: dog_reacts_to_giant_mouse_video,filename: 'dog_reacts_to_giant_mouse_video.mp4', content_type: 'video/mp4')
+dog_reacts_to_giant_mouse_cover = open('https://petflix-development.s3.amazonaws.com/dog_reacts_to_giant_mouse.jpg')
+dog_reacts_to_giant_mouse.cover.attach(io: dog_reacts_to_giant_mouse_cover, filename: 'dog_reacts_to_giant_mouse_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: dog_reacts_to_giant_mouse.id
+})
+
+#------------------------Taking my dog to the beach------------------------------------
+taking_my_dog_to_the_beach= Movie.create({
+    title: 'Taking my dog to the beach',
+    description: 'Tuker just loves teh water so today we took him for a special surprise trip to the neach and he loved every minute of it!'
+})
+taking_my_dog_to_the_beach_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/taking_my_dog_to_the_beach.mp4")
+taking_my_dog_to_the_beach.video.attach(io: taking_my_dog_to_the_beach_video,filename: 'taking_my_dog_to_the_beach_video.mp4', content_type: 'video/mp4')
+taking_my_dog_to_the_beach_cover = open('https://petflix-development.s3.amazonaws.com/taking_my_dog_to_the_beach.jpg')
+taking_my_dog_to_the_beach.cover.attach(io: taking_my_dog_to_the_beach_cover, filename: 'taking_my_dog_to_the_beach_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: taking_my_dog_to_the_beach.id
+})
+
+
+#------------------------Dog reunion------------------------------------
+dog_reunion= Movie.create({
+    title: 'Dog reunion',
+    description: 'We have made it our goal for Tucker to be close to all his litter mates and have decided to have an annual family reunion party. This is our very first reunion party for Tucker and his relatives.'
+})
+dog_reunion_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/dog_reunion.mp4")
+dog_reunion.video.attach(io: dog_reunion_video,filename: 'dog_reunion_video.mp4', content_type: 'video/mp4')
+dog_reunion_cover = open('https://petflix-development.s3.amazonaws.com/dog_reunion.jpg')
+dog_reunion.cover.attach(io: dog_reunion_cover, filename: 'dog_reunion_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: dog_reunion.id
+})
+
+#------------------------Dog reacts to invisible food------------------------------------
+dog_reacts_to_invisible_food= Movie.create({
+    title: 'Dog reacts to invisible food',
+    description: 'Tucker always loves his taste test videos. This time I pulled a fast one on him and gave him invisible food. His reactions are always priceless!'
+})
+dog_reacts_to_invisible_food_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/dog_reacts_to_invisible_food.mp4")
+dog_reacts_to_invisible_food.video.attach(io: dog_reacts_to_invisible_food_video,filename: 'dog_reacts_to_invisible_food_video.mp4', content_type: 'video/mp4')
+dog_reacts_to_invisible_food_cover = open('https://petflix-development.s3.amazonaws.com/dog_reacts_to_invisible_food.jpg')
+dog_reacts_to_invisible_food.cover.attach(io: dog_reacts_to_invisible_food_cover, filename: 'dog_reacts_to_invisible_food_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: dog_reacts_to_invisible_food.id
+})
+#------------------------Cat and dog road trip------------------------------------
+cat_and_dog_road_trip= Movie.create({
+    title: 'Cat and dog road trip',
+    description: 'Prince Michael and his new friend, Bob, set out for a road trip in the breand new film Cat and dog road trip'
+})
+cat_and_dog_road_trip_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/cat_and_dog_road_trip.mp4")
+cat_and_dog_road_trip.video.attach(io: cat_and_dog_road_trip_video,filename: 'cat_and_dog_road_trip_video.mp4', content_type: 'video/mp4')
+cat_and_dog_road_trip_cover = open('https://petflix-development.s3.amazonaws.com/cat_and_dog_road_trip.jpg')
+cat_and_dog_road_trip.cover.attach(io: cat_and_dog_road_trip_cover, filename: 'cat_and_dog_road_trip_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: cat_and_dog_road_trip.id
+})
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: cat_and_dog_road_trip.id
+})
+#------------------------pip-----------------------------------
+pip = Movie.create({
+    title: 'Pip',
+    description: 'An animated short film presented by Southeastern Guide Dogs -- A heart warming tale for underdogs everywhere, Pip is a short stroy of a small dog with a big dream - to become a guide god. Does she have what it takes?'
+})
+pip_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/pip.mp4")
+pip.video.attach(io: pip_video,filename: 'pip_video.mp4', content_type: 'video/mp4')
+pip_cover = open('https://petflix-development.s3.amazonaws.com/pip.jpg')
+pip.cover.attach(io: pip_cover, filename: 'pip_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: pip.id
+})
+#------------------------Jubilee-----------------------------------
+jubilee = Movie.create({
+    title: 'Jubilee',
+    description: 'After a sudden brust of wind in Buckingham palace, the Queen`s hat gets carried away from London. Fortunately, a trustworthy guard and a playful corgi run after it!'
+})
+jubilee_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/jubilee.mp4")
+jubilee.video.attach(io: jubilee_video,filename: 'jubilee_video.mp4', content_type: 'video/mp4')
+jubilee_cover = open('https://petflix-development.s3.amazonaws.com/jubilee.jpg')
+jubilee.cover.attach(io: jubilee_cover, filename: 'jubilee_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: jubilee.id
+})
+#------------------------dogs vs cats-----------------------------------
+
+dogs_vs_cats= Movie.create({
+    title: 'Dogs vs cats',
+    description: 'Let the battle begin. Watch this short clip of a showdown between our favorite companions, dogs and cats. Who will come out victorious?'
+})
+dogs_vs_cats_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/dogs_vs_cats.mp4")
+dogs_vs_cats.video.attach(io: dogs_vs_cats_video,filename: 'dogs_vs_cats_video.mp4', content_type: 'video/mp4')
+dogs_vs_cats_cover = open('https://petflix-development.s3.amazonaws.com/dogs_vs_cats.jpg')
+dogs_vs_cats.cover.attach(io: dogs_vs_cats_cover, filename: 'dogs_vs_cats_cover.jpg')
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: dogs_vs_cats.id
+})
+join_with_cat_genre = Join.create({
+    genreId: catGenre.id,
+    movieId: dogs_vs_cats.id
+})
