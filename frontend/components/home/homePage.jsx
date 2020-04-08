@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "./slider";
+import Slider from "../slider/slider";
 import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {

@@ -10,6 +10,7 @@ class SliderItem extends React.Component {
 
     this.state = {
       playingPreview: false,
+      muted: false
     };
   }
 
@@ -48,10 +49,10 @@ class SliderItem extends React.Component {
           <img className="cover" src={cover} />
           <div className="preview">
             <video
+              muted = {muted}
               className="playVideo"
               src={video}
               ref="previewMovie"
-              muted="muted"
             />
             <Link to={`/watch/${movie.id}`}>
               <div className="play">
