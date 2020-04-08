@@ -6,7 +6,8 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
-   
+    has_and_belongs_to_many :movies, join_table: :watchlists
+
 
     def password=(password)
         @password = password

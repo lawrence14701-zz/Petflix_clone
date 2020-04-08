@@ -2,6 +2,8 @@ class Movie < ApplicationRecord
 
     validates :title, :description, presence: true
 
+    has_and_belongs_to_many :users, join_table: :watchlists
+
 
     has_one_attached :video
     has_one_attached :cover

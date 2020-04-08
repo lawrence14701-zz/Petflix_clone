@@ -21,8 +21,59 @@
     width: 40%;
     margin-top: 15px;
   }
-  #ad-buttons button{
+  #ad-buttons button {
     margin-right: 20px;
+  }
+  #ad-buttons a {
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .ad-icon {
+    margin-right: 10px;
+  }
+  #ad-play {
+    background: black;
+    background-color: black;
+    background-color: black;
+    opacity: 0.6;
+    border-radius: 4px;
+    width: 400px;
+
+    height: 40px;
+  }
+  #ad-list {
+    background: black;
+    background-color: black;
+    padding: 0.5em 0.5em;
+    opacity: 0.6;
+    border-radius: 4px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #ad-play:hover {
+    background-color: #e6e6e6;
+    scale: 1.05;
+    transition: transform 350ms;
+    span {
+      color: black;
+    }
+    .ad-icon {
+      color: black;
+    }
+  }
+  #ad-list:hover {
+    background-color: #e6e6e6;
+    color: #000;
+    scale: 1.05;
+    transition: transform 350ms;
   }
   #ad-title {
     font-size: 60px;

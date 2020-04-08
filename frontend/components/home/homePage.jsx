@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "./slider";
+import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -11,11 +12,12 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.fetchAllGenres();
   }
+ 
 
   render() {
     const { genres, movies } = this.props;
-    console.log(Object.values(movies)[Math.floor(Math.random()) * 20]);
-    const randomMovie = Object.values(movies)[Math.floor(Math.random() * 20)];
+    let movieLength = Object.values(movies).length
+    const randomMovie = Object.values(movies)[Math.floor(Math.random() * movieLength)];
 
     const advertisement =
       randomMovie === undefined ? null : (
@@ -30,10 +32,14 @@ class HomePage extends React.Component {
             <div id="ad-description">{randomMovie.description}</div>
             <div id="ad-buttons">
               <button id="ad-play">
-                <i className="fas fa-play"></i>Play
+                <Link to={`/watch/${randomMovie.id}`}>
+                  <i className="ad-icon fas fa-play"></i>
+                  <span>Play</span>
+                </Link>
               </button>
               <button id="ad-list">
-                <i className="fas fa-plus-circle"></i>Add to my list
+                <i className="ad-icon fas fa-plus-circle"></i>
+                <span>Add to my list</span>
               </button>
             </div>
           </div>

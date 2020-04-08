@@ -122,13 +122,13 @@ class Slider extends React.Component {
       $(slider).css({
         transform: "translate3d(-1" + mv + "%, 0, 0)",
       });
-    }, 900);
+    }, 750);
     setTimeout(() => {
       this.setState({
         moving: false,
       });
       this.updateSliderItems();
-    }, 900);
+    }, 750);
   }
 
   rightArrowClick() {
@@ -157,7 +157,7 @@ class Slider extends React.Component {
         $(slider).css({
           transform: "translate3d(-1" + mv + "%, 0, 0)", 
         });
-      }, 900);
+      }, 750);
     } else {
       $(slider).css({
         transform: "translate3d(-2" + mv + "%, 0, 0)", 
@@ -166,7 +166,7 @@ class Slider extends React.Component {
         $(slider).css({
           transform: "translate3d(-1" + mv + "%, 0, 0)",
         });
-      }, 900);
+      }, 750);
     }
 
     setTimeout(() => {
@@ -174,7 +174,7 @@ class Slider extends React.Component {
         moving: false,
       });
       this.updateSliderItems();
-    }, 900);
+    }, 750);
   }
 
   onClose() {
