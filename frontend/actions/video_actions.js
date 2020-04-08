@@ -6,6 +6,7 @@ import * as VideoUtil from '../util/videos_util';
 export const RECEIVE_ALL_GENRES = 'RECEIVE_ALL_GENRES';
 export const RECEIVE_SINGLE_GENRE = 'RECEIVE_SINGLE_GENRE';
 export const RECEIVE_SINGLE_MOVIE = "RECEIVE_SINGLE_MOVIE"
+// export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES"
 
 const receiveGenres = (payload) => {
     const { genres, movies } = payload
@@ -21,6 +22,13 @@ const receiveGenre = (genre) => ({
     genre
 })
 
+const receiveMovie = (movie) => ({
+  type: RECEIVE_SINGLE_MOVIE,
+  movie,
+});
+
+
+
 
 
 export const fetchAllGenres = () => (dispatch) => {
@@ -29,10 +37,7 @@ export const fetchAllGenres = () => (dispatch) => {
             return dispatch(receiveGenres(genres))
         })
 }
-const receiveMovie = (movie) => ({
-    type: RECEIVE_SINGLE_MOVIE,
-    movie
-})
+
 
 
 export const fetchMovie = (movieId) => (dispatch) => {

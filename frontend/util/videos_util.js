@@ -21,3 +21,10 @@ export const fetchMovie = (movieId) => {
         url: `/api/movies/${movieId}`
     })
 }
+
+// export const fetchMovies = () => {
+//     return $.ajax({
+//       method: "GET",
+//       url: "api/movies",
+//     });
+// }

@@ -10,7 +10,6 @@ class SliderItem extends React.Component {
 
     this.state = {
       playingPreview: false,
-      muted: false
     };
   }
 
@@ -26,19 +25,20 @@ class SliderItem extends React.Component {
     const video = this.refs.previewMovie;
     if (!playingPreview) {
       video.play();
+      video.muted = false;
     } else {
       video.pause();
       video.currenttime = 0;
       video.load();
+      video.muted = true;
     }
   }
 
   render() {
+    debugger
     const { movie, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
     const { cover, title, video } = movie;
-    const duration = `${Math.floor(video.length / 60)} min ${
-      video.length % 60
-    } sec`;
+    const duration = `${Math.floor(video.length / 60)} min ${video.length % 60} sec`;
     return (
       <div className="sliderItem">
         <div
@@ -48,8 +48,7 @@ class SliderItem extends React.Component {
         >
           <img className="cover" src={cover} />
           <div className="preview">
-            <video
-              muted = {muted}
+            <video muted
               className="playVideo"
               src={video}
               ref="previewMovie"

@@ -21,23 +21,29 @@ class Nav extends React.Component {
           </a>
         </div>
         <nav className="main-nav">
-          <Link to="/browse">Home</Link>
-          <a id="genre-link" href="#genres">
+          <div><Link to="/browse">Home</Link></div>
+          <div id="genre-link" href="#genres">
             Genres
             <ul className="genre-list">
               {genres.map((genre) => {
-                return <li key={genre.id}>{genre.name}</li>;
+                return (
+                  <li key={genre.id}>
+                    <Link to={`/genre/${genre.id}`}>{genre.name}</Link>
+                  </li>
+                );
               })}
             </ul>
-          </a>
-          <a href="#movies">Movies</a>
-          <a href="#">My List</a>
-          <a
-            target="_blank"
-            href="https://github.com/lawrence14701?tab=repositories"
-          >
-            Portfolio
-          </a>
+          </div>
+          <div href="#movies">Movies</div>
+          <div href="#">My List</div>
+          <div>
+            <a
+              target="_blank"
+              href="https://github.com/lawrence14701?tab=repositories"
+            >
+              Portfolio
+            </a>
+          </div>
         </nav>
         <nav className="sub-nav">
           <a href="#">
