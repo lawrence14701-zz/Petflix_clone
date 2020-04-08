@@ -1,10 +1,10 @@
-json.partial! '/api/genres/genre', genre: @genre
-
-
-
+json.genre do
+    json.set! @genre.id do
+        json.extract! @genre, :id,:name, :movie_ids
+    end
+end
 
 json.movies do
-    debugger
     @genre.movies.each do |movie|
         json.set! movie.id do
             json.extract! movie, :id,:title,:description

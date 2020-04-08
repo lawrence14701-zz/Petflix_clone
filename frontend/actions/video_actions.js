@@ -6,7 +6,7 @@ import * as VideoUtil from '../util/videos_util';
 export const RECEIVE_ALL_GENRES = 'RECEIVE_ALL_GENRES';
 export const RECEIVE_SINGLE_GENRE = 'RECEIVE_SINGLE_GENRE';
 export const RECEIVE_SINGLE_MOVIE = "RECEIVE_SINGLE_MOVIE"
-// export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES"
+export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES"
 
 const receiveGenres = (payload) => {
     const { genres, movies } = payload
