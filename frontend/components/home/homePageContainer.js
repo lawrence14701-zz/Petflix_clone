@@ -9,8 +9,7 @@ const mapStateToProps = (state) => {
     return {
         genres: Object.values(state.entities.genres),
         movies: state.entities.movies,
-        currentUser: state.entities.user[state.session.id]
-
+        currentUser: state.entities.user[state.session.id],
     }
 };
 

@@ -1,13 +1,15 @@
 class Api::WatchlistsController < ApplicationController
 
+    #undefined method `watchlists' for nil:NilClass
     def index
-        watchlist_movies = current_user.movies # return an array of Movies
+        #watchlist_movies = current_user.movies # return an array of Movies
+        @watchlists = current_user.watchlists
         render 'api/watchlists/index'
         # @watchlist = Watchlist.where(user_id: current_user.id) # return an array of WatchLists
     end
 
     def show
-        @watchlist_movie = Watchlist.find(params[:id])
+        @watchlist = Watchlist.find(params[:id])
         render :show
     end
 

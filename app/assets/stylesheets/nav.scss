@@ -43,7 +43,7 @@
   padding: 0 30px 0 20px;
 }
 
-.main-nav div {
+.main-nav div,a {
   color: #f3f3f3;
   text-decoration: none;
   margin: 5px;
@@ -51,6 +51,11 @@
 
 .main-nav div:hover {
   color: #686868;
+  cursor: pointer;
+}
+.main-nav a:hover{
+    color: #686868;
+  cursor: pointer;
 }
 
 .sub-nav {
@@ -59,14 +64,15 @@
   padding: 0 30px 0 20px;
 }
 
-.sub-nav a {
+.sub-nav div {
   color: #f3f3f3;
   text-decoration: none;
   margin: 5px;
 }
 
-.sub-nav a:hover {
+.sub-nav div:hover {
   color: #686868;
+  cursor: pointer;
 }
 
 // ---------- dropdown menu-------------

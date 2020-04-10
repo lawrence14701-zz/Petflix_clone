@@ -1,10 +1,8 @@
-json.extract! :watchlist, :id, :user_id, :movie_id
-
-
-json.watchlists.movies.each do |movie|
-     json.set! movie.id do
-        json.extract! movie, :id,:title,:description
-        json.video url_for(movie.video)
-        json.cover url_for(movie.cover)
+@watchlists.each do |watchlist|
+    json.extract! watchlist, :id, :user_id
+    json.set! :movie do
+        json.extract watchlist.movie, :id, :title, :description
+        json.video url_for(watchlist.movie.video)
+        json.cover url_for(watchlist.movie.cover)
     end
 end

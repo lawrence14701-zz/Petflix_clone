@@ -46,13 +46,13 @@ class Nav extends React.Component {
           </div>
         </nav>
         <nav className="sub-nav">
-          <a href="#">
+          <div href="#">
             <i className="fas fa-search sub-nav-logo"></i>
-          </a>
-          <a href="#">
+          </div>
+          <div href="#">
             <i className="fas fa-bell sub-nav-logo"></i>
-          </a>
-          <a href="#">Account</a>
+          </div>
+          <div href="#">Account</div>
         </nav>
       </header>
     );
