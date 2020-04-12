@@ -1,4 +1,4 @@
-import { RECEIVE_SINGLE_MOVIE, RECEIVE_ALL_GENRES } from '../../actions/video_actions';
+import { RECEIVE_SINGLE_MOVIE, RECEIVE_ALL_GENRES, RECEIVE_ALL_MOVIES} from '../../actions/video_actions';
 
 
 

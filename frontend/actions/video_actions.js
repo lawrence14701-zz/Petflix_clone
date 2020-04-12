@@ -31,6 +31,7 @@ const receiveMovie = (movie) => ({
 
 
 
+
 export const fetchAllGenres = () => (dispatch) => {
     return VideoUtil.fetchGenres()
         .then(genres => {

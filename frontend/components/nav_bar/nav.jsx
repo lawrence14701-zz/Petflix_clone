@@ -34,7 +34,7 @@ class Nav extends React.Component {
               })}
             </ul>
           </div>
-          <div href="#movies">Movies</div>
+          <div><Link to="/movies">Movies</Link></div>
           <div href="#">My List</div>
           <div>
             <a

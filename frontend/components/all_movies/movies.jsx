@@ -1,13 +1,14 @@
 import React from "react";
 import SliderItem from "../slider/sliderItem";
 
-class Genre extends React.Component {
+class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showItems: 1,
     };
   }
+
   updatePageItems() {
     let windowWidth = window.innerWidth;
     let showItems = 1;
@@ -28,7 +29,6 @@ class Genre extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchGenre(this.props.match.params.genreId);
     this.props.fetchAllGenres();
     this.updatePageItems();
     if (typeof window !== "undefined") {
@@ -37,21 +37,17 @@ class Genre extends React.Component {
   }
 
   render() {
-    const { genre, movies } = this.props;
+    const { movies } = this.props;
     const { showItems } = this.state;
-    if (genre) {
-      let movieCategory = [];
-      genre.movie_ids.forEach((movieId) => {
-        movieCategory.push(movies[movieId]);
-      });
+    if (Object.getOwnPropertyNames(movies).length !== 0) {
+      let totalMovies = Object.values(movies);
       let movieRows = [];
-      let numberOfRows = movieCategory.length / showItems;
-      // movieCategory = [all my movies for a specific category]
-      // movierows = is an integer that represents how many rows i can make based on windowsize
+      let numberOfRows = totalMovies.length / showItems;
+
       for (let i = 0; i < numberOfRows; i++) {
         let movieRow = [];
         for (let j = 0; j < showItems; j++) {
-          let movie = movieCategory.pop();
+          let movie = totalMovies.pop();
           if (movie) {
             movieRow.push(movie);
           }
@@ -60,9 +56,9 @@ class Genre extends React.Component {
       }
       return (
         <>
-            <div className="gallery-title">
-              <div id="genre-title">{genre.name}</div>
-            </div>
+          <div className="gallery-title">
+            <div id="genre-title">Movies</div>
+          </div>
           <div className="gallery">
             {movieRows.map((movieRow) => {
               return (
@@ -82,4 +78,4 @@ class Genre extends React.Component {
   }
 }
 
-export default Genre;
+export default Movies;

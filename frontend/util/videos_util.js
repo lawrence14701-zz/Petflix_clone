@@ -22,9 +22,3 @@ export const fetchMovie = (movieId) => {
     })
 }
 
-// export const fetchMovies = () => {
-//     return $.ajax({
-//       method: "GET",
-//       url: "api/movies",
-//     });
-// }
