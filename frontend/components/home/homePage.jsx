@@ -50,6 +50,7 @@ class HomePage extends React.Component {
       //find the movies that belong to a specific genre
       let movieCategory = [];
       genre.movie_ids.forEach((movieId) => {
+        debugger
         movieCategory.push(movies[movieId]);
       });
       return (

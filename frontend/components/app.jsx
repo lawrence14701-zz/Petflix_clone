@@ -20,11 +20,12 @@ const app = () => {
     <div>
       <Route exact path="/" component={WelcomePage} />
 
-      <ProtectedRoute exact path='/browse' component={NavBar} />
-      <ProtectedRoute exact path="/browse" component={HomePage} />
-      <ProtectedRoute exact path="/watch/:movieId" component={PlayMovie}/>
-      <ProtectedRoute exact path='/genre/:genreId' component={Genre}/>
+      <ProtectedRoute exact path="/browse" component={NavBar} />
+      <ProtectedRoute exact path="/genre/:genreId" component={NavBar} />
 
+      <ProtectedRoute exact path="/browse" component={HomePage} />
+      <ProtectedRoute exact path="/watch/:movieId" component={PlayMovie} />
+      <ProtectedRoute exact path="/genre/:genreId" component={Genre} />
 
       <AuthRoute path="/signup" component={SignUp} />
       <AuthRoute path="/login" component={Login} />

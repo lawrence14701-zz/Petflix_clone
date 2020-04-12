@@ -22,7 +22,6 @@ class Genre extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    let mv = 100 / showItems;
     this.setState({
       showItems,
     });
@@ -53,19 +52,28 @@ class Genre extends React.Component {
         let movieRow = [];
         for (let j = 0; j < showItems; j++) {
           let movie = movieCategory.pop();
-          movieRow.push(movie);
+          if (movie) {
+            movieRow.push(movie);
+          }
         }
         movieRows.push(movieRow);
       }
-      debugger
+      console.log(showItems);
+      console.log(movieRows);
       return (
         <>
-          <div id="genre-title">{genre.name}</div>
-          <div>
+            <div className="gallery-title">
+              <div id="genre-title">{genre.name}</div>
+            </div>
+          <div className="gallery">
             {movieRows.map((movieRow) => {
-              return movieRow.map((movie)=>{
-                return <SliderItem movie={movie} />
-              })
+              return (
+                <div className="sliderMask sliderSpace">
+                  {movieRow.map((movie) => {
+                    return <SliderItem movie={movie} />;
+                  })}
+                </div>
+              );
             })}
           </div>
         </>
