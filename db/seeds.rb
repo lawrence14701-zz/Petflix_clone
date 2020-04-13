@@ -12,6 +12,7 @@ Movie.destroy_all
 Join.destroy_all
 Genre.destroy_all
 User.destroy_all
+Watchlist.destroy_all
 
 
 #----------------DEMO USER------------------
@@ -46,15 +47,7 @@ birdGenere = Genre.create({
 })
 
 
-#iterate over movie information to reduce seed file size (optional)
-# [
-#     {
-# title: 'A Movie'
-#     }, {
-#         'Another Movie'
-#     }
-# ].each do |hash|
-#     Movie.create(title: hash['title'])
+
 
 #------------------------Catch me if you can 2------------------------------------
 
@@ -386,7 +379,7 @@ join_with_cat_genre = Join.create({
 
 #----------- watchlists --------------
 
-Watchlists.create({
+Watchlist.create({
     user_id: demoUser.id,
     movie_id: catch_me_if_you_can_2.id
 })
