@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Petflix</title>
-    <link rel='shortcut icon' type='image/png' href='app/assets/images/logo.png'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +13,7 @@
     <script type="text/javascript">window.tabContentTwo="<%= image_url('kid_and_dogs.png')%>"</script>
     <script type="text/javascript">window.logo="<%= image_url('logo.png')%>"</script>
 
-
+<%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
 
     <script src="https://kit.fontawesome.com/dc2325b068.js" crossorigin="anonymous"></script>
 

@@ -8,6 +8,8 @@ export const RECEIVE_SINGLE_GENRE = 'RECEIVE_SINGLE_GENRE';
 export const RECEIVE_SINGLE_MOVIE = "RECEIVE_SINGLE_MOVIE"
 export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES"
 
+export const CONTENT_OPEN = "CONTENT_OPEN"
+
 const receiveGenres = (payload) => {
     const { genres, movies } = payload
     return {
@@ -26,6 +28,11 @@ const receiveMovie = (movie) => ({
   type: RECEIVE_SINGLE_MOVIE,
   movie,
 });
+
+const contentOpen = (isItOpen) => ({
+    type: CONTENT_OPEN,
+    isItOpen,
+})
 
 
 
