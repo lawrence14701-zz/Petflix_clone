@@ -24,3 +24,5 @@
 <!-- blank line -->
 ![Alt Text](./app/assets/images/slider.gif)
 <!-- blank line -->
+## Information about this feature
+* first
