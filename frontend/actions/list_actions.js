@@ -10,10 +10,10 @@ const receiveListItem = (listItem) => ({
   listItem,
 });
 
-// const receiveList = (list) => ({
-//   type: RECEIVE_LISTS,
-//   list
-// });
+const receiveList = (watchlist) => ({
+  type: RECEIVE_LISTS,
+  watchlist
+});
 
 //-----------thunk actions --------------
 

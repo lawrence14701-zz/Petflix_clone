@@ -7,6 +7,7 @@ import HomePage from './home/homePageContainer';
 import PlayMovie from './play_movie/play_movie_container';
 import NavBar from './nav_bar/nav_container'
 import Movies from './all_movies/movies_container'
+import MyList from './myList/my_list_container';
 
 import Genre from './showGenre/genre_container';
 
@@ -24,11 +25,13 @@ const app = () => {
       <ProtectedRoute exact path="/browse" component={NavBar} />
       <ProtectedRoute exact path="/genre/:genreId" component={NavBar} />
       <ProtectedRoute exact path="/movies" component={NavBar} />
+      <ProtectedRoute exact path="/myList" component={NavBar} />
 
       <ProtectedRoute exact path="/browse" component={HomePage} />
       <ProtectedRoute exact path="/watch/:movieId" component={PlayMovie} />
       <ProtectedRoute exact path="/genre/:genreId" component={Genre} />
       <ProtectedRoute exact path="/movies" component={Movies} />
+      <ProtectedRoute exact path="/myList" component={MyList} />
 
       <AuthRoute path="/signup" component={SignUp} />
       <AuthRoute path="/login" component={Login} />

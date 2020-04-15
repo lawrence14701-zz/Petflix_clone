@@ -4,7 +4,7 @@ const userReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_LISTS:
-      return Object.assign({}, oldState, { [action.user.id]: action.watchlist });
+      return Object.assign({}, oldState, action.watchlist.movieIds);
     default:
       return oldState;
   }

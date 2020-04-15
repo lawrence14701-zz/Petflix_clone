@@ -199,6 +199,7 @@ class Slider extends React.Component {
             ref="slider"
           >
             {sliderItems.map((e, i) => {
+          
               return (
                 <SliderItem
                   key={i}

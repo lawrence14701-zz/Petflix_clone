@@ -42,7 +42,7 @@ class Genre extends React.Component {
 
   render() {
     const { genre, movies, showArrows } = this.props;
-    const { showItems, currentSlide } = this.state;
+    const { showItems} = this.state;
     if (genre) {
       let movieCategory = [];
       genre.movie_ids.forEach((movieId) => {
