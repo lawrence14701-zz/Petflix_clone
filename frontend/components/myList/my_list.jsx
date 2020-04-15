@@ -44,8 +44,13 @@ class MyList extends React.Component {
        if (Object.getOwnPropertyNames(movies).length !== 0) {
          let movieList = [];
          myList.forEach(movieId => {
-           let movie = movies[movieId];
-           movieList.push(movie)
+           let id = movieId.movie_id;
+           let movie = movies[id];
+           if(!movieList.includes(movie)){
+             movieList.push(movie)
+           } else {
+             //destroy
+           }
          });
          let totalMovies = Object.values(movieList);
          let movieRows = [];

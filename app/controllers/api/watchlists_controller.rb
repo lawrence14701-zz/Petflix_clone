@@ -1,11 +1,8 @@
 class Api::WatchlistsController < ApplicationController
 
-    #undefined method `watchlists' for nil:NilClass
     def index
-        #watchlist_movies = current_user.movies # return an array of Movies
         @watchlists = current_user.watchlists
         render 'api/watchlists/index'
-        # @watchlist = Watchlist.where(user_id: current_user.id) # return an array of WatchLists
     end
 
     def show
@@ -30,8 +27,9 @@ class Api::WatchlistsController < ApplicationController
        else
             render json: {message: 'Unable to delete selected movie'}, status: 500
        end
-         
     end
+         
+    
 
 
     def watchlist_params
