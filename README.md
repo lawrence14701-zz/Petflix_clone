@@ -1,5 +1,4 @@
-![logo](./app/assets/images/logo.png)
-<img src="app/assets/images/logo.png"  width="200" height="150" />
+<img src="app/assets/images/logo.png"  width="200" height="125" />
 * Petflix is a Netflix clone made with React, Redux, and Rails. Users can browse short videos of pets, such as cats, organized in genres.
 
 # Live site demo
