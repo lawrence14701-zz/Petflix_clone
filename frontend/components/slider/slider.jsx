@@ -187,11 +187,12 @@ class Slider extends React.Component {
   }
   render() {
     const { title, showArrows } = this.props;
-    debugger
     const { sliderItems, click, moving, currentSlide } = this.state;
     return (
       <div className="wrapper">
+        {showArrows === 'true' && (
         <h1 className="pageHead">{title}</h1>
+        )}
         <div className="slider">
           <div
             className={moving ? "moving sliderMask" : "sliderMask"}
@@ -208,7 +209,7 @@ class Slider extends React.Component {
               );
             })}
           </div>
-          {click && showArrows === 'true' && (
+          {click && showArrows === "true" && (
             <div
               className="leftArrow arrow"
               ref="leftArrow"
@@ -217,18 +218,15 @@ class Slider extends React.Component {
               <i className="fas fa-chevron-left"></i>
             </div>
           )}
-          {showArrows === 'true' && (
-          <div
-            className="rightArrow arrow"
-            ref="RightArrow"
-            onClick={this.handleOnRightArrowClick}
-          >
-            <i className="fas fa-chevron-right"></i>{" "}
-          </div>
+          {showArrows === "true" && (
+            <div
+              className="rightArrow arrow"
+              ref="RightArrow"
+              onClick={this.handleOnRightArrowClick}
+            >
+              <i className="fas fa-chevron-right"></i>{" "}
+            </div>
           )}
-
-          
-
         </div>
         {currentSlide && (
           <Content movie={currentSlide} onClose={this.handleClose} />
@@ -240,6 +238,4 @@ class Slider extends React.Component {
 
 export default Slider;
 
-// constructor => this.element = React.createRef()
 
-// <div ref={this.element}

@@ -1,15 +1,13 @@
 import React from "react";
-import Slider from '../slider/slider';
+import Slider from "../slider/slider";
 
 class Genre extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showItems: 1,
-      currentSlide : null,
     };
-        this.handleClose = this.onClose.bind(this);
-        this.handleOpen = this.onOpen.bind(this);
+
   }
   updatePageItems() {
     let windowWidth = window.innerWidth;
@@ -33,6 +31,7 @@ class Genre extends React.Component {
   componentDidMount() {
     this.props.fetchGenre(this.props.match.params.genreId);
     this.props.fetchAllGenres();
+    this.props.hideArrowsOnGenres("false");
     this.updatePageItems();
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updatePageItems.bind(this));
@@ -40,16 +39,9 @@ class Genre extends React.Component {
   }
 
 
-  onClose() {
-    this.setState({ currentSlide: null });
-  }
-  onOpen(movie) {
-    this.setState({ currentSlide: movie });
-    // I also want to apply some styling to this movie, give it a white border
-  }
 
   render() {
-    const { genre, movies } = this.props;
+    const { genre, movies, showArrows } = this.props;
     const { showItems, currentSlide } = this.state;
     if (genre) {
       let movieCategory = [];
@@ -72,16 +64,22 @@ class Genre extends React.Component {
       }
       return (
         <>
-            <div className="gallery-title">
-              <div id="genre-title">{genre.name}</div>
-            </div>
+          <div className="gallery-title">
+            <div id="genre-title">{genre.name}</div>
+          </div>
           <div className="gallery">
             {movieRows.map((movieRow, idx) => {
               return (
-                <div className="sliderMask sliderSpace">
-                  <Slider key={idx} movies={movieRow}/>
-                </div>
-              );git
+                <>
+                  <div className="sliderMask sliderSpace">
+                    <Slider
+                      key={idx}
+                      movies={movieRow}
+                      showArrows={showArrows}
+                    />
+                  </div>
+                </>
+              );
             })}
           </div>
         </>

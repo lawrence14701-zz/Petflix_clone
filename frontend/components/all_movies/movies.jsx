@@ -1,5 +1,5 @@
 import React from "react";
-import SliderItem from "../slider/sliderItem";
+import Slider from "../slider/slider";
 
 class Movies extends React.Component {
   constructor(props) {
@@ -7,6 +7,7 @@ class Movies extends React.Component {
     this.state = {
       showItems: 1,
     };
+
   }
 
   updatePageItems() {
@@ -36,9 +37,11 @@ class Movies extends React.Component {
     }
   }
 
+
+
   render() {
-    const { movies } = this.props;
-    const { showItems } = this.state;
+    const { movies, showArrows } = this.props;
+    const { showItems, currentSlide } = this.state;
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let totalMovies = Object.values(movies);
       let movieRows = [];
@@ -60,13 +63,17 @@ class Movies extends React.Component {
             <div id="genre-title">Movies</div>
           </div>
           <div className="gallery">
-            {movieRows.map((movieRow) => {
+            {movieRows.map((movieRow, idx) => {
               return (
-                <div className="sliderMask sliderSpace">
-                  {movieRow.map((movie) => {
-                    return <SliderItem movie={movie} />;
-                  })}
-                </div>
+                <>
+                  <div className="sliderMask sliderSpace">
+                    <Slider
+                      key={idx}
+                      movies={movieRow}
+                      showArrows={showArrows}
+                    />
+                  </div>
+                </>
               );
             })}
           </div>
