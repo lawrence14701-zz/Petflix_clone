@@ -4,14 +4,22 @@ import { Link } from "react-router-dom";
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      searchBarOpen: false
+    }
   }
   componentDidMount() {
     this.props.fetchAllGenres();
   }
+  handleClick(){
+    const currentState = this.state.searchBarOpen;
+    this.setState({searchBarOpen: !currentState})
+  }
 
   render() {
-    let jsx = "";
     const { genres } = this.props;
+    const {searchBarOpen} = this.state;
 
     return (
       <header id="main-header">
@@ -21,7 +29,9 @@ class Nav extends React.Component {
           </a>
         </div>
         <nav className="main-nav">
-          <div><Link to="/browse">Home</Link></div>
+          <div>
+            <Link to="/browse">Home</Link>
+          </div>
           <div id="genre-link" href="#genres">
             Genres
             <ul className="genre-list">
@@ -34,8 +44,10 @@ class Nav extends React.Component {
               })}
             </ul>
           </div>
-          <div><Link to="/movies">Movies</Link></div>
-          <Link to='/myList'>My List</Link>
+          <div>
+            <Link to="/movies">Movies</Link>
+          </div>
+          <Link to="/myList">My List</Link>
           <div>
             <a
               target="_blank"
@@ -46,8 +58,15 @@ class Nav extends React.Component {
           </div>
         </nav>
         <nav className="sub-nav">
-          <div href="#">
-            <i className="fas fa-search sub-nav-logo"></i>
+          <div className="search" onClick={this.handleClick}>
+            <input
+              className={searchBarOpen ? "toggle input" : "input"}
+              type="text"
+              placeholder="puppies, cats, dogs"
+            ></input>
+            <i
+              className={searchBarOpen ? "fas fa-search active sub-nav-logo" : "fas fa-search sub-nav-logo"}
+            ></i>
           </div>
           <div href="#">
             <i className="fas fa-bell sub-nav-logo"></i>

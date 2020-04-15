@@ -47,7 +47,6 @@ class Movies extends React.Component {
       let totalMovies = Object.values(movies);
       let movieRows = [];
       let numberOfRows = totalMovies.length / showItems;
-
       for (let i = 0; i < numberOfRows; i++) {
         let movieRow = [];
         for (let j = 0; j < showItems; j++) {

@@ -11,11 +11,7 @@ class Api::MoviesController < ApplicationController
         render :index
     end
 
-    # def search
-    #    search_text = params[:search_text]
-    #    Movie.where('title like ?', "%#{search_text}%")
-    #    SELECT * from movies where title like %search_text%
-    # end
+
 
 
 
