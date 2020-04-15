@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "./slider";
 import { Link } from "react-router-dom";
 
 class SliderItem extends React.Component {
@@ -7,6 +6,7 @@ class SliderItem extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePreview = this.previewMovie.bind(this);
+    this.addToList = this.addToList.bind(this);
 
     this.state = {
       playingPreview: false,
@@ -16,6 +16,11 @@ class SliderItem extends React.Component {
   handleSubmit() {
     const { onOpen, movie } = this.props;
     onOpen(movie);
+  }
+
+  addToList(){
+    const { addToList, movie} = this.props
+    addToList(movie.id)
   }
 
   previewMovie() {
@@ -48,11 +53,7 @@ class SliderItem extends React.Component {
         >
           <img className="cover" src={cover} />
           <div className="preview">
-            <video muted
-              className="playVideo"
-              src={video}
-              ref="previewMovie"
-            />
+            <video muted className="playVideo" src={video} ref="previewMovie" />
             <Link to={`/watch/${movie.id}`}>
               <div className="play">
                 <i className="far fa-play-circle"></i>
@@ -62,6 +63,9 @@ class SliderItem extends React.Component {
               <h3 className="movieTitle">{title}</h3>
               <h3 className="age">TV-14</h3>
               <h3 className="duration">{duration}</h3>
+            </div>
+            <div className="myList" onClick={this.addToList}>
+              <i className="fas fa-plus-circle"></i>
             </div>
             <button className="openContent" onClick={this.handleSubmit}>
               <i className="fas fa-chevron-down"></i>

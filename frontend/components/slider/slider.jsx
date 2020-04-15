@@ -1,5 +1,5 @@
 import React from "react";
-import SliderItem from "./sliderItem";
+import SliderItem from "./slideritem_container";
 import Content from "./content";
 
 class Slider extends React.Component {

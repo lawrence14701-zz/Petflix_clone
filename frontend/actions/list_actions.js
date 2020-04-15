@@ -18,7 +18,7 @@ const receiveList = (watchlist) => ({
 //-----------thunk actions --------------
 
 export const addToList = (listItem) => (dispatch) => {
-  return APIUtilSessions.signup(listItem).then(
+  return listUtil.addToList(listItem).then(
     (listItem) => dispatch(receiveListItem(listItem))
   );
 };

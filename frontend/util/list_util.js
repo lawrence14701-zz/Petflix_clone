@@ -1,10 +1,10 @@
 
 
-export const addToList = (movie) => {
+export const addToList = (movieId) => {
     return $.ajax({
       method: "POST",
       url: `/api/users/:user_id/watchlists`,
-      data: { movie }
+      data: { watchlist: {movie_id: movieId} }
     });
 }
 
