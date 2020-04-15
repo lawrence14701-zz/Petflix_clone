@@ -22,5 +22,5 @@
 
 # Movie carousel and hovering over videos
 <!-- blank line -->
-![Alt Text](./app/assets/images/slider.mov)
+![Alt Text](./app/assets/images/slider.gif)
 <!-- blank line -->
