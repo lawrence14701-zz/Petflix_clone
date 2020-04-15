@@ -1,4 +1,7 @@
+# ReadMe
+
 <img src="app/assets/images/logo.png"  width="200" height="125" />
+
 * Petflix is a Netflix clone made with React, Redux, and Rails. Users can browse short videos of pets, such as cats, organized in genres.
 
 # Live site demo
@@ -8,10 +11,16 @@
 * will post a video when i am done
 
 # Tech Stack
-* Petflix's frontend was written in JavaScript, using the Redux framework and React library. The backend was written in Ruby, using Ruby on Rails.
+* The app was made using Ruby on Rails for the backend, PostgreSQL for the backend database, React/Redux for the frontend, and Amazon AWS S3 for cloud storage of image and video files.
 
 # MVPs
+* Movie carousel and hovering over videos
 * Search Bar 
-* Display Movies
-* Movie carousel
+* custom controls for playing movies
 * My List 
+
+
+# Movie carousel and hovering over videos
+<!-- blank line -->
+![Alt Text](./app/assets/images/slider.mov)
+<!-- blank line -->
