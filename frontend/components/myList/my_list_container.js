@@ -5,7 +5,6 @@ import { fetchList } from "../../actions/list_actions";
 import { showArrows, fetchAllGenres} from '../../actions/video_actions';
 
 const msp = (state) => {
-  debugger
   return {
   myList: Object.values(state.entities.myList),
   movies: state.entities.movies,

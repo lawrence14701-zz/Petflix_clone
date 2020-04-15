@@ -205,7 +205,7 @@ class Slider extends React.Component {
                   key={i}
                   movie={e}
                   onOpen={this.handleOpen}
-                  isContentOpen={currentSlide}
+                  isContentOpen={currentSlide} //current slide that has content open
                 />
               );
             })}
