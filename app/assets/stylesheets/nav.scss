@@ -78,21 +78,21 @@ a {
   cursor: pointer;
 }
 
-// ---------- dropdown menu-------------
+// ---------- genre dropdown menu-------------
 .genre-list {
   display: none;
 }
 .genre-list {
+    width: 150px;
+  background: rgba(0, 0, 0, 0.95);
   position: absolute;
-  background: black;
-  border-radius: 3px;
-  opacity: 0.8;
-  width: 100px;
-  height: 150px;
-  top: 80%;
-  transform: translate(-50%);
+  box-shadow: 0px 7px 15px 0px rgba(0, 0, 0, 0.5);
+  padding: 23px 12px;
+  padding-bottom: 14px;
   color: white;
-  z-index: 100000000;
+  border: 1px groove dimgray;
+  top: 87%;
+  transform: translate(-50%);
   display: none;
 }
 
@@ -100,10 +100,21 @@ a {
   margin-top: 10px;
   margin-left: 5px;
   font-size: 15px;
+  
 }
 
 .genre-list li:hover {
   color: #686868;
+}
+.genre-caret{
+  position: absolute;
+    top: -7%;
+    left: 40%;
+    transform: translate(-50%);
+    font-size: 20px;
+    width: 50px;
+      color: #686868;
+
 }
 
 #genre-link:hover .genre-list {
@@ -163,7 +174,7 @@ a {
 .account-dropdown-subMenu-container {
 }
 
-.fa-caret-up {
+.account-caret {
   right: 12.5%;
   position: absolute;
   top: 60px;

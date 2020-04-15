@@ -46,6 +46,7 @@ class Nav extends React.Component {
           <div id="genre-link" href="#genres">
             Genres
             <ul className="genre-list">
+              <i className="fas fa-caret-up genre-caret"></i>
               {genres.map((genre) => {
                 return (
                   <li key={genre.id}>
@@ -93,16 +94,25 @@ class Nav extends React.Component {
           >
             <img className="avatar" src={window.avatar} alt="profile avatar" />
             <i className="fas fa-caret-down"></i>
-          <div className={ dropDown ? "account-dropdown-subMenu-container" : "hide-me"} >
-            <i className="fas fa-caret-up"></i>
-            <div className="account-sub-menu">
-              <ul className='profiles'>
-                <li className='profile'><span>Welcome</span><span> {currentUser.username}</span></li>
-              </ul>
-              <div className='account-border'></div>
-              <div className='account-sign-out' onClick={this.signOut}>Sign out of Petflix</div>
+            <div
+              className={
+                dropDown ? "account-dropdown-subMenu-container" : "hide-me"
+              }
+            >
+              <i className="fas fa-caret-up account-caret"></i>
+              <div className="account-sub-menu">
+                <ul className="profiles">
+                  <li className="profile">
+                    <span>Welcome</span>
+                    <span> {currentUser.username}</span>
+                  </li>
+                </ul>
+                <div className="account-border"></div>
+                <div className="account-sign-out" onClick={this.signOut}>
+                  Sign out of Petflix
+                </div>
+              </div>
             </div>
-          </div>
           </div>
         </nav>
       </header>
