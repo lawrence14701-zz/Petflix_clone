@@ -1,12 +1,15 @@
 import React from "react";
-import SliderItem from "../slider/sliderItem";
+import Slider from '../slider/slider';
 
 class Genre extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showItems: 1,
+      currentSlide : null,
     };
+        this.handleClose = this.onClose.bind(this);
+        this.handleOpen = this.onOpen.bind(this);
   }
   updatePageItems() {
     let windowWidth = window.innerWidth;
@@ -36,9 +39,18 @@ class Genre extends React.Component {
     }
   }
 
+
+  onClose() {
+    this.setState({ currentSlide: null });
+  }
+  onOpen(movie) {
+    this.setState({ currentSlide: movie });
+    // I also want to apply some styling to this movie, give it a white border
+  }
+
   render() {
     const { genre, movies } = this.props;
-    const { showItems } = this.state;
+    const { showItems, currentSlide } = this.state;
     if (genre) {
       let movieCategory = [];
       genre.movie_ids.forEach((movieId) => {
@@ -67,9 +79,7 @@ class Genre extends React.Component {
             {movieRows.map((movieRow) => {
               return (
                 <div className="sliderMask sliderSpace">
-                  {movieRow.map((movie) => {
-                    return <SliderItem movie={movie} />;
-                  })}
+                  <Slider movies={movieRow}/>
                 </div>
               );
             })}

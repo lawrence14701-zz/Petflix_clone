@@ -18,6 +18,7 @@ class Slider extends React.Component {
       totalItems: 0,
       sliderItems: [],
       currentSlide: null, //movie that has content open
+      //showArrows: true, // I only want to show arrows when i am on the browse page and not the genres or movies page or mylist,
     };
   }
 
@@ -186,7 +187,7 @@ class Slider extends React.Component {
   }
   render() {
     const { title } = this.props;
-    const { sliderItems, click, moving, currentSlide } = this.state;
+    const { sliderItems, click, moving, currentSlide, showArrows } = this.state;
     return (
       <div className="wrapper">
         <h1 className="pageHead">{title}</h1>
@@ -206,8 +207,7 @@ class Slider extends React.Component {
               );
             })}
           </div>
-
-          {click && (
+          {click && showArrows && (
             <div
               className="leftArrow arrow"
               ref="leftArrow"
@@ -216,7 +216,7 @@ class Slider extends React.Component {
               <i className="fas fa-chevron-left"></i>
             </div>
           )}
-
+          {showArrows && (
           <div
             className="rightArrow arrow"
             ref="RightArrow"
@@ -224,6 +224,10 @@ class Slider extends React.Component {
           >
             <i className="fas fa-chevron-right"></i>{" "}
           </div>
+          )}
+
+          
+
         </div>
         {currentSlide && (
           <Content movie={currentSlide} onClose={this.handleClose} />
