@@ -5,21 +5,32 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleDropDown = this.handleDropDown.bind(this);
+    this.signOut = this.signOut.bind(this);
     this.state = {
       searchBarOpen: false,
+      dropDown: false,
     };
   }
   componentDidMount() {
     this.props.fetchAllGenres();
   }
+
+  signOut(){
+    this.props.logout()
+  }
   handleClick() {
     const currentState = this.state.searchBarOpen;
     this.setState({ searchBarOpen: !currentState });
   }
+  handleDropDown() {
+    const currentState = this.state.dropDown;
+    this.setState({ dropDown: !currentState });
+  }
 
   render() {
-    const { genres } = this.props;
-    const { searchBarOpen } = this.state;
+    const { genres, currentUser } = this.props;
+    const { searchBarOpen, dropDown } = this.state;
 
     return (
       <header id="main-header">
@@ -75,18 +86,23 @@ class Nav extends React.Component {
           <div href="#">
             <i className="fas fa-bell sub-nav-logo"></i>
           </div>
-          <div className="account-dropdown-menu">
+          <div
+            className="account-dropdown-menu"
+            onMouseEnter={this.handleDropDown}
+            onMouseLeave={this.handleDropDown}
+          >
             <img className="avatar" src={window.avatar} alt="profile avatar" />
             <i className="fas fa-caret-down"></i>
-            <div className="account-dropdown-subMenu">
-              <i className="fas fa-caret-up"></i>
-              <div className='sub-menu-container'>
-                <ul className='sub-menu-info'>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
+          <div className={ dropDown ? "account-dropdown-subMenu-container" : "hide-me"} >
+            <i className="fas fa-caret-up"></i>
+            <div className="account-sub-menu">
+              <ul className='profiles'>
+                <li className='profile'><span>Welcome</span><span> {currentUser.username}</span></li>
+              </ul>
+              <div className='account-border'></div>
+              <div className='account-sign-out' onClick={this.signOut}>Sign out of Petflix</div>
             </div>
+          </div>
           </div>
         </nav>
       </header>

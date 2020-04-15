@@ -32,9 +32,9 @@ class Movies extends React.Component {
   componentDidMount() {
     this.props.fetchAllGenres();
     this.props.hideArrowsOnMovies('false');
-    this.updatePageItems();
+    this.updatePageItems();                  ///it is running this function, showitems is 6
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", this.updatePageItems.bind(this));
+      window.addEventListener("resize", this.updatePageItems.bind(this)); //add event listener not working
     }
   }
 
@@ -42,7 +42,7 @@ class Movies extends React.Component {
 
   render() {
     const { movies, showArrows } = this.props;
-    const { showItems } = this.state;
+    const { showItems } = this.state; //but show items is one down here
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let totalMovies = Object.values(movies);
       let movieRows = [];

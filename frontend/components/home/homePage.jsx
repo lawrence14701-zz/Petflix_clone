@@ -17,8 +17,9 @@ class HomePage extends React.Component {
 
   render() {
     const { genres, movies, showArrows } = this.props;
-    let movieLength = Object.values(movies).length
-    const randomMovie = Object.values(movies)[Math.floor(Math.random() * movieLength)];
+    const movieArray = Object.values(movies);
+    let randomNum = Math.floor(Math.random() * movieArray.length);
+    const randomMovie = movieArray[randomNum];
 
     const advertisement =
       randomMovie === undefined ? null : (

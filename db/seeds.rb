@@ -18,7 +18,7 @@ Watchlist.destroy_all
 #----------------DEMO USER------------------
 
 demoUser=User.create({
-    username: 'username',
+    username: 'demoUser',
     password: 'password'
 })
 
@@ -382,4 +382,9 @@ join_with_cat_genre = Join.create({
 Watchlist.create({
     user_id: demoUser.id,
     movie_id: catch_me_if_you_can_2.id
+})
+
+Watchlist.create({
+    user_id: demoUser.id,
+    movie_id: taking_my_dog_to_the_beach.id
 })

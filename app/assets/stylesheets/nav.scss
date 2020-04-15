@@ -60,21 +60,20 @@ a {
 }
 
 .sub-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-    padding: 0 30px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding: 0 30px 0 20px;
 }
 
-.sub-nav div {
-  position: relative;
+.sub-nav > div {
   color: #f3f3f3;
   text-decoration: none;
   margin: 5px 10px 5px 10px;
 }
 
-.sub-nav div:hover {
+.sub-nav > div:hover {
   color: #686868;
   cursor: pointer;
 }
@@ -118,7 +117,7 @@ a {
 // -------- search button --------------
 
 .search {
-
+  position: relative;
   input {
     width: 0px;
     height: 34px;
@@ -143,36 +142,54 @@ a {
   }
 }
 
-
-
 //--------account dropdown menu----------------
 
-.account-dropdown-menu{
+.account-dropdown-menu {
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-.avatar{
+.avatar {
   width: 32px;
   height: 32px;
   margin-right: 4px;
 }
 
-
-.account-dropdown-subMenu{
+.hide-me {
   display: none;
-  height: 200px;
-  background-color: black;
-  opacity: 0.6;
-  position: absolute;
-  top: 75px;
 }
 
+.account-dropdown-subMenu-container {
+}
 
+.fa-caret-up {
+  right: 12.5%;
+  position: absolute;
+  top: 60px;
+  font-size: 30px;
+}
 
-.account-dropdown-menu:hover{
-  .account-dropdown-subMenu{
-    display: block;
-  }
+.account-sub-menu {
+  width: 180px;
+  background: rgba(0, 0, 0, 0.95);
+  top: 80px;
+  position: absolute;
+  right: 11.5%;
+  box-shadow: 0px 7px 15px 0px rgba(0, 0, 0, 0.5);
+  padding: 23px 12px;
+  padding-bottom: 14px;
+  color: white;
+  border: 1px groove dimgray;
+}
+
+.account-border {
+  border: 0.5px solid gray;
+  margin-bottom: 12px;
+  margin-top: 25px;
+}
+
+.account-sign-out:hover {
+  color: #686868;
+  cursor: pointer;
 }

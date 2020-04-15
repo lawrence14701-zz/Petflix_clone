@@ -14,7 +14,7 @@ class WelcomePage extends React.Component {
   demoUser(e) {
     e.preventDefault();
     const demoUser = {
-      username: "username",
+      username: "demoUser",
       password: "password"
     };
     this.props.processForm(demoUser);

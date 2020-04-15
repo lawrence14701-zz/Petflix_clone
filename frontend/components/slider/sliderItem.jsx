@@ -46,7 +46,8 @@ class SliderItem extends React.Component {
   render() {
     const { movie, myList, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
     const { cover, title, video } = movie;
-    const isMovieIdInList = myList.includes({movie_id: movie.id})
+    const isMovieIdInList = myList.includes({movie_id: movie.id}) //why is it not getting list? when i put a debugger it is empty
+    
     
     const duration = `${Math.floor(video.length / 60)} min ${video.length % 60} sec`;
     return (
@@ -69,7 +70,7 @@ class SliderItem extends React.Component {
               <h3 className="age">TV-14</h3>
               <h3 className="duration">{duration}</h3>
             </div>
-            {isMovieIdInList ? (
+            {isMovieIdInList === false ? (
               <div className="myList" onClick={this.addToList}>
                 <i className="fas fa-plus-circle"></i>
               </div>
