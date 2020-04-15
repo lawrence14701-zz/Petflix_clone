@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchAllGenres } from '../../actions/video_actions';
+import { fetchAllGenres, showArrows } from '../../actions/video_actions';
 import { logout } from "../../actions/session_actions";
 import HomePage from './homePage';
 
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
         genres: Object.values(state.entities.genres),
         movies: state.entities.movies,
         currentUser: state.entities.user[state.session.id],
+        showArrows: state.entities.showArrows,
     }
 };
 
@@ -17,7 +18,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchAllGenres: () => (dispatch(fetchAllGenres())),
-        logout: () => (dispatch(logout()))
+        logout: () => (dispatch(logout())),
+        showArrowsOnBrowse: (show) => (dispatch(showArrows(show))),
     }
 };
 

@@ -76,12 +76,12 @@ class Genre extends React.Component {
               <div id="genre-title">{genre.name}</div>
             </div>
           <div className="gallery">
-            {movieRows.map((movieRow) => {
+            {movieRows.map((movieRow, idx) => {
               return (
                 <div className="sliderMask sliderSpace">
-                  <Slider movies={movieRow}/>
+                  <Slider key={idx} movies={movieRow}/>
                 </div>
-              );
+              );git
             })}
           </div>
         </>

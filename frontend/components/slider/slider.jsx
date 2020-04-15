@@ -186,8 +186,9 @@ class Slider extends React.Component {
     // I also want to apply some styling to this movie, give it a white border
   }
   render() {
-    const { title } = this.props;
-    const { sliderItems, click, moving, currentSlide, showArrows } = this.state;
+    const { title, showArrows } = this.props;
+    debugger
+    const { sliderItems, click, moving, currentSlide } = this.state;
     return (
       <div className="wrapper">
         <h1 className="pageHead">{title}</h1>
@@ -207,7 +208,7 @@ class Slider extends React.Component {
               );
             })}
           </div>
-          {click && showArrows && (
+          {click && showArrows === 'true' && (
             <div
               className="leftArrow arrow"
               ref="leftArrow"
@@ -216,7 +217,7 @@ class Slider extends React.Component {
               <i className="fas fa-chevron-left"></i>
             </div>
           )}
-          {showArrows && (
+          {showArrows === 'true' && (
           <div
             className="rightArrow arrow"
             ref="RightArrow"

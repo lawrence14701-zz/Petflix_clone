@@ -11,11 +11,12 @@ class HomePage extends React.Component {
   }
   componentDidMount() {
     this.props.fetchAllGenres();
+    this.props.showArrowsOnBrowse('true') //i want to show the arrows on this page
   }
  
 
   render() {
-    const { genres, movies } = this.props;
+    const { genres, movies, showArrows } = this.props;
     let movieLength = Object.values(movies).length
     const randomMovie = Object.values(movies)[Math.floor(Math.random() * movieLength)];
 
@@ -50,11 +51,10 @@ class HomePage extends React.Component {
       //find the movies that belong to a specific genre
       let movieCategory = [];
       genre.movie_ids.forEach((movieId) => {
-        debugger
         movieCategory.push(movies[movieId]);
       });
       return (
-        <Slider key={genre.id} title={genre.name} movies={movieCategory} />
+        <Slider key={genre.id} title={genre.name} movies={movieCategory} showArrows={showArrows} />
       );
     });
     return (
