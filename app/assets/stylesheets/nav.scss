@@ -9,7 +9,7 @@
   grid-template-areas: "nt mn mn sb . . . ";
   background-color: #141414;
   width: 100%;
-  height: 68px;
+  height: 75px;
   margin-bottom: 0px;
   z-index: 1000;
 }
@@ -63,7 +63,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 500px;
     padding: 0 30px 0 20px;
 }
 
@@ -71,7 +71,7 @@ a {
   position: relative;
   color: #f3f3f3;
   text-decoration: none;
-  margin: 5px;
+  margin: 5px 10px 5px 10px;
 }
 
 .sub-nav div:hover {
@@ -124,6 +124,7 @@ a {
     height: 34px;
     box-shadow: none;
     color: #fff;
+    text-align: center;
     border: 1px solid transparent;
     outline: none;
     padding-left: 35px;
@@ -139,5 +140,39 @@ a {
     left: 5%;
     transform: translateY(-50%);
     position: absolute;
+  }
+}
+
+
+
+//--------account dropdown menu----------------
+
+.account-dropdown-menu{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.avatar{
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+}
+
+
+.account-dropdown-subMenu{
+  display: none;
+  height: 200px;
+  background-color: black;
+  opacity: 0.6;
+  position: absolute;
+  top: 75px;
+}
+
+
+
+.account-dropdown-menu:hover{
+  .account-dropdown-subMenu{
+    display: block;
   }
 }

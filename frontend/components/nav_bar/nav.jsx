@@ -6,20 +6,20 @@ class Nav extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      searchBarOpen: false
-    }
+      searchBarOpen: false,
+    };
   }
   componentDidMount() {
     this.props.fetchAllGenres();
   }
-  handleClick(){
+  handleClick() {
     const currentState = this.state.searchBarOpen;
-    this.setState({searchBarOpen: !currentState})
+    this.setState({ searchBarOpen: !currentState });
   }
 
   render() {
     const { genres } = this.props;
-    const {searchBarOpen} = this.state;
+    const { searchBarOpen } = this.state;
 
     return (
       <header id="main-header">
@@ -65,13 +65,29 @@ class Nav extends React.Component {
               placeholder="puppies, cats, dogs"
             ></input>
             <i
-              className={searchBarOpen ? "fas fa-search active sub-nav-logo" : "fas fa-search sub-nav-logo"}
+              className={
+                searchBarOpen
+                  ? "fas fa-search active sub-nav-logo"
+                  : "fas fa-search sub-nav-logo"
+              }
             ></i>
           </div>
           <div href="#">
             <i className="fas fa-bell sub-nav-logo"></i>
           </div>
-          <div href="#">Account</div>
+          <div className="account-dropdown-menu">
+            <img className="avatar" src={window.avatar} alt="profile avatar" />
+            <i className="fas fa-caret-down"></i>
+            <div className="account-dropdown-subMenu">
+              <i className="fas fa-caret-up"></i>
+              <div className='sub-menu-container'>
+                <ul className='sub-menu-info'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </nav>
       </header>
     );
