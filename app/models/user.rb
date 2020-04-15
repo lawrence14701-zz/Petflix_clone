@@ -7,7 +7,7 @@ class User < ApplicationRecord
     attr_reader :password
 
     has_many :watchlists, dependent: :destroy
-    has_and_belongs_to_many :movies, join_table: :watchlists
+    has_and_belongs_to_many :movies, join_table: :Watchlist
 
 
     def password=(password)
