@@ -379,12 +379,12 @@ join_with_cat_genre = Join.create({
 
 #----------- watchlists --------------
 
-# Watchlist.create({
-#     user_id: demoUser.id,
-#     movie_id: catch_me_if_you_can_2.id
-# })
+Watchlist.create({
+    user_id: demoUser.id,
+    movie_id: catch_me_if_you_can_2.id
+})
 
-# Watchlist.create({
-#     user_id: demoUser.id,
-#     movie_id: taking_my_dog_to_the_beach.id
-# })
+Watchlist.create({
+    user_id: demoUser.id,
+    movie_id: taking_my_dog_to_the_beach.id
+})

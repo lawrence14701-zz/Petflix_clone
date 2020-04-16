@@ -6,43 +6,92 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playingAd: true, //i want to pass this state down to slider item and set it to false when i hover over a movie or add an event listener to the video
+      shouldAddToList: null,
     };
+    this.handleList = this.handleList.bind(this);
+    this.showLogo = this.showLogo.bind(this);
   }
   componentDidMount() {
     this.props.fetchAllGenres();
-    this.props.showArrowsOnBrowse('true') //i want to show the arrows on this page
+    this.props.getList()
+    this.props.showArrowsOnBrowse("true"); //i want to show the arrows on this page
   }
- 
+
+  handleList() {
+      const { addToList, movie, deleteListItem } = this.props;
+      const { shouldAddToList } = this.state;
+      if (shouldAddToList) {
+        deleteListItem(movie.id);
+        this.setState({ shouldAddToList: false });
+      } else {
+        addToList(movie.id);
+        this.setState({ shouldAddToList: true });
+      }
+  }
+  showLogo() {
+    const { movie, myList } = this.props;
+    const { shouldAddToList } = this.state;
+    if (shouldAddToList === null) {
+      let isMovieIdInList =
+        myList.filter((obj) => obj.movie_id === movie.id).length > 0;
+      if (isMovieIdInList) {
+        this.setState({ shouldAddToList: isMovieIdInList });
+        return (
+          <>
+            <i className="billboard-icon fas fa-check-circle"></i>
+            <span>Add to my list</span>
+          </>
+        );
+      }
+    }
+    if (shouldAddToList) {
+      return (
+        <>
+          <i className="billboard-icon fas fa-check-circle"></i>
+          <span>Add to my list</span>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <i className="billboard-icon fas fa-plus-circle"></i>
+          <span>Add to my list</span>
+        </>
+      );
+    }
+  }
 
   render() {
     const { genres, movies, showArrows } = this.props;
     const movieArray = Object.values(movies);
-    let randomNum = Math.floor(Math.random() * movieArray.length);
-    const randomMovie = movieArray[0];
+    // let randomNum = Math.floor(Math.random() * movieArray.length);
+    const billboardMovie = movieArray[0];
 
     const advertisement =
-      randomMovie === undefined ? null : (
-        <div className="vid-container">
-          <video
-            autoPlay
-            className="advertise-video"
-            src={randomMovie.video}
-            ref="movieAd"
-          />
-          <div className="ad-info">
-            <div id="ad-title">{randomMovie.title}</div>
-            <div id="ad-description">{randomMovie.description}</div>
-            <div id="ad-buttons">
-              <button id="ad-play">
-                <Link to={`/watch/${randomMovie.id}`}>
-                  <i className="ad-icon fas fa-play"></i>
+      billboardMovie === undefined ? null : (
+        <div className="billboard-container">
+          <div className="billboard">
+            <video
+              autoPlay
+              className="billboard-video"
+              src={billboardMovie.video}
+              ref="movieAd"
+            />
+          </div>
+          <div className="b-info">
+            <div className="b-title">{billboardMovie.title}</div>
+            <div className="b-description">{billboardMovie.description}</div>
+            <div className="b-buttons">
+              <button className="b-play b-button">
+                <Link to={`/watch/${billboardMovie.id}`}>
+                  <i className="billboard-icon fas fa-play"></i>
                   <span>Play</span>
                 </Link>
               </button>
-              <button id="ad-list">
-                <i className="ad-icon fas fa-plus-circle"></i>
-                <span>Add to my list</span>
+              <button className="b-myList b-button" onClick={this.handleList}>
+                {this.showLogo()}
+                {/* <i className="billboard-icon fas fa-plus-circle"></i>
+                <span>Add to my list</span> */}
               </button>
             </div>
           </div>
@@ -51,18 +100,24 @@ class HomePage extends React.Component {
     const sliders = genres.map((genre) => {
       //find the movies that belong to a specific genre
       let movieCategory = [];
-      if(typeof genre.movie_ids !== 'undefined'){
+      if (typeof genre.movie_ids !== "undefined") {
         genre.movie_ids.forEach((movieId) => {
           movieCategory.push(movies[movieId]);
         });
       }
       return (
-        <Slider key={genre.id} title={genre.name} movies={movieCategory} showArrows={showArrows} />
+        <Slider
+          key={genre.id}
+          title={genre.name}
+          movies={movieCategory}
+          showArrows={showArrows}
+        />
       );
     });
     return (
       <>
-        <div className="advertise">{advertisement}</div>
+        {advertisement}
+        <div className="dark-layer"></div>
         {sliders}
       </>
     );
