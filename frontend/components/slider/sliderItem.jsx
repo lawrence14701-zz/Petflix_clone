@@ -25,16 +25,18 @@ class SliderItem extends React.Component {
     onOpen(movie);
   }
 
-  // addToList(isMovieIdInList) { //problem is that movieIdinlist is neverupdating
-  //   const { addToList, movie, deleteListItem } = this.props;
-  //   if (isMovieIdInList) {
-  //     this.setState({ shouldAddToList: isMovieIdInList });
-  //     addToList(movie.id);
-  //   } else {
-  //     deleteListItem(movie.id)
-  //     this.setState({ shouldAddToList: isMovieIdInList });
-  //   }
-  // }
+
+  addToList(){
+  const { addToList, movie, deleteListItem } = this.props;
+    const {shouldAddToList} = this.state;
+    if(shouldAddToList){
+      deleteListItem(movie.id);
+      this.setState({ shouldAddToList: false });
+    }else{
+      addToList(movie.id);
+      this.setState({ shouldAddToList: true });
+    }
+  }
 
   previewMovie() {
     const { playingPreview } = this.state;
@@ -70,9 +72,7 @@ class SliderItem extends React.Component {
 
   render() {
     const { movie, myList, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
-    // const { shouldAddToList} = this.state;
     const { cover, title, video } = movie;
-    const isMovieIdInList = myList.filter((obj) => obj.movie_id === movie.id).length > 0;
 
     const duration = `${Math.floor(video.length / 60)} min ${
       video.length % 60
@@ -99,7 +99,7 @@ class SliderItem extends React.Component {
             </div>
             <div
               className="myList"
-              onClick={() => this.addToList(!isMovieIdInList)}
+              onClick={this.addToList}
             >
               <i className={this.showLogo()}></i>
             </div>
