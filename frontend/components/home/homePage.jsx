@@ -25,6 +25,7 @@ class HomePage extends React.Component {
       randomMovie === undefined ? null : (
         <div className="vid-container">
           <video
+            autoPlay
             className="advertise-video"
             src={randomMovie.video}
             ref="movieAd"
