@@ -101,12 +101,6 @@ class SessionForm extends React.Component {
                 </form>
               </div>
             </div>
-
-          <footer className="login-footer">
-            <div className="site-footer">
-              <p className="footer-top">Designed by Lawrence Nicastro</p>
-            </div>
-          </footer>
           </div>
         </div>
       </>

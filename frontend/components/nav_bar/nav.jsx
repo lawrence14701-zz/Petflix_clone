@@ -70,19 +70,21 @@ class Nav extends React.Component {
           </div>
         </nav>
         <nav className="sub-nav">
-          <div className="search" onClick={this.handleClick}>
-            <input
-              className={searchBarOpen ? "toggle input" : "input"}
-              type="text"
-              placeholder="puppies, cats, dogs"
-            ></input>
-            <i
-              className={
-                searchBarOpen
-                  ? "fas fa-search active sub-nav-logo"
-                  : "fas fa-search sub-nav-logo"
-              }
-            ></i>
+          <div className="search-container">
+            <div className="search" onClick={this.handleClick}>
+              <input
+                className={searchBarOpen ? "toggle input" : "input"}
+                type="text"
+                placeholder="puppies, cats, dogs"
+              ></input>
+              <i
+                className={
+                  searchBarOpen
+                    ? "fas fa-search active sub-nav-logo"
+                    : "fas fa-search sub-nav-logo"
+                }
+              ></i>
+            </div>
           </div>
           <div href="#">
             <i className="fas fa-bell sub-nav-logo"></i>

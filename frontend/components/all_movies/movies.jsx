@@ -5,9 +5,8 @@ class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showItems: 1,
+      showItems: 6,
     };
-
   }
 
   updatePageItems() {
@@ -31,18 +30,36 @@ class Movies extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllGenres();
-    this.props.hideArrowsOnMovies('false');
-    this.updatePageItems();                  ///it is running this function, showitems is 6
+    this.props.hideArrowsOnMovies("false");
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updatePageItems.bind(this)); //add event listener not working
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const windowWidth = window.innerWidth;
 
+    let showItemsNewVal;
+    if (windowWidth > 1800) {
+      showItemsNewVal = 6;
+    } else if (windowWidth > 1260) {
+      showItemsNewVal = 5;
+    } else if (windowWidth > 980) {
+      showItemsNewVal = 4;
+    } else if (windowWidth > 768) {
+      showItemsNewVal = 3;
+    } else if (windowWidth > 600) {
+      showItemsNewVal = 2;
+    }
+
+    if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
+      this.setState({ showItems: showItemsNewVal });
+    }
+  }
 
   render() {
     const { movies, showArrows } = this.props;
-    const { showItems } = this.state; //but show items is one down here
+    const { showItems } = this.state; 
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let totalMovies = Object.values(movies);
       let movieRows = [];
@@ -66,7 +83,7 @@ class Movies extends React.Component {
             {movieRows.map((movieRow, idx) => {
               return (
                 <>
-                  <div className="sliderMask sliderSpace">
+                  <div className="sliderSpace">
                     <Slider
                       key={idx}
                       movies={movieRow}

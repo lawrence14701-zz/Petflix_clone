@@ -7,14 +7,17 @@ class SliderItem extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePreview = this.previewMovie.bind(this);
     this.addToList = this.addToList.bind(this);
+    this.showLogo = this.showLogo.bind(this);
 
     this.state = {
       playingPreview: false,
+      shouldAddToList: null,
     };
+
   }
 
-  componentDidMount(){
-    this.props.getList()
+  componentDidMount() {
+    this.props.getList();
   }
 
   handleSubmit() {
@@ -22,10 +25,16 @@ class SliderItem extends React.Component {
     onOpen(movie);
   }
 
-  addToList(){
-    const { addToList, movie} = this.props
-    addToList(movie.id)
-  }
+  // addToList(isMovieIdInList) { //problem is that movieIdinlist is neverupdating
+  //   const { addToList, movie, deleteListItem } = this.props;
+  //   if (isMovieIdInList) {
+  //     this.setState({ shouldAddToList: isMovieIdInList });
+  //     addToList(movie.id);
+  //   } else {
+  //     deleteListItem(movie.id)
+  //     this.setState({ shouldAddToList: isMovieIdInList });
+  //   }
+  // }
 
   previewMovie() {
     const { playingPreview } = this.state;
@@ -42,14 +51,32 @@ class SliderItem extends React.Component {
       video.muted = true;
     }
   }
+  showLogo() {
+    const { movie, myList } = this.props
+    const { shouldAddToList} = this.state;
+    if(shouldAddToList === null){
+      let isMovieIdInList = myList.filter((obj) => obj.movie_id === movie.id).length > 0;
+      if(isMovieIdInList){
+      this.setState({shouldAddToList: isMovieIdInList})
+       return "fas fa-check-circle";
+      } 
+    }
+    if (shouldAddToList) {
+      return "fas fa-check-circle";
+    } else {
+      return "fas fa-plus-circle";
+    }
+  }
 
   render() {
     const { movie, myList, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
+    // const { shouldAddToList} = this.state;
     const { cover, title, video } = movie;
-    const isMovieIdInList = myList.includes({movie_id: movie.id}) //why is it not getting list? when i put a debugger it is empty
-    
-    
-    const duration = `${Math.floor(video.length / 60)} min ${video.length % 60} sec`;
+    const isMovieIdInList = myList.filter((obj) => obj.movie_id === movie.id).length > 0;
+
+    const duration = `${Math.floor(video.length / 60)} min ${
+      video.length % 60
+    } sec`;
     return (
       <div className="sliderItem">
         <div
@@ -70,15 +97,12 @@ class SliderItem extends React.Component {
               <h3 className="age">TV-14</h3>
               <h3 className="duration">{duration}</h3>
             </div>
-            {isMovieIdInList === false ? (
-              <div className="myList" onClick={this.addToList}>
-                <i className="fas fa-plus-circle"></i>
-              </div>
-            ) : (
-              <div className="myList" onClick={this.addToList}>
-                <i className="fas fa-check-circle"></i>
-              </div>
-            )}
+            <div
+              className="myList"
+              onClick={() => this.addToList(!isMovieIdInList)}
+            >
+              <i className={this.showLogo()}></i>
+            </div>
             <button className="openContent" onClick={this.handleSubmit}>
               <i className="fas fa-chevron-down"></i>
             </button>

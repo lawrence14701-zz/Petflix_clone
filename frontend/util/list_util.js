@@ -16,12 +16,12 @@ export const fetchList = (userId) => {
 }
 
 
-// export const fetchList = (userId,listItemId) => {
-//   return $.ajax({
-//     method: "GET",
-//     url: `/api/users/${userId}/watchlists/${listItemId}`,
-//   });
-// };
+export const deleteListItem = (watchlistId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/users/:user_id/watchlists/${watchlistId}`,
+  });
+};
 
 
 

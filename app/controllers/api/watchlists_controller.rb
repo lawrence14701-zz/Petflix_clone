@@ -21,9 +21,9 @@ class Api::WatchlistsController < ApplicationController
     end
 
     def destroy
-        @watchlist = Watchlist.find(params[:id])
+        @watchlist = Watchlist.find_by(user_id:[current_user.id], movie_id:[params[:id]])
        if @watchlist.destroy
-        render :destroy
+        render json: { message: 'success'}, status: 200
        else
             render json: {message: 'Unable to delete selected movie'}, status: 500
        end
