@@ -241,19 +241,6 @@ class WelcomePage extends React.Component {
           </div>
         </section>
 
-        <footer className="footer">
-          <p>Designed by Lawrence Nicastro</p>
-          <div className="footer-cols">
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/lawrencenicastro">
-                  <span>LinkedIn </span>
-                  <i className="fab fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </footer>
       </>
     );
   }

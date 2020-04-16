@@ -37,6 +37,7 @@ const app = () => {
 
       <ProtectedRoute exact path="/browse" component={Footer} />
       <ProtectedRoute exact path="/movies" component={Footer} />
+      <ProtectedRoute exact path="/" component={Footer} />
 
       <AuthRoute path="/signup" component={SignUp} />
       <AuthRoute path="/login" component={Login} />
