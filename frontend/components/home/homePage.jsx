@@ -7,26 +7,28 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       shouldAddToList: null,
+      muted: false,
     };
     this.handleList = this.handleList.bind(this);
     this.showLogo = this.showLogo.bind(this);
   }
   componentDidMount() {
     this.props.fetchAllGenres();
-    this.props.getList()
+    this.props.getList();
     this.props.showArrowsOnBrowse("true"); //i want to show the arrows on this page
+    this.props.toggleBillBoard("true");
   }
 
   handleList() {
-      const { addToList, movie, deleteListItem } = this.props;
-      const { shouldAddToList } = this.state;
-      if (shouldAddToList) {
-        deleteListItem(movie.id);
-        this.setState({ shouldAddToList: false });
-      } else {
-        addToList(movie.id);
-        this.setState({ shouldAddToList: true });
-      }
+    const { addToList, movie, deleteListItem } = this.props;
+    const { shouldAddToList } = this.state;
+    if (shouldAddToList) {
+      deleteListItem(movie.id);
+      this.setState({ shouldAddToList: false });
+    } else {
+      addToList(movie.id);
+      this.setState({ shouldAddToList: true });
+    }
   }
   showLogo() {
     const { movie, myList } = this.props;
@@ -61,6 +63,14 @@ class HomePage extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.playingBillBoard !== prevProps.playingBillBoard) {
+      if (this.props.playingBillBoard === "false") {
+          this.setState({muted: true});
+      }
+    }
+  }
+
   render() {
     const { genres, movies, showArrows } = this.props;
     const movieArray = Object.values(movies);
@@ -73,9 +83,10 @@ class HomePage extends React.Component {
           <div className="billboard">
             <video
               autoPlay
+              muted = {this.state.muted}
               className="billboard-video"
               src={billboardMovie.video}
-              ref="movieAd"
+              ref="billBoard"
             />
           </div>
           <div className="b-info">
@@ -97,9 +108,9 @@ class HomePage extends React.Component {
           </div>
         </div>
       );
-    let sliderNumber = 0
+    let sliderNumber = 0;
     const sliders = genres.map((genre) => {
-      sliderNumber += 1
+      sliderNumber += 1;
       //find the movies that belong to a specific genre
       let movieCategory = [];
       if (typeof genre.movie_ids !== "undefined") {

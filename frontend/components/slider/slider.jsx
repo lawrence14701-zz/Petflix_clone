@@ -18,7 +18,6 @@ class Slider extends React.Component {
       totalItems: 0,
       sliderItems: [],
       currentSlide: null, //movie that has content open
-      //showArrows: true, // I only want to show arrows when i am on the browse page and not the genres or movies page or mylist,
     };
   }
 

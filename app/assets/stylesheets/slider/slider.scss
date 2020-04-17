@@ -22,18 +22,18 @@ html {
   padding: 10px 0;
   z-index: 1;
   position: relative;
-  // height: 100%;
 }
 .sliderMask {
   white-space: nowrap;
   padding: 0 60px;
   position: relative;
-  scroll-behavior: smooth222;
+  scroll-behavior: smooth;
 }
 
 .arrow {
   position: absolute;
-  top: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
   width: 60px;
   z-index: 10;
   cursor: pointer;
@@ -42,7 +42,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 88%;
+  height: calc(100% - 20px);
 }
 
 .leftArrow {

@@ -7,6 +7,7 @@ export const RECEIVE_ALL_GENRES = 'RECEIVE_ALL_GENRES';
 export const RECEIVE_SINGLE_GENRE = 'RECEIVE_SINGLE_GENRE';
 export const RECEIVE_SINGLE_MOVIE = "RECEIVE_SINGLE_MOVIE"
 export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES"
+export const PLAYING_BILLBOARD = "PLAYING_BILLBOARD"
 
 export const SHOW_ARROWS = "SHOW_ARROWS"
 
@@ -32,6 +33,11 @@ const receiveMovie = (movie) => ({
 export const showArrows = (showArrow) => ({ //take in true or false
     type: SHOW_ARROWS,
     showArrow,
+})
+
+export const playingBillBoard = (billBoard) => ({
+    type: PLAYING_BILLBOARD,
+    billBoard
 })
 
 

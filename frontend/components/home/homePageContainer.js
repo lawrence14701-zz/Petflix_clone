@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchAllGenres, showArrows } from '../../actions/video_actions';
+import { fetchAllGenres, showArrows, playingBillBoard } from '../../actions/video_actions';
 import { logout } from "../../actions/session_actions";
 import HomePage from './homePage';
 import { addToList, deleteListItem, fetchList} from '../../actions/list_actions'
@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
       currentUser: state.entities.user[state.session.id],
       showArrows: state.entities.showArrows,
       myList: Object.values(state.entities.myList),
-      movie: Object.values(state.entities.movies)[0]
+      movie: Object.values(state.entities.movies)[0],
+      playingBillBoard: state.entities.billBoard
     };
 };
 
@@ -26,6 +27,7 @@ const mapDispatchToProps = (dispatch) => {
       addToList: (movieId) => dispatch(addToList(movieId)),
       deleteListItem: (movieId) => dispatch(deleteListItem(movieId)),
       getList: () => dispatch(fetchList()),
+      toggleBillBoard: (billBoard) => dispatch(playingBillBoard(billBoard)),
     };
 };
 

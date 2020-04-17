@@ -39,6 +39,7 @@ class SliderItem extends React.Component {
   }
 
   previewMovie() {
+    this.props.toggleBillBoard('false'); //stop billboard from playing
     const { playingPreview } = this.state;
     const currentState = this.state.playingPreview;
     this.setState({ playingPreview: !currentState });
@@ -73,7 +74,7 @@ class SliderItem extends React.Component {
   render() {
     const { movie, myList, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
     const { cover, title, video } = movie;
-
+   
     const duration = `${Math.floor(video.length / 60)} min ${
       video.length % 60
     } sec`;

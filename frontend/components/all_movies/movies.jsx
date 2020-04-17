@@ -31,9 +31,11 @@ class Movies extends React.Component {
   componentDidMount() {
     this.props.fetchAllGenres();
     this.props.hideArrowsOnMovies("false");
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", this.updatePageItems.bind(this)); //add event listener not working
-    }
+  }
+
+  componentWillMount(){
+    this.updatePageItems()
+    window.addEventListener("resize", this.updatePageItems);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -53,6 +55,7 @@ class Movies extends React.Component {
     }
 
     if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
+      debugger
       this.setState({ showItems: showItemsNewVal });
     }
   }
