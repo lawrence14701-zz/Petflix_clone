@@ -186,10 +186,11 @@ class Slider extends React.Component {
     // I also want to apply some styling to this movie, give it a white border
   }
   render() {
-    const { title, showArrows } = this.props;
+    const { title, showArrows, firstSlider } = this.props;
     const { sliderItems, click, moving, currentSlide } = this.state;
     return (
       <div className="wrapper">
+        {firstSlider === 1 ? <div className='dark-layer'></div> : null}
         {showArrows === 'true' && (
         <h1 className="pageHead">{title}</h1>
         )}

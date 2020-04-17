@@ -97,7 +97,9 @@ class HomePage extends React.Component {
           </div>
         </div>
       );
+    let sliderNumber = 0
     const sliders = genres.map((genre) => {
+      sliderNumber += 1
       //find the movies that belong to a specific genre
       let movieCategory = [];
       if (typeof genre.movie_ids !== "undefined") {
@@ -107,6 +109,7 @@ class HomePage extends React.Component {
       }
       return (
         <Slider
+          firstSlider={sliderNumber}
           key={genre.id}
           title={genre.name}
           movies={movieCategory}
@@ -117,7 +120,6 @@ class HomePage extends React.Component {
     return (
       <>
         {advertisement}
-        <div className="dark-layer"></div>
         {sliders}
       </>
     );
