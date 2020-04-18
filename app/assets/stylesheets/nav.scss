@@ -169,11 +169,14 @@ a {
   margin-right: 4px;
 }
 
-.hide-me {
-  display: none;
-}
 
 .account-dropdown-subMenu-container {
+  display: none;
+}
+.account-dropdown-menu:hover {
+  .account-dropdown-subMenu-container{
+    display: block;
+  }
 }
 
 .account-caret {

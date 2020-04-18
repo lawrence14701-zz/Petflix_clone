@@ -5,11 +5,9 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handleDropDown = this.handleDropDown.bind(this);
     this.signOut = this.signOut.bind(this);
     this.state = {
       searchBarOpen: false,
-      dropDown: false,
     };
   }
   componentDidMount() {
@@ -23,10 +21,7 @@ class Nav extends React.Component {
     const currentState = this.state.searchBarOpen;
     this.setState({ searchBarOpen: !currentState });
   }
-  handleDropDown() {
-    const currentState = this.state.dropDown;
-    this.setState({ dropDown: !currentState });
-  }
+
 
   render() {
     const { genres, currentUser } = this.props;
@@ -91,15 +86,13 @@ class Nav extends React.Component {
           </div>
           <div
             className="account-dropdown-menu"
-            onMouseEnter={this.handleDropDown}
-            onMouseLeave={this.handleDropDown}
+            // onMouseEnter={this.handleDropDown}
+            // onMouseLeave={this.handleDropDown}
           >
             <img className="avatar" src={window.avatar} alt="profile avatar" />
             <i className="fas fa-caret-down"></i>
             <div
-              className={
-                dropDown ? "account-dropdown-subMenu-container" : "hide-me"
-              }
+              className="account-dropdown-subMenu-container"
             >
               <i className="fas fa-caret-up account-caret"></i>
               <div className="account-sub-menu">
