@@ -10,7 +10,6 @@ class HomePage extends React.Component {
       muted: false,
     };
     this.handleList = this.handleList.bind(this);
-    this.showLogo = this.showLogo.bind(this);
   }
   componentDidMount() {
     this.props.fetchAllGenres();
@@ -30,38 +29,7 @@ class HomePage extends React.Component {
       this.setState({ shouldAddToList: true });
     }
   }
-  showLogo() {
-    const { movie, myList } = this.props;
-    const { shouldAddToList } = this.state;
-    if (shouldAddToList === null) {
-      let isMovieIdInList =
-        myList.filter((obj) => obj.movie_id === movie.id).length > 0;
-      if (isMovieIdInList) {
-        this.setState({ shouldAddToList: isMovieIdInList });
-        return (
-          <>
-            <i className="billboard-icon fas fa-check-circle"></i>
-            <span>Add to my list</span>
-          </>
-        );
-      }
-    }
-    if (shouldAddToList) {
-      return (
-        <>
-          <i className="billboard-icon fas fa-check-circle"></i>
-          <span>Add to my list</span>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <i className="billboard-icon fas fa-plus-circle"></i>
-          <span>Add to my list</span>
-        </>
-      );
-    }
-  }
+
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.playingBillBoard !== prevProps.playingBillBoard) {
@@ -72,7 +40,9 @@ class HomePage extends React.Component {
   }
 
   render() {
+    console.log('home', this.props)
     const { genres, movies, showArrows } = this.props;
+    const {shouldAddToList} = this.state;
     const movieArray = Object.values(movies);
     // let randomNum = Math.floor(Math.random() * movieArray.length);
     const billboardMovie = movieArray[0];
@@ -100,7 +70,18 @@ class HomePage extends React.Component {
                 </Link>
               </button>
               <button className="b-myList b-button" onClick={this.handleList}>
-                {this.showLogo()}
+                {shouldAddToList ? 
+                <>
+                  <i className="billboard-icon fas fa-plus-circle"></i>
+          <span>Add to my list</span>
+          </>
+          :
+          <>
+           <i className="billboard-icon fas fa-check-circle"></i>
+          <span>Add to my list</span>
+          </>
+                }
+                {/* {this.showLogo()} */}
                 {/* <i className="billboard-icon fas fa-plus-circle"></i>
                 <span>Add to my list</span> */}
               </button>
