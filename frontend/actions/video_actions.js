@@ -8,6 +8,7 @@ export const RECEIVE_SINGLE_GENRE = 'RECEIVE_SINGLE_GENRE';
 export const RECEIVE_SINGLE_MOVIE = "RECEIVE_SINGLE_MOVIE"
 export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES"
 export const PLAYING_BILLBOARD = "PLAYING_BILLBOARD"
+export const RECEIVE_SHOW_ITEMS = "RECEIVE_SHOW_ITEMS"
 
 export const SHOW_ARROWS = "SHOW_ARROWS"
 
@@ -40,6 +41,11 @@ export const playingBillBoard = (billBoard) => ({
     billBoard
 })
 
+
+export const receiveShowItems = (showItems) => ({
+    type: RECEIVE_SHOW_ITEMS,
+    showItems
+})
 
 
 

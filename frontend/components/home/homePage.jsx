@@ -18,6 +18,7 @@ class HomePage extends React.Component {
     this.props.toggleBillBoard("true");
   }
 
+
   handleList() {
     const { addToList, movie, deleteListItem } = this.props;
     const { shouldAddToList } = this.state;

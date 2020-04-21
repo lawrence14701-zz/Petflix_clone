@@ -372,6 +372,142 @@ join_with_cat_genre = Join.create({
 })
 
 
+#------------------------tame to ur hamster-----------------------------------
+
+tame_your_hamster = Movie.create({
+    title: 'Tame your hamster',
+    description: 'This is just my personal method for taming hamsters which has worked for me, I hope you can find some of these tips userful for taming your new hamster.'
+})
+tame_your_hamster_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/tame_your_hamster.mp4")
+tame_your_hamster.video.attach(io: tame_your_hamster_video,filename: 'tame_your_hamster_video.mp4', content_type: 'video/mp4')
+tame_your_hamster_cover = open('https://petflix-development.s3.amazonaws.com/tame_your_hamster.jpg')
+tame_your_hamster.cover.attach(io: tame_your_hamster_cover, filename: 'tame_your_hamster_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: tame_your_hamster.id
+})
+
+
+#------------------------pancakes-----------------------------------
+
+pancakes = Movie.create({
+    title: 'Pancakes',
+    description: 'How to make yummy hamster pancakes topped with banana and honey! Enjoy more tiny hamster food in the Hamster Kitchen mini cooking series.'
+})
+pancakes_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/pancakes.mp4")
+pancakes.video.attach(io: pancakes_video,filename: 'pancakes_video.mp4', content_type: 'video/mp4')
+pancakes_cover = open('https://petflix-development.s3.amazonaws.com/pancakes.jpg')
+pancakes.cover.attach(io: pancakes_cover, filename: 'pancakes_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: pancakes.id
+})
+
+#------------------------Candy apples-----------------------------------
+
+candy_apples = Movie.create({
+    title: 'Candy Apples',
+    description: 'Learn how to make these yummy miniature candy apples that are safe for your hamsteres to eat'
+})
+candy_apples_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/candy_apples.mp4")
+candy_apples.video.attach(io: candy_apples_video,filename: 'candy_apples_video.mp4', content_type: 'video/mp4')
+candy_apples_cover = open('https://petflix-development.s3.amazonaws.com/candy_apples.jpg')
+candy_apples.cover.attach(io: candy_apples_cover, filename: 'candy_apples_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: candy_apples.id
+})
+
+#------------------------hamsters and dog-----------------------------------
+
+hamsters_and_dog = Movie.create({
+    title: 'hamsters and dog',
+    description: 'Checkout these cute hamsters hanging out with this great looking dog. What a relationship this is!'
+})
+hamsters_and_dog_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/hamsters_and_dog.mp4")
+hamsters_and_dog.video.attach(io: hamsters_and_dog_video,filename: 'hamsters_and_dog_video.mp4', content_type: 'video/mp4')
+hamsters_and_dog_cover = open('https://petflix-development.s3.amazonaws.com/hamsters_and_dog.jpg')
+hamsters_and_dog.cover.attach(io: hamsters_and_dog_cover, filename: 'hamsters_and_dog_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: hamsters_and_dog.id
+})
+
+join_with_dog_genre = Join.create({
+    genreId: dogGenre.id,
+    movieId: hamsters_and_dog.id
+})
+
+
+#------------------------harry potter hamster-----------------------------------
+
+harry_potter_hamster = Movie.create({
+    title: 'Harry Potter Hamster',
+    description: 'We love hamsters and we love Harry Potter so we decided to mix the two. Enjoy!'
+})
+harry_potter_hamster_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/harry_potter_hamster.mp4")
+harry_potter_hamster.video.attach(io: harry_potter_hamster_video,filename: 'harry_potter_hamster_video.mp4', content_type: 'video/mp4')
+harry_potter_hamster_cover = open('https://petflix-development.s3.amazonaws.com/harry_potter_hamster.jpg')
+harry_potter_hamster.cover.attach(io: harry_potter_hamster_cover, filename: 'harry_potter_hamster_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: harry_potter_hamster.id
+})
+
+#------------------------hamster things-----------------------------------
+
+hamster_things = Movie.create({
+    title: 'Hamster things',
+    description: 'We imagined an alternate reality where Stranger Things stars a cast of tiny rescue hamsters.'
+})
+hamster_things_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/hamster_things.mp4")
+hamster_things.video.attach(io: hamster_things_video,filename: 'hamster_things_video.mp4', content_type: 'video/mp4')
+hamster_things_cover = open('https://petflix-development.s3.amazonaws.com/hamster_things.jpg')
+hamster_things.cover.attach(io: hamster_things_cover, filename: 'hamster_things_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: hamster_things.id
+})
+
+
+#------------------------hamster wars-----------------------------------
+
+hamster_wars = Movie.create({
+    title: 'Hamster Wars',
+    description: 'In a galaxy far far away, the galactic hamster empire fights for control of the milky way system. Its up to one hamster to stop them and save the galaxy.'
+})
+hamster_wars_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/hamster_wars.mp4")
+hamster_wars.video.attach(io: hamster_wars_video,filename: 'hamster_wars_video.mp4', content_type: 'video/mp4')
+hamster_wars_cover = open('https://petflix-development.s3.amazonaws.com/hamster_wars.jpg')
+hamster_wars.cover.attach(io: hamster_wars_cover, filename: 'hamster_wars_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: hamster_wars.id
+})
+
+#------------------------hundred years of hamsters-----------------------------------
+
+hundred_years_of_hamsters = Movie.create({
+    title: 'Hundred Years of Hamsters',
+    description: 'Hamster beauty has changed alot over the past 100 years. Well, not really, but it`s always fun to watch a hamster`s cheeks puff up with each carrot bite'
+})
+hundred_years_of_hamsters_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/hundred_years_of_hamsters.mp4")
+hundred_years_of_hamsters.video.attach(io: hundred_years_of_hamsters_video,filename: 'hundred_years_of_hamsters_video.mp4', content_type: 'video/mp4')
+hundred_years_of_hamsters_cover = open('https://petflix-development.s3.amazonaws.com/hundred_years_of_hamsters.jpg')
+hundred_years_of_hamsters.cover.attach(io: hundred_years_of_hamsters_cover, filename: 'hundred_years_of_hamsters_cover.jpg')
+
+join_with_hamster_genre = Join.create({
+    genreId: hamsterGenre.id,
+    movieId: hundred_years_of_hamsters.id
+})
+
 
 
 

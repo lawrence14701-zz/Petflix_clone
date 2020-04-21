@@ -17,7 +17,7 @@ class Slider extends React.Component {
       showItems: 1,
       totalItems: 0,
       sliderItems: [],
-      currentSlide: null, //movie that has content open
+      currentSlide: null, 
     };
   }
 
@@ -28,6 +28,10 @@ class Slider extends React.Component {
       totalItems: movies.length,
       sliderItems: movies,
     });
+
+  }
+
+  componentWillMount(){
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updateSliderState.bind(this));
     }
@@ -142,16 +146,15 @@ class Slider extends React.Component {
     } else {
       resetStartId = plusNext;
     }
+    console.log(totalItems)
     this.setState({
       startId: resetStartId,
       moving: true,
       click: true,
     });
-
-    const transformRate = window.innerWidth / this.showItems; //(window.innerWidth / mv)
     if (!click) {
       $(slider).css({
-        transform: "translate3d(-100%, 0, 0)", 
+        transform: "translate3d(-100%, 0, 0)",
       });
       setTimeout(() => {
         $(slider).css({
@@ -159,9 +162,8 @@ class Slider extends React.Component {
         });
       }, 750);
     } else {
-      let newMV = mv-6 //had to make a new mv because the MV wasnt working for the right click as well as i wanted to
       $(slider).css({
-        transform: "translate3d(-2" + newMV + "%, 0, 0)", 
+        transform: "translate3d(-2" + mv + "%, 0, 0)", 
       });
       setTimeout(() => {
         $(slider).css({
@@ -241,102 +243,3 @@ class Slider extends React.Component {
 export default Slider;
 
 
-// import React from "react";
-// import SliderItem from "./slideritem_container";
-// import Content from "./content";
-
-// export default class Slider extends React.Component {
-//                  constructor(props) {
-//                    super(props);
-//                    this.ref = React.createRef();
-//                    this.countItems = 0;
-//                    this.currentDistance = 0;
-//                    this.state = {
-//                      totalPages: 0,
-//                      currentPage: 1,
-//                      currentSlide: null,
-//                    };
-//                  }
-
-//                  componentDidMount() {
-//                    const countItems = this.ref.current.childNodes.length;
-//                    const widthWrapper = this.ref.current.offsetWidth;
-//                    const widthCover = this.ref.current.childNodes[0].offsetWidth;
-//                    debugger
-//                    const totalPages = Math.ceil(countItems / Math.ceil(widthWrapper / widthCover));
-//                    this.setState({ totalPages: totalPages });
-//                    console.log("totalPages", totalPages);
-//                  }
-//                  handlerPrev() {
-//                    if (this.currentPage === 1) return;
-//                    this.currentDistance = this.currentDistance - 100;
-//                    this.ref.current.style.transform = `translate3d(-${this.currentDistance}%, 0, 0)`;
-//                    this.currentPage--;
-//                  }
-//                  handlerNext() {
-//                    if (this.currentPage === this.totalPages) return;
-//                    this.currentDistance = this.currentPage * 100;
-//                    this.ref.current.style.transform = `translate3d(-${this.currentDistance}%, 0, 0)`;
-//                    this.currentPage++;
-//                  }
-//                  transitionEnd() {
-//                    this.setState({ currentPage: this.currentPage });
-//                  }
-//                    onClose() {
-//                      this.setState({ currentSlide: null });
-//                    }
-//                    onOpen(movie) {
-//                      this.setState({ currentSlide: movie });
-//                      // I also want to apply some styling to this movie, give it a white border
-//                    }
-//                  render() {
-//                    const { movies } = this.props;
-//                    const {currentSlide} = this.state;
-//                    return (
-//                      <React.Fragment>
-//                        <div className="indicator">
-//                          {[...Array(this.state.totalPages).keys()].map((i) => (
-//                            <div
-//                              key={i}
-//                              className={`indicator_page ${
-//                                i + 1 === this.state.currentPage && "active"
-//                              }`}
-//                            />
-//                          ))}
-//                        </div>
-//                        <div className="slider">
-//                          <span
-//                            onClick={this.handlerPrev}
-//                            className="slider_button slider_button--left"
-//                          >
-//                            left
-//                          </span>
-//                          <div className="slider_content">
-//                            <div
-//                              ref={this.ref}
-//                              onTransitionEnd={this.transitionEnd}
-//                              className="slider_content__inner"
-//                            >
-//                              {movies.map((e, i) => {
-//                                return (
-//                                  <SliderItem
-//                                    key={i}
-//                                    movie={e}
-//                                    onOpen={this.handleOpen}
-//                                    isContentOpen={currentSlide} //current slide that has content open
-//                                  />
-//                                );
-//                              })}
-//                            </div>
-//                          </div>
-//                          <span
-//                            onClick={this.handlerNext}
-//                            className="slider_button slider_button--right"
-//                          >
-//                            right
-//                          </span>
-//                        </div>
-//                      </React.Fragment>
-//                    );
-//                  }
-//                }

@@ -31,11 +31,13 @@ class Movies extends React.Component {
   componentDidMount() {
     this.props.fetchAllGenres();
     this.props.hideArrowsOnMovies("false");
-  }
+}
 
-  componentWillMount(){
-    this.updatePageItems()
-    window.addEventListener("resize", this.updatePageItems);
+  componentWillMount() {
+    this.updatePageItems();
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", this.updatePageItems.bind(this));
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -55,18 +57,20 @@ class Movies extends React.Component {
     }
 
     if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
-      debugger
       this.setState({ showItems: showItemsNewVal });
+
     }
   }
 
+
   render() {
     const { movies, showArrows } = this.props;
-    const { showItems } = this.state; 
+    const { showItems } = this.state;
+
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let totalMovies = Object.values(movies);
       let movieRows = [];
-      let numberOfRows = totalMovies.length / showItems;
+      let numberOfRows = Math.ceil(totalMovies.length / showItems);
       for (let i = 0; i < numberOfRows; i++) {
         let movieRow = [];
         for (let j = 0; j < showItems; j++) {
@@ -99,10 +103,9 @@ class Movies extends React.Component {
           </div>
         </>
       );
-    } else {
-      return null;
-    }
+    } 
   }
 }
+
 
 export default Movies;
