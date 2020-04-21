@@ -156,7 +156,6 @@ class Slider extends React.Component {
       click: true,
     });
     if (!click) {
-      console.log('adjskdjslkdjksld',window.innerWidth / (this.refs.slider.offsetWidth - 60));
       $(slider).css({
         transform: "translate3d(-100%, 0, 0)",
       });
@@ -167,13 +166,13 @@ class Slider extends React.Component {
       }, 750);
     } else {
       $(slider).css({
-        // transform: "translate3d(-2" + mv + "%, 0, 0)",
-        transform: "translate3d(-200%, 0, 0)",
+        transform: "translate3d(-2" + mv + "%, 0, 0)",
+
       });
       setTimeout(() => {
         $(slider).css({
-          // transform: "translate3d(-200%, 0, 0)",
-          transform: "translate3d(-2" + mv + "%, 0, 0)",
+          transform: "translate3d(-1" + mv + "%, 0, 0)",
+
         });
       }, 750);
     }
