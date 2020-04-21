@@ -51,6 +51,7 @@ class Slider extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
+    debugger
     let mv = 100 / showItems;
     this.setState({
       showItems,
@@ -120,12 +121,13 @@ class Slider extends React.Component {
     });
 
     $(slider).css({
-      transform: "translate3d(-" + mv  + "%, 0, 0)", 
+      // transform: "translate3d(-" + mv  + "%, 0, 0)",
+      transform: "translate3d(-100%, 0, 0)",
     });
-    let newMV = mv - 6;
     setTimeout(() => {
       $(slider).css({
-        transform: "translate3d(-1" + newMV + "%, 0, 0)",
+        // transform: "translate3d(-1" + mv + "%, 0, 0)",
+        transform: "translate3d(-100%, 0, 0)",
       });
     }, 750);
     setTimeout(() => {
@@ -158,16 +160,18 @@ class Slider extends React.Component {
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%, 0, 0)", 
+          // transform: "translate3d(-1" + mv + "%, 0, 0)",
+          transform: "translate3d(-100%, 0, 0)",
         });
       }, 750);
     } else {
       $(slider).css({
-        transform: "translate3d(-2" + mv + "%, 0, 0)", 
+        transform: "translate3d(-2" + mv + "%, 0, 0)",
+        transform: "translate3d(-200%, 0, 0)",
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-1" + mv + "%, 0, 0)",
+          transform: "translate3d(-200%, 0, 0)",
         });
       }, 750);
     }
