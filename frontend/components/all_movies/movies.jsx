@@ -4,9 +4,9 @@ import Slider from "../slider/slider";
 class Movies extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showItems: 6,
-    };
+    // this.state = {
+    //   showItems: 6,
+    // };
   }
 
   updatePageItems() {
@@ -23,13 +23,12 @@ class Movies extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    this.setState({
-      showItems,
-    });
+    this.props.updateShowItems(showItems)
   }
 
   componentDidMount() {
     this.props.fetchAllGenres();
+    this.updatePageItems()
     this.props.hideArrowsOnMovies("false");
 }
 
@@ -56,20 +55,18 @@ class Movies extends React.Component {
       showItemsNewVal = 2;
     }
 
-    if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
-      this.setState({ showItems: showItemsNewVal });
-
+    if (showItemsNewVal && prevProps.showItems !== showItemsNewVal) {
+      this.props.updateShowItems(showItemsNewVal)
     }
   }
 
 
   render() {
-    const { movies, showArrows } = this.props;
-    const { showItems } = this.state;
+    const { movies, showArrows, showItems } = this.props;
 
+    let movieRows = [];
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let totalMovies = Object.values(movies);
-      let movieRows = [];
       let numberOfRows = Math.ceil(totalMovies.length / showItems);
       for (let i = 0; i < numberOfRows; i++) {
         let movieRow = [];
@@ -81,6 +78,7 @@ class Movies extends React.Component {
         }
         movieRows.push(movieRow);
       }
+    }
       return (
         <>
           <div className="gallery-title">
@@ -105,7 +103,8 @@ class Movies extends React.Component {
       );
     } 
   }
-}
+
+
 
 
 export default Movies;

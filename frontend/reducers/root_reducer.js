@@ -6,7 +6,7 @@ import entitiesReducer from "./entities/entities_reducer";
 const rootReducer = combineReducers({
   entities: entitiesReducer,
   session: sessionReducer, //<== this slice of state comes from my session folder, this is how a user loggins and logouts
-  errors: errorsReducer //<== contains errors for logging and signup(so farrrr)
+  errors: errorsReducer //<== contains errors for logging and signup
 });
 
 export default rootReducer;

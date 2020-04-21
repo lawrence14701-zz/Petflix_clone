@@ -5,6 +5,7 @@ import genresReducer from "./genres_reducer";
 import showArrowsReducer from './show_arrows_reducer'
 import myListReducer from './list_reducer';
 import billBoardReducer from './billboard_reducer'
+import showItemsReducer from "./showItems";
 
 const entitiesReducer = combineReducers({
   genres: genresReducer,
@@ -13,6 +14,7 @@ const entitiesReducer = combineReducers({
   myList: myListReducer,
   showArrows: showArrowsReducer, //gets set to true or false
   billBoard: billBoardReducer,
+  showItems: showItemsReducer
 });
 
 export default entitiesReducer;

@@ -1,13 +1,15 @@
 import React from "react";
 import Slider from "../slider/slider";
+import genre_container from "./genre_container";
 
 class Genre extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showItems: 6,
-    };
+    // this.state = {
+    //   showItems: 6,
+    // };
   }
+
   updatePageItems() {
     let windowWidth = window.innerWidth;
     let showItems = 1;
@@ -22,16 +24,18 @@ class Genre extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    this.setState({
-      showItems,
-    });
+    this.props.updateShowItems(showItems);
   }
 
   componentDidMount() {
     this.props.fetchGenre(this.props.match.params.genreId);
     this.props.fetchAllGenres();
+    this.updatePageItems();
     this.props.hideArrowsOnGenres("false");
-    // this.updatePageItems();
+  }
+
+  componentWillMount() {
+    this.updatePageItems();
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updatePageItems.bind(this));
     }
@@ -53,14 +57,13 @@ class Genre extends React.Component {
       showItemsNewVal = 2;
     }
 
-    if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
-      this.setState({ showItems: showItemsNewVal });
+    if (showItemsNewVal && prevProps.showItems !== showItemsNewVal) {
+      this.props.updateShowItems(showItemsNewVal);
     }
   }
 
   render() {
-    const { genre, movies, showArrows } = this.props;
-    const { showItems } = this.state;
+     const { genre, movies, showArrows, showItems} = this.props;
     if (genre) {
       let movieCategory = [];
       genre.movie_ids.forEach((movieId) => {
@@ -109,3 +112,4 @@ class Genre extends React.Component {
 }
 
 export default Genre;
+
