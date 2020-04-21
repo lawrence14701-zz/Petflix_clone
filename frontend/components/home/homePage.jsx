@@ -45,7 +45,6 @@ class HomePage extends React.Component {
     const { genres, movies, showArrows } = this.props;
     const {shouldAddToList} = this.state;
     const movieArray = Object.values(movies);
-    // let randomNum = Math.floor(Math.random() * movieArray.length);
     const billboardMovie = movieArray[0];
 
     const advertisement =

@@ -73,6 +73,7 @@ class SliderItem extends React.Component {
               className="playVideo"
               src={video}
               onMouseEnter={(event) => this.handlePreview(event)}
+              onMouseLeave={(event) => this.handlePreview(event)}
             />
             <Link to={`/watch/${movie.id}`}>
               <div className="play">
