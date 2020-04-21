@@ -9,6 +9,7 @@ class Slider extends React.Component {
     this.handleOnRightArrowClick = this.rightArrowClick.bind(this);
     this.handleClose = this.onClose.bind(this);
     this.handleOpen = this.onOpen.bind(this);
+    this.setWidth = this.setWidth;
     this.state = {
       moving: false,
       click: false,
@@ -18,6 +19,7 @@ class Slider extends React.Component {
       totalItems: 0,
       sliderItems: [],
       currentSlide: null, 
+      sliderWidth: 0,
     };
   }
 
@@ -52,7 +54,8 @@ class Slider extends React.Component {
       showItems = 2;
     }
     debugger
-    let mv = 100 / showItems;
+    const sliderLength = this.refs.slider.offsetWidth;
+    let mv = 100 / showItems; //gonna change this //slideritem =291
     this.setState({
       showItems,
       mv,
@@ -121,13 +124,11 @@ class Slider extends React.Component {
     });
 
     $(slider).css({
-      // transform: "translate3d(-" + mv  + "%, 0, 0)",
-      transform: "translate3d(-100%, 0, 0)",
+      transform: "translate3d(-" + mv  + "%, 0, 0)",
     });
     setTimeout(() => {
       $(slider).css({
-        // transform: "translate3d(-1" + mv + "%, 0, 0)",
-        transform: "translate3d(-100%, 0, 0)",
+        transform: "translate3d(-1" + mv + "%, 0, 0)",
       });
     }, 750);
     setTimeout(() => {
@@ -155,23 +156,24 @@ class Slider extends React.Component {
       click: true,
     });
     if (!click) {
+      console.log('adjskdjslkdjksld',window.innerWidth / (this.refs.slider.offsetWidth - 60));
       $(slider).css({
         transform: "translate3d(-100%, 0, 0)",
       });
       setTimeout(() => {
         $(slider).css({
-          // transform: "translate3d(-1" + mv + "%, 0, 0)",
-          transform: "translate3d(-100%, 0, 0)",
+          transform: "translate3d(-1" + mv + "%, 0, 0)",
         });
       }, 750);
     } else {
       $(slider).css({
-        transform: "translate3d(-2" + mv + "%, 0, 0)",
+        // transform: "translate3d(-2" + mv + "%, 0, 0)",
         transform: "translate3d(-200%, 0, 0)",
       });
       setTimeout(() => {
         $(slider).css({
-          transform: "translate3d(-200%, 0, 0)",
+          // transform: "translate3d(-200%, 0, 0)",
+          transform: "translate3d(-2" + mv + "%, 0, 0)",
         });
       }, 750);
     }
@@ -190,6 +192,13 @@ class Slider extends React.Component {
   onOpen(movie) {
     this.setState({ currentSlide: movie });
     // I also want to apply some styling to this movie, give it a white border
+  }
+
+  setWidth(slider){
+    console.log(slider)
+    // if(slider){
+    //   this.setState({sliderWidth: slider});
+    // }
   }
   render() {
     const { title, showArrows, firstSlider } = this.props;
@@ -213,6 +222,7 @@ class Slider extends React.Component {
                   movie={e}
                   onOpen={this.handleOpen}
                   isContentOpen={currentSlide} //current slide that has content open
+                  sliderWidth= {this.setWidth}
                 />
               );
             })}

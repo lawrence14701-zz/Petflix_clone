@@ -15,8 +15,13 @@ class SliderItem extends React.Component {
 
   }
 
+  getSliderWidth(){
+      this.props.sliderWidth(this.refs.sliderItem.offsetWidth);
+  }
+
   componentDidMount() {
     this.props.getList();
+    this.getSliderWidth()
   }
 
   handleSubmit() {
@@ -66,7 +71,7 @@ class SliderItem extends React.Component {
     return (
       <div className="sliderItem">
         <div className="sliderItemInner">
-          <img className="cover" src={cover} />
+          <img ref='sliderItem' className="cover" src={cover} />
           <div className="preview">
             <video
               muted
