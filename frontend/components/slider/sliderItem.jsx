@@ -50,11 +50,15 @@ class SliderItem extends React.Component {
     if (!playingPreview) {
       video.play();
       video.muted = false;
+      //hovering over one movie set state to hovering
+      this.props.hovering()
     } else {
       video.pause();
       video.currenttime = 0;
       video.load();
       video.muted = true;
+      this.props.hovering();
+
     }
     this.setState({ playingPreview: !playingPreview}); //toggles between playing 
   }

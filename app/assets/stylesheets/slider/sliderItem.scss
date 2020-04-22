@@ -130,7 +130,7 @@
   display: block;
 }
 
-.sliderMask:hover .sliderItem {
+.hovering:hover .sliderItem { //slidermask
   transform: translateX(-25%);
 }
 

@@ -63,6 +63,7 @@ class Movies extends React.Component {
 
   render() {
     const { movies, showArrows, showItems } = this.props;
+    const title = this.props.genre
 
     let movieRows = [];
     if (Object.getOwnPropertyNames(movies).length !== 0) {
@@ -81,23 +82,25 @@ class Movies extends React.Component {
     }
       return (
         <>
-          <div className="gallery-title">
-            <div id="genre-title">Movies</div>
-          </div>
           <div className="gallery">
-            {movieRows.map((movieRow, idx) => {
-              return (
-                <>
-                  <div className="sliderSpace">
-                    <Slider
-                      key={idx}
-                      movies={movieRow}
-                      showArrows={showArrows}
-                    />
-                  </div>
-                </>
-              );
-            })}
+            <div className="gallery-title">
+              <div id="genre-title">Movies</div>
+            </div>
+            <div className="gallery">
+              {movieRows.map((movieRow, idx) => {
+                return (
+                  <>
+                    <div className="sliderSpace">
+                      <Slider
+                        key={idx}
+                        movies={movieRow}
+                        showArrows={showArrows}
+                      />
+                    </div>
+                  </>
+                );
+              })}
+            </div>
           </div>
         </>
       );

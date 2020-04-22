@@ -10,6 +10,7 @@ class Slider extends React.Component {
     this.handleClose = this.onClose.bind(this);
     this.handleOpen = this.onOpen.bind(this);
     this.setWidth = this.setWidth;
+    this.isHovering = this.isHovering.bind(this)
     this.state = {
       moving: false,
       click: false,
@@ -20,6 +21,7 @@ class Slider extends React.Component {
       sliderItems: [],
       currentSlide: null, 
       sliderWidth: 0,
+      active: false
     };
   }
 
@@ -53,8 +55,6 @@ class Slider extends React.Component {
     } else if (windowWidth > 600) {
       showItems = 2;
     }
-    debugger
-    const sliderLength = this.refs.slider.offsetWidth;
     let mv = 100 / showItems; //gonna change this //slideritem =291
     this.setState({
       showItems,
@@ -199,9 +199,14 @@ class Slider extends React.Component {
     //   this.setState({sliderWidth: slider});
     // }
   }
+  isHovering(){
+    this.setState({active: !this.state.active})
+  }
   render() {
     const { title, showArrows, firstSlider } = this.props;
     const { sliderItems, click, moving, currentSlide } = this.state;
+    const hovering = this.state.active ? 'hovering' : null
+    console.log(hovering)
     return (
       <div className="wrapper">
         {firstSlider === 1 ? <div className='dark-layer'></div> : null}
@@ -210,7 +215,7 @@ class Slider extends React.Component {
         )}
         <div className="slider">
           <div
-            className={moving ? "moving sliderMask" : "sliderMask"}
+            className={moving ? "moving sliderMask" : `sliderMask ${hovering}`}
             ref="slider"
           >
             {sliderItems.map((e, i) => {
@@ -222,6 +227,7 @@ class Slider extends React.Component {
                   onOpen={this.handleOpen}
                   isContentOpen={currentSlide} //current slide that has content open
                   sliderWidth= {this.setWidth}
+                  hovering = {this.isHovering}
                 />
               );
             })}
