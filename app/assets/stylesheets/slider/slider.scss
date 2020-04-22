@@ -2,14 +2,20 @@ html {
   scroll-behavior: smooth;
 }
 
+.slider-container{
+  width: 100%;
+  position: relative;
+    margin-bottom: 40px;
+
+}
+
 .wrapper {
   height: 100%;
-  margin-bottom: 40px;
   position: relative;
+  padding: 0 60px 0 60px;
 }
 
 .pageHead {
-  min-height: 44px;
   display: inline-block;
   font-size: 26px;
   font-weight: bold;
@@ -33,7 +39,7 @@ html {
 .arrow {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(0, -51%);
   width: 60px;
   z-index: 10;
   cursor: pointer;
@@ -42,7 +48,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 20px);
+  height: calc(100% - 23px);
 }
 
 .leftArrow {

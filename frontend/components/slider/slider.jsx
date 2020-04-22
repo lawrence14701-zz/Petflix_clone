@@ -201,53 +201,56 @@ class Slider extends React.Component {
     const { sliderItems, click, moving, currentSlide } = this.state;
     const hovering = this.state.active ? 'hovering' : null
     return (
-      <div className="wrapper">
-        {firstSlider === 1 ? <div className='dark-layer'></div> : null}
-        {showArrows === 'true' && (
-        <h1 className="pageHead">{title}</h1>
-        )}
-        <div className="slider">
-          <div
-            className={moving ? "moving sliderMask" : `sliderMask ${hovering}`}
-            ref="slider"
-          >
-            {sliderItems.map((e, i) => {
-          
-              return (
-                <SliderItem
-                  key={i}
-                  movie={e}
-                  onOpen={this.handleOpen}
-                  isContentOpen={currentSlide} //current slide that has content open
-                  sliderWidth= {this.setWidth}
-                  hovering = {this.isHovering}
-                />
-              );
-            })}
+      <>
+        <div className='slider-container'>
+          {showArrows === "true" && <h1 className="pageHead">{title}</h1>}
+          {firstSlider === 1 ? <div className="dark-layer"></div> : null}
+          <div className="wrapper">
+            <div className="slider">
+              <div
+                className={
+                  moving ? "moving sliderMask" : `sliderMask ${hovering}`
+                }
+                ref="slider"
+              >
+                {sliderItems.map((e, i) => {
+                  return (
+                    <SliderItem
+                      key={i}
+                      movie={e}
+                      onOpen={this.handleOpen}
+                      isContentOpen={currentSlide} //current slide that has content open
+                      sliderWidth={this.setWidth}
+                      hovering={this.isHovering}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+              {click && showArrows === "true" && (
+                <div
+                  className="leftArrow arrow"
+                  ref="leftArrow"
+                  onClick={this.handleOnLeftArrowClick}
+                >
+                  <i className="fas fa-chevron-left"></i>
+                </div>
+              )}
+              {showArrows === "true" && (
+                <div
+                  className="rightArrow arrow"
+                  ref="RightArrow"
+                  onClick={this.handleOnRightArrowClick}
+                >
+                  <i className="fas fa-chevron-right"></i>{" "}
+                </div>
+              )}
           </div>
-          {click && showArrows === "true" && (
-            <div
-              className="leftArrow arrow"
-              ref="leftArrow"
-              onClick={this.handleOnLeftArrowClick}
-            >
-              <i className="fas fa-chevron-left"></i>
-            </div>
-          )}
-          {showArrows === "true" && (
-            <div
-              className="rightArrow arrow"
-              ref="RightArrow"
-              onClick={this.handleOnRightArrowClick}
-            >
-              <i className="fas fa-chevron-right"></i>{" "}
-            </div>
-          )}
+            {currentSlide && (
+              <Content movie={currentSlide} onClose={this.handleClose} />
+            )}
         </div>
-        {currentSlide && (
-          <Content movie={currentSlide} onClose={this.handleClose} />
-        )}
-      </div>
+      </>
     );
   }
 }

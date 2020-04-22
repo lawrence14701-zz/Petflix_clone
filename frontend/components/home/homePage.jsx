@@ -122,7 +122,9 @@ class HomePage extends React.Component {
     return (
       <>
         {advertisement}
-        {sliders}
+        <div>
+          {sliders}
+        </div>
       </>
     );
   }
