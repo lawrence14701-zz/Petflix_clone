@@ -89,10 +89,10 @@ class MyList extends React.Component {
       }
       return (
         <>
-          <div className="gallery-title">
-            <div id="genre-title">Movies</div>
-          </div>
           <div className="gallery">
+            <div className="gallery-title">
+              <div id="genre-title">My List</div>
+            </div>
             {movieRows.map((movieRow, idx) => {
               return (
                 <>
