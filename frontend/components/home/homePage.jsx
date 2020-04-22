@@ -22,8 +22,9 @@ class HomePage extends React.Component {
 
   handleVolume(){
     const {muted} = this.state;
+    console.log(muted)
+    this.props.toggleBillBoard(!muted);
     this.setState({muted: !muted })
-    this.props.toggleBillBoard(muted);
   }
 
   handleList() {

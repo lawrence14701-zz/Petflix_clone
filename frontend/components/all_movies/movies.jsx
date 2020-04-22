@@ -12,7 +12,7 @@ class Movies extends React.Component {
   updatePageItems() {
     let windowWidth = window.innerWidth;
     let showItems = 1;
-    if (windowWidth > 1800) {
+    if (windowWidth >= 1800) {
       showItems = 6;
     } else if (windowWidth > 1260) {
       showItems = 5;
@@ -46,7 +46,7 @@ class Movies extends React.Component {
     const windowWidth = window.innerWidth;
 
     let showItemsNewVal;
-    if (windowWidth > 1800) {
+    if (windowWidth >= 1800) {
       showItemsNewVal = 6;
     } else if (windowWidth > 1260) {
       showItemsNewVal = 5;

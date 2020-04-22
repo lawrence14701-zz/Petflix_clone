@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.signOut = this.signOut.bind(this);
     this.refresh = this.refresh.bind(this);
     this.state = {
@@ -13,6 +14,11 @@ class Nav extends React.Component {
   }
   componentDidMount() {
     this.props.fetchAllGenres();
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  handleClickOutside(){
+    this.setState({ searchBarOpen: false });
   }
 
   refresh(){
@@ -22,9 +28,8 @@ class Nav extends React.Component {
   signOut(){
     this.props.logout()
   }
-  handleClick() {
-    const currentState = this.state.searchBarOpen;
-    this.setState({ searchBarOpen: !currentState });
+  handleClickOpen() {
+    this.setState({ searchBarOpen: true });
   }
 
 
@@ -71,7 +76,7 @@ class Nav extends React.Component {
         </nav>
         <nav className="sub-nav">
           <div className="search-container">
-            <div className="search" onClick={this.handleClick}>
+            <div className="search" onClick={this.handleClickOpen}>
               <input
                 className={searchBarOpen ? "toggle input" : "input"}
                 type="text"
