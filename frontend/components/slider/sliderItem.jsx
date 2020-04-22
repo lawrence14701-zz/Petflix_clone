@@ -15,13 +15,9 @@ class SliderItem extends React.Component {
 
   }
 
-  getSliderWidth(){
-      this.props.sliderWidth(this.refs.sliderItem.offsetWidth);
-  }
-
+ 
   componentDidMount() {
     this.props.getList();
-    this.getSliderWidth()
   }
 
   handleSubmit() {
@@ -43,7 +39,6 @@ class SliderItem extends React.Component {
   }
 
   previewMovie(e) {
-    console.log(e)
     this.props.toggleBillBoard('false'); //stop billboard from playing
     const { playingPreview } = this.state;
     const video = e.target;

@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "../slider/slider";
 import { Link } from "react-router-dom";
 
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +11,7 @@ class HomePage extends React.Component {
       muted: false,
     };
     this.handleList = this.handleList.bind(this);
+    this.handleVolume = this.handleVolume.bind(this);
   }
   componentDidMount() {
     this.props.fetchAllGenres();
@@ -18,6 +20,9 @@ class HomePage extends React.Component {
     this.props.toggleBillBoard("true");
   }
 
+  handleVolume(){
+    this.props.toggleBillBoard("true");
+  }
 
   handleList() {
     const { addToList, movie, deleteListItem } = this.props;
@@ -36,14 +41,16 @@ class HomePage extends React.Component {
     if (this.props.playingBillBoard !== prevProps.playingBillBoard) {
       if (this.props.playingBillBoard === "false") {
           this.setState({muted: true});
+      }else{
+        this.setState({ muted: false });
       }
     }
   }
+ 
 
   render() {
-    console.log('home', this.props)
     const { genres, movies, showArrows } = this.props;
-    const {shouldAddToList} = this.state;
+    const {shouldAddToList, muted} = this.state;
     const movieArray = Object.values(movies);
     const billboardMovie = movieArray[0];
 
@@ -53,7 +60,7 @@ class HomePage extends React.Component {
           <div className="billboard">
             <video
               autoPlay
-              muted = {this.state.muted}
+              muted={this.state.muted}
               className="billboard-video"
               src={billboardMovie.video}
               ref="billBoard"
@@ -70,21 +77,24 @@ class HomePage extends React.Component {
                 </Link>
               </button>
               <button className="b-myList b-button" onClick={this.handleList}>
-                {shouldAddToList ? 
-                <>
-                  <i className="billboard-icon fas fa-plus-circle"></i>
-          <span>Add to my list</span>
-          </>
-          :
-          <>
-           <i className="billboard-icon fas fa-check-circle"></i>
-          <span>Add to my list</span>
-          </>
-                }
-                {/* {this.showLogo()} */}
-                {/* <i className="billboard-icon fas fa-plus-circle"></i>
-                <span>Add to my list</span> */}
+                {shouldAddToList ? (
+                  <>
+                    <i className="billboard-icon fas fa-plus-circle"></i>
+                    <span>Add to my list</span>
+                  </>
+                ) : (
+                  <>
+                    <i className="billboard-icon fas fa-check-circle"></i>
+                    <span>Add to my list</span>
+                  </>
+                )}
               </button>
+            </div>
+            <div className="b-toggleVolume">
+              <button onClick={this.handleVolume}>
+                {muted ? <span className="material-icons">volume_off</span> : <span className="material-icons">volume_up</span>}
+              </button>
+                <span className='rating'>Pg-13</span>
             </div>
           </div>
         </div>

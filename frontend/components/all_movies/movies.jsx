@@ -27,6 +27,9 @@ class Movies extends React.Component {
   }
 
   componentDidMount() {
+    if(this.props.match.params.genreId){
+      this.props.fetchGenre(this.props.match.params.genreId);
+    }
     this.props.fetchAllGenres();
     this.updatePageItems()
     this.props.hideArrowsOnMovies("false");
@@ -62,12 +65,20 @@ class Movies extends React.Component {
 
 
   render() {
-    const { movies, showArrows, showItems } = this.props;
-    const title = this.props.genre
+    const { movies, showArrows, showItems, genre } = this.props;
+    const title = genre ? genre.name : 'Movies'
+    let totalMovies = [];
+    if (this.props.history.location.pathname !== '/movies') {
+      if(typeof genre !== 'undefined'){
+        genre.movie_ids.forEach((movieId) => {
+          totalMovies.push(movies[movieId]);
+        });
+      }} else{
+        totalMovies = Object.values(movies);
+      }
 
     let movieRows = [];
     if (Object.getOwnPropertyNames(movies).length !== 0) {
-      let totalMovies = Object.values(movies);
       let numberOfRows = Math.ceil(totalMovies.length / showItems);
       for (let i = 0; i < numberOfRows; i++) {
         let movieRow = [];
@@ -84,7 +95,7 @@ class Movies extends React.Component {
         <>
           <div className="gallery">
             <div className="gallery-title">
-              <div id="genre-title">Movies</div>
+              <div id="genre-title">{title}</div>
             </div>
             <div className="gallery">
               {movieRows.map((movieRow, idx) => {

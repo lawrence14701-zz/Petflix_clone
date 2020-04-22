@@ -149,7 +149,6 @@ class Slider extends React.Component {
     } else {
       resetStartId = plusNext;
     }
-    console.log(totalItems)
     this.setState({
       startId: resetStartId,
       moving: true,
@@ -193,12 +192,7 @@ class Slider extends React.Component {
     // I also want to apply some styling to this movie, give it a white border
   }
 
-  setWidth(slider){
-    console.log(slider)
-    // if(slider){
-    //   this.setState({sliderWidth: slider});
-    // }
-  }
+  
   isHovering(){
     this.setState({active: !this.state.active})
   }
@@ -206,7 +200,6 @@ class Slider extends React.Component {
     const { title, showArrows, firstSlider } = this.props;
     const { sliderItems, click, moving, currentSlide } = this.state;
     const hovering = this.state.active ? 'hovering' : null
-    console.log(hovering)
     return (
       <div className="wrapper">
         {firstSlider === 1 ? <div className='dark-layer'></div> : null}

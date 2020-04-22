@@ -55,13 +55,13 @@
 
 
 .b-info {
-    position: absolute;
+  position: absolute;
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 44%;
   left: 5%;
-  width: 40%;
+  max-width: 100vw;
 }
 .b-title {
   font-size: 60px;
@@ -72,6 +72,7 @@
 .b-description {
   font-weight: bold;
   line-height: 1.4;
+  width: 40%;
   font-size: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 }
@@ -132,4 +133,54 @@
 
 .b-buttons button {
   margin-right: 35px;
+}
+
+
+
+
+///sound toggle button
+
+.b-toggleVolume button{
+    background: rgba(0,0,0,0.5);
+    border: 2px solid gray;
+    color: white;
+    border-radius: 50%;
+    margin: 0;
+    padding: 12px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin: 0 1.1vw 0 0;
+}
+
+.b-toggleVolume button:hover {
+  transition: all 100ms linear;
+  transform: scale(1.2);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.b-toggleVolume{
+    position: absolute;
+    top: 60%;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.material-icons{
+  font-size: 20px;
+}
+
+.rating{
+  border: solid 3px #dcdcdc;
+    border-style: none none none solid;
+    background-color: rgba(51, 51, 51, 0.6);
+    font-size: 1.1vw;
+    padding: .5vw 3.5vw .5vw .8vw;
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    height: 2.4vw;
+    box-sizing: border-box;
 }

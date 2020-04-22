@@ -6,12 +6,17 @@ class Nav extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.signOut = this.signOut.bind(this);
+    this.refresh = this.refresh.bind(this);
     this.state = {
       searchBarOpen: false,
     };
   }
   componentDidMount() {
     this.props.fetchAllGenres();
+  }
+
+  refresh(){
+    window.location.reload(false);
   }
 
   signOut(){
@@ -44,7 +49,7 @@ class Nav extends React.Component {
               <i className="fas fa-caret-up genre-caret"></i>
               {genres.map((genre) => {
                 return (
-                  <li key={genre.id}>
+                  <li key={genre.id} onClick={this.refresh}>
                     <Link to={`/genre/${genre.id}`}>{genre.name}</Link>
                   </li>
                 );
