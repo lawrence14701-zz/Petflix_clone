@@ -31,6 +31,11 @@ const receiveMovie = (movie) => ({
   movie,
 });
 
+const receiveMovies = (movies) => ({
+    type: RECEIVE_ALL_MOVIES,
+    movies,
+})
+
 export const showArrows = (showArrow) => ({ //take in true or false
     type: SHOW_ARROWS,
     showArrow,
@@ -69,4 +74,10 @@ export const fetchGenre = (genreId) => (dispatch) => {
     return VideoUtil.fetchGenre(genreId)
         .then(genre => (dispatch(receiveGenre(genre))))
 }
+
+export const search = (search) => (dispatch) => {
+  return VideoUtil.fetchSearch(search).then((searchItems) => {
+    return dispatch(receiveMovies(searchItems));
+  });
+};
 

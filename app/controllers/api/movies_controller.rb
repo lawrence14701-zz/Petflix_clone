@@ -6,17 +6,15 @@ class Api::MoviesController < ApplicationController
     end
 
     def index
-        @genre = Genre.find(params[:genre_id])
-        @movies = @genre.movies
-        render :index
+       searchFor = params[:search].downcase.capitalize
+       if searchFor == 'Cats' || searhFor == "Dogs" || searchFor === 'Hamsters' || searchFor === 'Birds'
+            @movies = Genre.find_by_name(searchFor).movies
+            render :index
+       else
+           @movies = Movie.where("title LIKE #{searchfor}%")
+           render :index
+       end
+
     end
 
-    # def search
-    #     if params[:search].blank?  
-    #        render json: ["empty field"], status: 401 and return 
-    #     else
-    #         @parameter = params[:search].downcase  
-    #         @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
-    #     end
-    # end
 end

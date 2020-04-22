@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
+
 
 class Nav extends React.Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class Nav extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.signOut = this.signOut.bind(this);
     this.refresh = this.refresh.bind(this);
+    this.submitSearch = this.submitSearch.bind(this);
     this.state = {
       searchBarOpen: false,
     };
@@ -20,6 +23,14 @@ class Nav extends React.Component {
   handleClickOutside(event){
     if (this.refs.search && !this.refs.search.contains(event.target)){
       this.setState({ searchBarOpen: false });
+    }
+  }
+
+  submitSearch(e){
+    if(this.state.searchBarOpen === true && e.key === 'Enter'){
+      this.props.search(e.target.value)
+      this.props.history.push("/movies");
+
     }
   }
 
@@ -82,6 +93,7 @@ class Nav extends React.Component {
           <div className="search-container">
             <div className="search">
               <input
+                onKeyUp={this.submitSearch}
                 className={searchBarOpen ? "toggle input" : "input"}
                 type="text"
                 placeholder="puppies, cats, dogs"
@@ -128,4 +140,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
