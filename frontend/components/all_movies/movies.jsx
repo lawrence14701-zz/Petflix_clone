@@ -97,21 +97,17 @@ class Movies extends React.Component {
             <div className="gallery-title">
               <div id="genre-title">{title}</div>
             </div>
-            <div className="gallery">
               {movieRows.map((movieRow, idx) => {
                 return (
                   <>
-                    <div className="sliderSpace">
                       <Slider
                         key={idx}
                         movies={movieRow}
                         showArrows={showArrows}
                       />
-                    </div>
                   </>
                 );
               })}
-            </div>
           </div>
         </>
       );
