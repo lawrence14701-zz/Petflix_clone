@@ -17,8 +17,10 @@ class Nav extends React.Component {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
 
-  handleClickOutside(){
-    this.setState({ searchBarOpen: false });
+  handleClickOutside(event){
+    if (this.refs.search && !this.refs.search.contains(event.target)){
+      this.setState({ searchBarOpen: false });
+    }
   }
 
   refresh(){
@@ -29,7 +31,9 @@ class Nav extends React.Component {
     this.props.logout()
   }
   handleClickOpen() {
-    this.setState({ searchBarOpen: true });
+    if(this.state.searchBarOpen === false){
+      this.setState({ searchBarOpen: true });
+    }
   }
 
 
@@ -76,13 +80,14 @@ class Nav extends React.Component {
         </nav>
         <nav className="sub-nav">
           <div className="search-container">
-            <div className="search" onClick={this.handleClickOpen}>
+            <div className="search">
               <input
                 className={searchBarOpen ? "toggle input" : "input"}
                 type="text"
                 placeholder="puppies, cats, dogs"
               ></input>
               <i
+                onClick={this.handleClickOpen}
                 className={
                   searchBarOpen
                     ? "fas fa-search active sub-nav-logo"
@@ -101,9 +106,7 @@ class Nav extends React.Component {
           >
             <img className="avatar" src={window.avatar} alt="profile avatar" />
             <i className="fas fa-caret-down"></i>
-            <div
-              className="account-dropdown-subMenu-container"
-            >
+            <div className="account-dropdown-subMenu-container">
               <i className="fas fa-caret-up account-caret"></i>
               <div className="account-sub-menu">
                 <ul className="profiles">
