@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
+import { withRouter , Redirect} from "react-router";
 
 
 class Nav extends React.Component {
@@ -29,8 +29,9 @@ class Nav extends React.Component {
   submitSearch(e){
     if(this.state.searchBarOpen === true && e.key === 'Enter'){
       this.props.search(e.target.value)
-      this.props.history.push("/movies");
-
+      if(this.props.history.location.pathname !== './search'){     
+        this.props.history.push("/search");
+      }
     }
   }
 

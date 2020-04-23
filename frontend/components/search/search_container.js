@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import {
   search,
+  clearSearch,
   showArrows,
   receiveShowItems,
 } from "../../actions/video_actions";
@@ -16,9 +17,10 @@ const mapStateToProps = (state, ownprops) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    clearSearch: () => dispatch(clearSearch()),
     hideArrowsOnMovies: (hide) => dispatch(showArrows(hide)),
     updateShowItems: (showItems) => dispatch(receiveShowItems(showItems)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movies);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

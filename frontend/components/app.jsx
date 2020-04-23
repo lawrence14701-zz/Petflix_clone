@@ -9,6 +9,7 @@ import NavBar from './nav_bar/nav_container'
 import Movies from './all_movies/movies_container'
 import MyList from './myList/my_list_container';
 import Footer from './footer/footer';
+import Search from './search/search_container';
 
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
@@ -32,6 +33,8 @@ const app = () => {
       <ProtectedRoute exact path="/genre/:genreId" component={Movies} />
       <ProtectedRoute exact path="/movies" component={Movies} />
       <ProtectedRoute exact path="/myList" component={MyList} />
+      <ProtectedRoute exact path="/search" component={Search} />
+      <ProtectedRoute exact path="/search" component={NavBar} />
 
       <ProtectedRoute exact path="/browse" component={Footer} />
       <ProtectedRoute exact path="/movies" component={Footer} />
