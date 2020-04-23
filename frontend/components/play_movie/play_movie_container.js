@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import { fetchMovie } from "../../actions/video_actions";
+import { fetchMovie, fetchAllGenres } from "../../actions/video_actions";
 import PlayMovie from "./playMovie";
+
 
 const mstp = (state, ownprops) => {
   return {
@@ -9,7 +10,8 @@ const mstp = (state, ownprops) => {
 };
 
 const mdtp = dispatch => ({
-  fetchMovie: movie => dispatch(fetchMovie(movie))
+  fetchMovie: movie => dispatch(fetchMovie(movie)),
+  fetchAllGenres: () => dispatch(fetchAllGenres())
 });
 
 export default connect(mstp, mdtp)(PlayMovie);

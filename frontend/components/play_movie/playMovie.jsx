@@ -14,6 +14,8 @@ class PlayMovie extends React.Component {
     };
   }
 
+
+
   timeUpdate() {
     const barColor = this.refs.barColor; //create ref ()
     const moviePlayer = this.refs.moviePlayer;
@@ -33,6 +35,7 @@ class PlayMovie extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchAllGenres();
     this.props.fetchMovie(this.props.match.params.movieId);
   }
 

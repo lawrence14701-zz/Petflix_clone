@@ -41,7 +41,7 @@ class Footer extends React.Component {
         <h2 className="footer-header">Description</h2>
         <p className="basic-info">
           A clone of the iconic web app Netflix, where users can stream pet
-          videos. Feature of this webapp are: search bar, movie carousel, custom video controls, myList 
+          videos. Features of this webapp are: search bar, movie carousel, custom video controls, myList 
         </p>
         <h2 className="footer-header">Technologies</h2>
         <div className="footer-links">

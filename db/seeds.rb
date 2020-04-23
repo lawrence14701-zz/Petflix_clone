@@ -33,14 +33,15 @@ catGenre = Genre.create({
     name: 'Cats'
 })
 
+hamsterGenre = Genre.create({
+    name: 'Hamsters'
+})
+
 dogGenre = Genre.create({
     name: 'Dogs'
 })
 
 
-hamsterGenre = Genre.create({
-    name: 'Hamsters'
-})
 
 # birdGenere = Genre.create({
 #     name: 'Birds'
@@ -405,6 +406,22 @@ join_with_hamster_genre = Join.create({
     movieId: pancakes.id
 })
 
+#------------------------hamster wars-----------------------------------
+
+hamster_wars = Movie.create({
+  title: "Hamster Wars",
+  description: "In a galaxy far far away, the galactic hamster empire fights for control of the milky way system. Its up to one hamster to stop them and save the galaxy.",
+})
+hamster_wars_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/hamster_wars.mp4")
+hamster_wars.video.attach(io: hamster_wars_video, filename: "hamster_wars_video.mp4", content_type: "video/mp4")
+hamster_wars_cover = open("https://petflix-development.s3.amazonaws.com/hamster_wars.jpg")
+hamster_wars.cover.attach(io: hamster_wars_cover, filename: "hamster_wars_cover.jpg")
+
+join_with_hamster_genre = Join.create({
+  genreId: hamsterGenre.id,
+  movieId: hamster_wars.id,
+})
+
 #------------------------Candy apples-----------------------------------
 
 candy_apples = Movie.create({
@@ -455,21 +472,6 @@ join_with_hamster_genre = Join.create({
 })
 
 
-#------------------------hamster wars-----------------------------------
-
-hamster_wars = Movie.create({
-    title: 'Hamster Wars',
-    description: 'In a galaxy far far away, the galactic hamster empire fights for control of the milky way system. Its up to one hamster to stop them and save the galaxy.'
-})
-hamster_wars_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/hamster_wars.mp4")
-hamster_wars.video.attach(io: hamster_wars_video,filename: 'hamster_wars_video.mp4', content_type: 'video/mp4')
-hamster_wars_cover = open('https://petflix-development.s3.amazonaws.com/hamster_wars.jpg')
-hamster_wars.cover.attach(io: hamster_wars_cover, filename: 'hamster_wars_cover.jpg')
-
-join_with_hamster_genre = Join.create({
-    genreId: hamsterGenre.id,
-    movieId: hamster_wars.id
-})
 
 #------------------------hundred years of hamsters-----------------------------------
 
