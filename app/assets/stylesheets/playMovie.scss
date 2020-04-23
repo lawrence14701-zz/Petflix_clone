@@ -1,78 +1,81 @@
-.play-container {
-  display: flex;
-  background: #ccc;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+// .play-container {
+//   display: flex;
+//   background: #ccc;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
 
-#play-video {
-  width: 100%;
-  max-width: 800px; //getting rid of this later
-  position: relative;
-  overflow: hidden;
-}
-#play-video:hover .controls{
-    transform: translateY(0);
-}
+// #play-video {
+//   width: 100%;
+//   max-width: 800px; //getting rid of this later
+//   position: relative;
+//   overflow: hidden;
+// }
+// #play-video:hover .controls{
+//     transform: translateY(0);
+// }
 
-.full-screen-movie {
-  width: 100%;
-}
+// .full-screen-movie {
+//   width: 100%;
+// }
 
-.controls {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.7);
-  transform: translateY(100%) translateY(-10px); //-10px shoes part of the bar
-  transition: all .2s;
-}
+// .controls {
+//   display: flex;
+//   align-items: center;
+//   position: absolute;
+//   width: 100%;
+//   bottom: 0;
+//   flex-wrap: wrap;
+//   background: rgba(0, 0, 0, 0.7);
+//   transform: translateY(100%) translateY(-10px); //-10px shoes part of the bar
+//   transition: all .2s;
+// }
 
-.buttons button {
-  cursor: pointer;
+// .buttons button {
+//   cursor: pointer;
 
-}
+// }
 
-.buttons button:before {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  font-size: 28px;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-}
+// .buttons button:before {
+//   width: 30px;
+//   height: 30px;
+//   display: inline-block;
+//   font-size: 28px;
+//   color: #fff;
+//   -webkit-font-smoothing: antialiased;
+// }
 
-.buttons {
-  padding: 10px;
-}
+// .buttons {
+//   padding: 10px;
+//   display: flex;
+//   align-items: center;
+// }
 
-#pause-movie:before {
-  content: "\f04c";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
-#play-movie:before {
-   content: "\f04b";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
+// #pause-movie:before {
+//   content: "\f04c";
+//   font-family: "Font Awesome 5 Free";
+//   font-weight: 900;
+// }
+// #play-movie:before {
+//    content: "\f04b";
+//   font-family: "Font Awesome 5 Free";
+//   font-weight: 900;
+// }
 
-.bar{
-    height: 10px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: gray;
+// .bar{
+//     height: 10px;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     background-color: gray;
 
-    .bar-color{
-        height: 10px;
-        width: 0;
-        background-color:red ;
-    }
-}
+//     .bar-color{
+//         height: 10px;
+//         width: 0;
+//         background-color:red ;
+//     }
+// }
 
 
 #back{
@@ -82,4 +85,16 @@
     font-size: 50px;
     cursor: pointer;
     z-index: 10;
+}
+
+// .back-ten span{
+//   font-size: 30px;
+// }
+
+
+
+
+.full-screen-movie{
+  width: 100%;
+  height: 100%;
 }

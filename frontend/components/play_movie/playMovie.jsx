@@ -45,19 +45,20 @@ class PlayMovie extends React.Component {
     if (movie) {
       return (
         <div className="play-container">
-          <div id="play-video">
+          {/* <div id="play-video"> */}
             <div id="back">
               <Link to="/browse">
                 <i className="fas fa-arrow-left"></i>
               </Link>
             </div>
             <video
+              controls
               className="full-screen-movie"
               src={movie.video}
               ref="moviePlayer"
-              onTimeUpdate={this.handleTimeUpdate}
+              // onTimeUpdate={this.handleTimeUpdate}
             />
-            <div className="controls">
+            {/* <div className="controls">
               <div className="bar">
                 <div className="bar-color" ref="barColor"></div>
               </div>
@@ -66,9 +67,12 @@ class PlayMovie extends React.Component {
                   id={playing ? "pause-movie" : "play-movie"}
                   onClick={this.handleMoviePlayer}
                 ></button>
+                <button className="back-ten">
+                  <span class="material-icons">replay_10</span>
+                </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       );
     } else {

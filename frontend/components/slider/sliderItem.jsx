@@ -102,27 +102,29 @@ class SliderItem extends React.Component {
     return (
       <div className="sliderItem">
         <div className="sliderItemInner">
-          <img ref='sliderItem' className="cover" src={cover} />
+          <img ref="sliderItem" className="cover" src={cover} />
           <div className="preview">
-            <video
-              muted
-              className="playVideo"
-              src={video}
-              onMouseEnter={(event) => this.handlePreview(event)}
-              onMouseLeave={(event) => this.handlePreview(event)}
-            />
             <Link to={`/watch/${movie.id}`}>
-              <div className="play">
-                <i className="far fa-play-circle"></i>
-              </div>
+              <video
+                muted
+                className="playVideo"
+                src={video}
+                onMouseEnter={(event) => this.handlePreview(event)}
+                onMouseLeave={(event) => this.handlePreview(event)}
+              />
             </Link>
             <div className="info">
+              <span class="playIcon material-icons">play_arrow</span>
               <h3 className="movieTitle">{title}</h3>
               <h3 className="age">TV-14</h3>
               <h3 className="duration">{duration}</h3>
             </div>
             <div className="myList" onClick={this.addToList}>
-              <i className={!isInList ? "fas fa-plus-circle": "fas fa-check-circle"}></i>
+              <i
+                className={
+                  !isInList ? "fas fa-plus-circle" : "fas fa-check-circle"
+                }
+              ></i>
             </div>
             <button className="openContent" onClick={this.handleSubmit}>
               <i className="fas fa-chevron-down"></i>
