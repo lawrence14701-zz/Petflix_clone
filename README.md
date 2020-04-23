@@ -11,7 +11,7 @@
 * will post a video when i am done
 
 # Tech Stack
-* The app was made using Ruby on Rails for the backend, PostgreSQL for the backend database, React/Redux for the frontend, and Amazon AWS S3 for cloud storage of image and video files.
+* The app was made using Ruby on Rails for the backend, PostgreSQL for the backend database, React/Redux for the frontend, and Amazon AWS S3 for cloud storage of image and video files. I deployed my website using Heroku.
 
 # MVPs
 * Movie carousel and hovering over videos
