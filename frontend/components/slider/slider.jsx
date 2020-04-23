@@ -189,7 +189,7 @@ class Slider extends React.Component {
   }
   onOpen(movie) {
     this.setState({ currentSlide: movie });
-    // I also want to apply some styling to this movie, give it a white border
+    
   }
 
   
