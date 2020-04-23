@@ -81,7 +81,6 @@ class Search extends React.Component {
     }
     return (
       <>
-        <div className="gallery">
           <div className="gallery-title">
             <div id="genre-title">Movies</div>
           </div>
@@ -92,7 +91,6 @@ class Search extends React.Component {
               </>
             );
           })}
-        </div>
       </>
     );
   }

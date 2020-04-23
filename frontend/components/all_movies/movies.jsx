@@ -93,7 +93,6 @@ class Movies extends React.Component {
     }
       return (
         <>
-          <div className="gallery">
             <div className="gallery-title">
               <div id="genre-title">{title}</div>
             </div>
@@ -108,7 +107,6 @@ class Movies extends React.Component {
                   </>
                 );
               })}
-          </div>
         </>
       );
     } 

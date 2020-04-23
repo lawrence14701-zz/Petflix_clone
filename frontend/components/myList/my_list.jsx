@@ -89,7 +89,6 @@ class MyList extends React.Component {
       }
       return (
         <>
-          <div className="gallery">
             <div className="gallery-title">
               <div id="genre-title">My List</div>
             </div>
@@ -106,7 +105,6 @@ class MyList extends React.Component {
                 </>
               );
             })}
-          </div>
         </>
       );
     } else {
