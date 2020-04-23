@@ -252,6 +252,20 @@ join_with_dog_genre = Join.create({
     genreId: dogGenre.id,
     movieId: dog_reviews_food.id
 })
+#------------------------burger police----------------------------------
+
+burger_police = Movie.create({
+  title: "Burger Police",
+  description: "Watch out criminals, the greatest pawlice is back and he's coming for your burgers."})
+burger_police_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/burger_police.mp4")
+burger_police.video.attach(io: burger_police_video, filename: "burger_police_video.mp4", content_type: "video/mp4")
+burger_police_cover = open("https://petflix-development.s3.amazonaws.com/burger_police.jpg")
+burger_police.cover.attach(io: burger_police_cover, filename: "burger_police_cover.jpg")
+
+join_with_dog_genre = Join.create({
+  genreId: dogGenre.id,
+  movieId: burger_police.id,
+})
 
 
 #------------------------Dog reacts to giant mouse------------------------------------
@@ -554,6 +568,45 @@ join_with_hamster_genre = Join.create({
   genreId: hamsterGenre.id,
   movieId: hamsters_great_escape.id,
 })
+
+
+#------------------------puppy meets kitten----------------------------------
+
+puppy_meets_kitten = Movie.create({
+  title: "Puppy Meets Kitten",
+  description: "Check out this puppy meeting a kitten for the first time, what is the worst that can happen"
+})
+puppy_meets_kitten_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/puppy_meets_kitten.mp4")
+puppy_meets_kitten.video.attach(io: puppy_meets_kitten_video, filename: "puppy_meets_kitten_video.mp4", content_type: "video/mp4")
+puppy_meets_kitten_cover = open("https://petflix-development.s3.amazonaws.com/puppy_meets_kitten.jpg")
+puppy_meets_kitten.cover.attach(io: puppy_meets_kitten_cover, filename: "puppy_meets_kitten_cover.jpg")
+
+join_with_dog_genre = Join.create({
+  genreId: dogGenre.id,
+  movieId: puppy_meets_kitten.id,
+})
+
+join_with_cat_genre = Join.create({
+  genreId: catGenre.id,
+  movieId: puppy_meets_kitten.id,
+})
+
+#------------------------beach rescue----------------------------------
+
+beach_rescue = Movie.create({
+  title: "Beach Rescue",
+  description: "Just a regular day at the beach with a twist. What will happen?"})
+beach_rescue_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/beach_rescue.mp4")
+beach_rescue.video.attach(io: beach_rescue_video, filename: "beach_rescue_video.mp4", content_type: "video/mp4")
+beach_rescue_cover = open("https://petflix-development.s3.amazonaws.com/beach_rescue.jpg")
+beach_rescue.cover.attach(io: beach_rescue_cover, filename: "beach_rescue_cover.jpg")
+
+join_with_dog_genre = Join.create({
+  genreId: dogGenre.id,
+  movieId: beach_rescue.id,
+})
+
+
 
 
 
