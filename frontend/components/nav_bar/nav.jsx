@@ -46,6 +46,7 @@ class Nav extends React.Component {
   }
   handleClickOpen() {
     if(this.state.searchBarOpen === false){
+      this.refs.input.focus()
       this.setState({ searchBarOpen: true });
     }
   }
@@ -53,12 +54,12 @@ class Nav extends React.Component {
 
   render() {
     const { genres, currentUser } = this.props;
-    const { searchBarOpen, dropDown } = this.state;
+    const { searchBarOpen } = this.state;
 
     return (
       <header id="main-header">
         <div className="petflixLogo">
-          <Link to='/browse'>
+          <Link to="/browse">
             <img src={window.logo} alt="Logo Image" />
           </Link>
         </div>
@@ -94,12 +95,14 @@ class Nav extends React.Component {
         </nav>
         <nav className="sub-nav">
           <div className="search-container">
-            <div className="search" ref='search'>
+            <div className="search" ref="search">
               <input
                 onKeyUp={this.submitSearch}
                 className={searchBarOpen ? "toggle input" : "input"}
                 type="text"
-                placeholder="puppies, cats, dogs"
+                placeholder="hamsters, cats, dogs"
+                autofocus
+                ref='input'
               ></input>
               <i
                 onClick={this.handleClickOpen}

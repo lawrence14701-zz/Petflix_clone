@@ -92,7 +92,6 @@ class SliderItem extends React.Component {
   render() {
     
     const { movie, myList, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
-    console.log(myList)
     const { cover, title, video } = movie;
     const { shouldAddToList} = this.state;
     const checkIfInList = myList.filter((item) => item.movie_id === movie.id).length > 0;
