@@ -42,9 +42,9 @@ hamsterGenre = Genre.create({
     name: 'Hamsters'
 })
 
-birdGenere = Genre.create({
-    name: 'Birds'
-})
+# birdGenere = Genre.create({
+#     name: 'Birds'
+# })
 
 
 

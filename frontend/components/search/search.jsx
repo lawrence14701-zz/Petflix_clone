@@ -79,6 +79,11 @@ class Search extends React.Component {
         movieRows.push(movieRow);
       }
     }
+    if(movieRows.length === 0){
+      return (<h1 className='match-failed'>Sorry Can't find any movies that match</h1>)
+    }else{
+
+    
     return (
       <>
           <div className="gallery-title">
@@ -93,6 +98,7 @@ class Search extends React.Component {
           })}
       </>
     );
+        }
   }
 }
 

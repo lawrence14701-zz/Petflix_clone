@@ -7,7 +7,7 @@ class Api::MoviesController < ApplicationController
 
     def index
        searchFor = params[:search].downcase.capitalize
-       if searchFor == 'Cats' || searchFor == "Dogs" || searchFor === 'Hamsters' || searchFor === 'Birds'
+       if searchFor == 'Cats' || searchFor == "Dogs" || searchFor === 'Hamsters' #|| searchFor === 'Birds'
             @movies = Genre.find_by_name(searchFor).movies
             render :index
        else
