@@ -11,7 +11,7 @@ class Api::MoviesController < ApplicationController
             @movies = Genre.find_by_name(searchFor).movies
             render :index
        else
-           @movies = Movie.where("title LIKE #{searchFor}%")
+        @movies = Movie.where("translate(title, ':-', '') ILIKE ?", "#{searchFor}%")
            render :index
        end
 

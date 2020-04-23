@@ -28,7 +28,9 @@ class Nav extends React.Component {
 
   submitSearch(e){
     if(this.state.searchBarOpen === true && e.key === 'Enter'){
+      this.props.clearSearch();
       this.props.search(e.target.value)
+      this.forceUpdate()
       if(this.props.history.location.pathname !== './search'){     
         this.props.history.push("/search");
       }
@@ -56,9 +58,9 @@ class Nav extends React.Component {
     return (
       <header id="main-header">
         <div className="petflixLogo">
-          <a id="logo" href="">
+          <Link to='/browse'>
             <img src={window.logo} alt="Logo Image" />
-          </a>
+          </Link>
         </div>
         <nav className="main-nav">
           <div>
