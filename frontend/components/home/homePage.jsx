@@ -21,10 +21,9 @@ class HomePage extends React.Component {
   }
 
   handleVolume(){
-    const {muted} = this.state;
-    console.log(muted)
-    this.props.toggleBillBoard(!muted);
-    this.setState({muted: !muted })
+    const {muted} = this.state; //false
+    this.props.toggleBillBoard(muted); //false
+    this.setState({muted: !muted }) //true
   }
 
   handleList() {
@@ -44,8 +43,6 @@ class HomePage extends React.Component {
     if (this.props.playingBillBoard !== prevProps.playingBillBoard) {
       if (this.props.playingBillBoard === "false") {
           this.setState({muted: true});
-      }else{
-        this.setState({ muted: false });
       }
     }
   }

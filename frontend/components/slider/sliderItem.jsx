@@ -7,6 +7,7 @@ class SliderItem extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePreview = this.previewMovie.bind(this);
     this.addToList = this.addToList.bind(this);
+    this.showLogo = this.showLogo.bind(this);
 
     this.state = {
       playingPreview: false,
@@ -58,13 +59,44 @@ class SliderItem extends React.Component {
     this.setState({ playingPreview: !playingPreview}); //toggles between playing 
   }
 
+  showLogo(){
+    const {myList, movie} = this.props;
+    const {shouldAddToList} = this.state;
+    if(shouldAddToList === null){
+      const isInList = myList.filter((item) => item.movie_id === movie.id).length > 0;
+      this.setState({shouldAddToList: isInList})
+      if(isInList){
+        return "fas fa-check-circle";
+      } else {
+        return 'fas fa-plus-circle"';
+      }
+    }
+
+    if(this.state.shouldAddToList){
+      return 'fas fa-plus-circle"';
+    }else{
+        return "fas fa-check-circle";
+    }
+  }
+  componentDidUpdate(prevProps,prevState){
+    const {movie,myList} = this.props;
+    if(prevProps.myList !== myList){
+      const checkIfInList = myList.filter((item) => item.movie_id === movie.id).length > 0
+      this.setState({shouldAddToList: checkIfInList})
+    }
+  }
+
+
   
 
   render() {
     
     const { movie, myList, isContentOpen } = this.props; //so if isContentOpen is not null then we want to prevent hover effect and also apply the white border
+    console.log(myList)
     const { cover, title, video } = movie;
     const { shouldAddToList} = this.state;
+    const checkIfInList = myList.filter((item) => item.movie_id === movie.id).length > 0;
+    const isInList = shouldAddToList === null ? checkIfInList : shouldAddToList;
     const duration = `${Math.floor(video.length / 60)} min ${
       video.length % 60
     } sec`;
@@ -91,11 +123,7 @@ class SliderItem extends React.Component {
               <h3 className="duration">{duration}</h3>
             </div>
             <div className="myList" onClick={this.addToList}>
-              <i
-                className={
-                  shouldAddToList ? "fas fa-plus-circle" : "fas fa-check-circle"
-                }
-              ></i>
+              <i className={!isInList ? "fas fa-plus-circle": "fas fa-check-circle"}></i>
             </div>
             <button className="openContent" onClick={this.handleSubmit}>
               <i className="fas fa-chevron-down"></i>

@@ -421,27 +421,6 @@ join_with_hamster_genre = Join.create({
     movieId: candy_apples.id
 })
 
-#------------------------hamsters and dog-----------------------------------
-
-hamsters_and_dog = Movie.create({
-    title: 'hamsters and dog',
-    description: 'Checkout these cute hamsters hanging out with this great looking dog. What a relationship this is!'
-})
-hamsters_and_dog_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/hamsters_and_dog.mp4")
-hamsters_and_dog.video.attach(io: hamsters_and_dog_video,filename: 'hamsters_and_dog_video.mp4', content_type: 'video/mp4')
-hamsters_and_dog_cover = open('https://petflix-development.s3.amazonaws.com/hamsters_and_dog.jpg')
-hamsters_and_dog.cover.attach(io: hamsters_and_dog_cover, filename: 'hamsters_and_dog_cover.jpg')
-
-join_with_hamster_genre = Join.create({
-    genreId: hamsterGenre.id,
-    movieId: hamsters_and_dog.id
-})
-
-join_with_dog_genre = Join.create({
-    genreId: dogGenre.id,
-    movieId: hamsters_and_dog.id
-})
-
 
 #------------------------harry potter hamster-----------------------------------
 
@@ -508,6 +487,71 @@ join_with_hamster_genre = Join.create({
     movieId: hundred_years_of_hamsters.id
 })
 
+
+
+#------------------------Strawberry choco hearts----------------------------------
+
+strawberry_choco_hearts = Movie.create({
+  title: "Strawberry Choco hearts",
+  description: "A super simple recipe for chocolate-dipped strawberry hearts. Watch this hamster eat this treat!",
+})
+strawberry_choco_hearts_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/strawberry_choco_hearts.mp4")
+strawberry_choco_hearts.video.attach(io: strawberry_choco_hearts_video, filename: "strawberry_choco_hearts_video.mp4", content_type: "video/mp4")
+strawberry_choco_hearts_cover = open("https://petflix-development.s3.amazonaws.com/strawberry_choco_hearts.jpg")
+strawberry_choco_hearts.cover.attach(io: strawberry_choco_hearts_cover, filename: "strawberry_choco_hearts_cover.jpg")
+
+join_with_hamster_genre = Join.create({
+  genreId: hamsterGenre.id,
+  movieId: strawberry_choco_hearts.id,
+})
+
+#------------------------my new hamster----------------------------------
+
+my_new_hamster = Movie.create({
+  title: "My new hamster",
+  description: "Welcome Butterscotch, the syrian hamster. He was born in September 2018 and his favorite food is chocolate drops. Watch the new hamster settle into his home.",
+})
+my_new_hamster_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/my_new_hamster.mp4")
+my_new_hamster.video.attach(io: my_new_hamster_video, filename: "my_new_hamster_video.mp4", content_type: "video/mp4")
+my_new_hamster_cover = open("https://petflix-development.s3.amazonaws.com/my_new_hamster.jpg")
+my_new_hamster.cover.attach(io: my_new_hamster_cover, filename: "my_new_hamster_cover.jpg")
+
+join_with_hamster_genre = Join.create({
+  genreId: hamsterGenre.id,
+  movieId: my_new_hamster.id,
+})
+
+#------------------------waterpark----------------------------------
+
+waterpark = Movie.create({
+  title: "Water Park",
+  description: "These cute syrian hamsters, Joe and Pixie, got to the water park. There is a sandy beach with sun and an umbrella, a large pool and water slides. A wonderful place for a vacation!",
+})
+waterpark_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/waterpark.mp4")
+waterpark.video.attach(io: waterpark_video, filename: "waterpark_video.mp4", content_type: "video/mp4")
+waterpark_cover = open("https://petflix-development.s3.amazonaws.com/waterpark.jpg")
+waterpark.cover.attach(io: waterpark_cover, filename: "waterpark_cover.jpg")
+
+join_with_hamster_genre = Join.create({
+  genreId: hamsterGenre.id,
+  movieId: waterpark.id,
+})
+
+#------------------------hamsters great escape----------------------------------
+
+hamsters_great_escape = Movie.create({
+  title: "Hamsters great escape",
+  description: "Mission Impossible in progress. Watch this little hamster do the impossible and escape from his cage. They call him bond, james bond.",
+})
+hamsters_great_escape_video = EzDownload.open("https://petflix-development.s3.amazonaws.com/hamsters_great_escape.mp4")
+hamsters_great_escape.video.attach(io: hamsters_great_escape_video, filename: "hamsters_great_escape_video.mp4", content_type: "video/mp4")
+hamsters_great_escape_cover = open("https://petflix-development.s3.amazonaws.com/hamsters_great_escape.jpg")
+hamsters_great_escape.cover.attach(io: hamsters_great_escape_cover, filename: "hamsters_great_escape_cover.jpg")
+
+join_with_hamster_genre = Join.create({
+  genreId: hamsterGenre.id,
+  movieId: hamsters_great_escape.id,
+})
 
 
 

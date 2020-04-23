@@ -94,7 +94,7 @@ class Nav extends React.Component {
         </nav>
         <nav className="sub-nav">
           <div className="search-container">
-            <div className="search">
+            <div className="search" ref='search'>
               <input
                 onKeyUp={this.submitSearch}
                 className={searchBarOpen ? "toggle input" : "input"}

@@ -62,6 +62,7 @@ class MyList extends React.Component {
   render() {
     const { movies, showArrows, myList } = this.props;
     const { showItems } = this.state;
+    debugger
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let movieList = [];
       myList.forEach((movieId) => {

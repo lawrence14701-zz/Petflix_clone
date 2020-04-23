@@ -33,6 +33,13 @@
 
 //---------------- Scaling effect for hovering over a movieItem ----------------------
 
+.hovering{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
 .preview {
   display: none;
   height: 200%;
@@ -133,6 +140,7 @@
 .hovering:hover .sliderItem { //slidermask
   transform: translateX(-25%);
 }
+
 
 .sliderItem:hover ~ .sliderItem {
   transform: translateX(25%);
