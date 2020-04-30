@@ -66,6 +66,10 @@
     cursor: pointer;
   }
 
+  .info:hover{
+    cursor: pointer;
+  }
+
   .info {
     position: absolute;
     top: 45%;
@@ -135,7 +139,7 @@
   display: block;
 }
 
-.hovering:hover .sliderItem { //slidermask
+.hovering:hover .sliderItem { //FAILING
   transform: translateX(-25%);
 }
 

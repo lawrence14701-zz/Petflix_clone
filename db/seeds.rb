@@ -456,7 +456,7 @@ join_with_hamster_genre = Join.create({
 #------------------------harry potter hamster-----------------------------------
 
 harry_potter_hamster = Movie.create({
-    title: 'Harry Potter Hamster',
+    title: 'Hamster Potter',
     description: 'We love hamsters and we love Harry Potter so we decided to mix the two. Enjoy!'
 })
 harry_potter_hamster_video =  EzDownload.open("https://petflix-development.s3.amazonaws.com/harry_potter_hamster.mp4")

@@ -193,8 +193,9 @@ class Slider extends React.Component {
   }
 
   
-  isHovering(){
-    this.setState({active: !this.state.active})
+  isHovering(arg){
+    if(typeof arg === 'undefined') arg = 'true';
+    this.setState({active: arg})
   }
   render() {
     const { title, showArrows, firstSlider } = this.props;
@@ -209,7 +210,7 @@ class Slider extends React.Component {
             <div className="slider">
               <div
                 className={
-                  moving ? "moving sliderMask" : `sliderMask ${hovering}`
+                  moving ? "moving sliderMask":`sliderMask ${hovering}`
                 }
                 ref="slider"
               >

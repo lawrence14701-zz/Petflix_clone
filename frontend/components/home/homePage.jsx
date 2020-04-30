@@ -9,6 +9,7 @@ class HomePage extends React.Component {
     this.state = {
       shouldAddToList: null,
       muted: false,
+      ingredients: {cheese: 0}
     };
     this.handleList = this.handleList.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
@@ -21,9 +22,12 @@ class HomePage extends React.Component {
   }
 
   handleVolume(){
-    const {muted} = this.state; //false
-    this.props.toggleBillBoard(muted); //false
-    this.setState({muted: !muted }) //true
+    // const {muted} = this.state; //false
+    // this.props.toggleBillBoard(muted); //false
+    // this.setState({muted: !muted }) //true
+    console.log(this.state.ingredients.cheese)
+    this.setState({ingredients: {cheese: 1}})
+    console.log(this.state.ingredients)
   }
 
   handleList() {

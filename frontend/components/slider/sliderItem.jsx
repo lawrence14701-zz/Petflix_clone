@@ -8,12 +8,21 @@ class SliderItem extends React.Component {
     this.handlePreview = this.previewMovie.bind(this);
     this.addToList = this.addToList.bind(this);
     this.showLogo = this.showLogo.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.stopHover = this.stopHover.bind(this);
 
     this.state = {
       playingPreview: false,
       shouldAddToList: null,
     };
 
+  }
+
+  handleHover(){
+    this.props.hovering('true');
+  }
+  stopHover(){
+      this.props.hovering(null);
   }
 
  
@@ -46,8 +55,6 @@ class SliderItem extends React.Component {
     if (!playingPreview) {
       video.play();
       video.muted = false;
-      //hovering over one movie set state to hovering
-      this.props.hovering()
     } else {
       video.pause();
       video.currenttime = 0;
@@ -110,15 +117,19 @@ class SliderItem extends React.Component {
                 className="playVideo"
                 src={video}
                 onMouseEnter={(event) => this.handlePreview(event)}
+                onMouseEnter={this.handleHover}
+                onMouseLeave={this.stopHover}
                 onMouseLeave={(event) => this.handlePreview(event)}
               />
             </Link>
-            <div className="info">
-              <span class="playIcon material-icons">play_arrow</span>
-              <h3 className="movieTitle">{title}</h3>
-              <h3 className="age">TV-14</h3>
-              <h3 className="duration">{duration}</h3>
-            </div>
+            <Link to={`/watch/${movie.id}`}>
+              <div className="info" onMouseEnter={this.handleHover}>
+                <span class="playIcon material-icons">play_arrow</span>
+                <h3 className="movieTitle">{title}</h3>
+                <h3 className="age">TV-14</h3>
+                <h3 className="duration">{duration}</h3>
+              </div>
+            </Link>
             <div className="myList" onClick={this.addToList}>
               <i
                 className={
@@ -126,7 +137,11 @@ class SliderItem extends React.Component {
                 }
               ></i>
             </div>
-            <button className="openContent" onClick={this.handleSubmit}>
+            <button
+              className="openContent"
+              onMouseEnter={this.handleHover}
+              onClick={this.handleSubmit}
+            >
               <i className="fas fa-chevron-down"></i>
             </button>
           </div>
