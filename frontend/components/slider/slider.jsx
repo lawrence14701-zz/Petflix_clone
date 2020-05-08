@@ -10,7 +10,9 @@ class Slider extends React.Component {
     this.handleClose = this.onClose.bind(this);
     this.handleOpen = this.onOpen.bind(this);
     this.setWidth = this.setWidth;
-    this.isHovering = this.isHovering.bind(this)
+    this.isHovering = this.isHovering.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+
     this.state = {
       moving: false,
       click: false,
@@ -19,10 +21,20 @@ class Slider extends React.Component {
       showItems: 1,
       totalItems: 0,
       sliderItems: [],
-      currentSlide: null, 
+      currentSlide: null,
       sliderWidth: 0,
-      active: false
+      active: false,
     };
+  }
+  deleteItem(id) {
+   console.log("workin");
+    const {sliderItems} = this.state;
+    const newItems = Object.values(sliderItems).filter(
+        (e) => e.id !== id
+      )
+      console.log(newItems);
+      this.forceUpdate();
+      this.setState({sliderItems: newItems})
   }
 
   componentDidMount() {
@@ -32,10 +44,9 @@ class Slider extends React.Component {
       totalItems: movies.length,
       sliderItems: movies,
     });
-
   }
 
-  componentWillMount(){
+  componentWillMount() {
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updateSliderState.bind(this));
     }
@@ -124,7 +135,7 @@ class Slider extends React.Component {
     });
 
     $(slider).css({
-      transform: "translate3d(-" + mv  + "%, 0, 0)",
+      transform: "translate3d(-" + mv + "%, 0, 0)",
     });
     setTimeout(() => {
       $(slider).css({
@@ -166,12 +177,10 @@ class Slider extends React.Component {
     } else {
       $(slider).css({
         transform: "translate3d(-2" + mv + "%, 0, 0)",
-
       });
       setTimeout(() => {
         $(slider).css({
           transform: "translate3d(-1" + mv + "%, 0, 0)",
-
         });
       }, 750);
     }
@@ -189,34 +198,34 @@ class Slider extends React.Component {
   }
   onOpen(movie) {
     this.setState({ currentSlide: movie });
-    
   }
 
-  
-  isHovering(arg){
-    if(typeof arg === 'undefined') arg = 'true';
-    this.setState({active: arg})
+  isHovering(arg) {
+    console.log(arg);
+    // if(typeof arg === 'undefined') arg = 'true';
+    this.setState({ active: arg });
   }
   render() {
     const { title, showArrows, firstSlider } = this.props;
     const { sliderItems, click, moving, currentSlide } = this.state;
-    const hovering = this.state.active ? 'hovering' : null
+    const hovering = this.state.active === "true" ? "hovering" : null;
     return (
       <>
-        <div className='slider-container'>
+        <div className="slider-container">
           {showArrows === "true" && <h1 className="pageHead">{title}</h1>}
           {firstSlider === 1 ? <div className="dark-layer"></div> : null}
           <div className="wrapper">
             <div className="slider">
               <div
                 className={
-                  moving ? "moving sliderMask":`sliderMask ${hovering}`
+                  moving ? "moving sliderMask" : `sliderMask ${hovering}`
                 }
                 ref="slider"
               >
                 {sliderItems.map((e, i) => {
                   return (
                     <SliderItem
+                      delete={this.deleteItem}
                       key={i}
                       movie={e}
                       onOpen={this.handleOpen}
@@ -228,28 +237,28 @@ class Slider extends React.Component {
                 })}
               </div>
             </div>
-              {click && showArrows === "true" && (
-                <div
-                  className="leftArrow arrow"
-                  ref="leftArrow"
-                  onClick={this.handleOnLeftArrowClick}
-                >
-                  <i className="fas fa-chevron-left"></i>
-                </div>
-              )}
-              {showArrows === "true" && (
-                <div
-                  className="rightArrow arrow"
-                  ref="RightArrow"
-                  onClick={this.handleOnRightArrowClick}
-                >
-                  <i className="fas fa-chevron-right"></i>{" "}
-                </div>
-              )}
-          </div>
-            {currentSlide && (
-              <Content movie={currentSlide} onClose={this.handleClose} />
+            {click && showArrows === "true" && (
+              <div
+                className="leftArrow arrow"
+                ref="leftArrow"
+                onClick={this.handleOnLeftArrowClick}
+              >
+                <i className="fas fa-chevron-left"></i>
+              </div>
             )}
+            {showArrows === "true" && (
+              <div
+                className="rightArrow arrow"
+                ref="RightArrow"
+                onClick={this.handleOnRightArrowClick}
+              >
+                <i className="fas fa-chevron-right"></i>{" "}
+              </div>
+            )}
+          </div>
+          {currentSlide && (
+            <Content movie={currentSlide} onClose={this.handleClose} />
+          )}
         </div>
       </>
     );

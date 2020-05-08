@@ -6,7 +6,7 @@ import { showArrows, fetchAllGenres} from '../../actions/video_actions';
 
 const msp = (state) => {
   return {
-  myList: Object.values(state.entities.myList),
+  myList: state.entities.myList,
   movies: state.entities.movies,
   showArrows: state.entities.showArrows,
   }

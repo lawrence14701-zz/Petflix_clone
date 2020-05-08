@@ -16,8 +16,9 @@ const receiveList = (watchlist) => ({
   watchlist
 });
 
-const removeListItem = () => ({
+const removeListItem = (watchlistId) => ({
   type: REMOVE_LIST_ITEM,
+  watchlistId
 });
 
 //-----------thunk actions --------------

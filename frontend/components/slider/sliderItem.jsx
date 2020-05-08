@@ -22,7 +22,7 @@ class SliderItem extends React.Component {
     this.props.hovering('true');
   }
   stopHover(){
-      this.props.hovering(null);
+      this.props.hovering('false');
   }
 
  
@@ -41,6 +41,8 @@ class SliderItem extends React.Component {
     const {shouldAddToList} = this.state;
     if(shouldAddToList){
       deleteListItem(movie.id);
+      this.props.getList;
+      this.props.delete(movie.id);
       this.setState({ shouldAddToList: false });
     }else{
       addToList(movie.id);
@@ -55,13 +57,14 @@ class SliderItem extends React.Component {
     if (!playingPreview) {
       video.play();
       video.muted = false;
+      this.props.hovering("true");
+
     } else {
       video.pause();
       video.currenttime = 0;
       video.load();
       video.muted = true;
-      this.props.hovering();
-
+      this.props.hovering('false')
     }
     this.setState({ playingPreview: !playingPreview}); //toggles between playing 
   }
@@ -109,16 +112,20 @@ class SliderItem extends React.Component {
     return (
       <div className="sliderItem">
         <div className="sliderItemInner">
-          <img ref="sliderItem" className="cover" src={cover} />
-          <div className="preview">
+          <img
+            ref="sliderItem"
+            className="cover"
+            src={cover}
+            onMouseLeave={this.stopHover}
+          />
+          <div className="preview" onMouseEnter={this.handleHover}>
             <Link to={`/watch/${movie.id}`}>
               <video
                 muted
                 className="playVideo"
                 src={video}
                 onMouseEnter={(event) => this.handlePreview(event)}
-                onMouseEnter={this.handleHover}
-                onMouseLeave={this.stopHover}
+                // onMouseEnter={this.handleHover}
                 onMouseLeave={(event) => this.handlePreview(event)}
               />
             </Link>
@@ -142,7 +149,10 @@ class SliderItem extends React.Component {
               onMouseEnter={this.handleHover}
               onClick={this.handleSubmit}
             >
-              <i className="fas fa-chevron-down"></i>
+              <i
+                onMouseEnter={this.handleHover}
+                className="fas fa-chevron-down"
+              ></i>
             </button>
           </div>
         </div>

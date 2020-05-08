@@ -22,12 +22,9 @@ class HomePage extends React.Component {
   }
 
   handleVolume(){
-    // const {muted} = this.state; //false
-    // this.props.toggleBillBoard(muted); //false
-    // this.setState({muted: !muted }) //true
-    console.log(this.state.ingredients.cheese)
-    this.setState({ingredients: {cheese: 1}})
-    console.log(this.state.ingredients)
+    const {muted} = this.state; //false
+    this.props.toggleBillBoard(muted); //false
+    this.setState({muted: !muted }) //true
   }
 
   handleList() {

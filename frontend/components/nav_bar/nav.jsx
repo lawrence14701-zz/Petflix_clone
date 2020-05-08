@@ -101,7 +101,7 @@ class Nav extends React.Component {
                 className={searchBarOpen ? "toggle input" : "input"}
                 type="text"
                 placeholder="hamsters, cats, dogs"
-                autofocus
+                autoFocus
                 ref='input'
               ></input>
               <i

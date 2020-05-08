@@ -13,7 +13,6 @@ class MyList extends React.Component {
     this.props.fetchMyList();
     this.props.fetchAllGenres();
     this.props.hideArrowsOnMyList("false");
-    // this.updatePageItems();
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.updatePageItems.bind(this));
     }
@@ -38,34 +37,40 @@ class MyList extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const windowWidth = window.innerWidth;
+  // componentDidUpdate(prevProps, prevState) {
+  //   const windowWidth = window.innerWidth;
 
-    let showItemsNewVal;
-    if (windowWidth > 1800) {
-      showItemsNewVal = 6;
-    } else if (windowWidth > 1260) {
-      showItemsNewVal = 5;
-    } else if (windowWidth > 980) {
-      showItemsNewVal = 4;
-    } else if (windowWidth > 768) {
-      showItemsNewVal = 3;
-    } else if (windowWidth > 600) {
-      showItemsNewVal = 2;
-    }
+  //   let showItemsNewVal;
+  //   if (windowWidth > 1800) {
+  //     showItemsNewVal = 6;
+  //   } else if (windowWidth > 1260) {
+  //     showItemsNewVal = 5;
+  //   } else if (windowWidth > 980) {
+  //     showItemsNewVal = 4;
+  //   } else if (windowWidth > 768) {
+  //     showItemsNewVal = 3;
+  //   } else if (windowWidth > 600) {
+  //     showItemsNewVal = 2;
+  //   }
 
-    if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
-      this.setState({ showItems: showItemsNewVal });
-    }
-  }
+  //   if (showItemsNewVal && prevState.showItems !== showItemsNewVal) {
+  //     this.setState({ showItems: showItemsNewVal });
+  //   }
+  //   if(prevProps.myList !== this.props.myList){
+  //     console.log('update')
+  //     this.forceUpdate()
+  //   }
+  // }
+
+ 
 
   render() {
     const { movies, showArrows, myList } = this.props;
+    console.log(myList);
     const { showItems } = this.state;
-    debugger
     if (Object.getOwnPropertyNames(movies).length !== 0) {
       let movieList = [];
-      myList.forEach((movieId) => {
+      Object.values(myList).forEach((movieId) => {
         let id = movieId.movie_id;
         let movie = movies[id];
         if (!movieList.includes(movie)) {
@@ -90,22 +95,16 @@ class MyList extends React.Component {
       }
       return (
         <>
-            <div className="gallery-title">
-              <div id="genre-title">My List</div>
-            </div>
-            {movieRows.map((movieRow, idx) => {
-              return (
-                <>
-                  <div className="sliderMask sliderSpace">
-                    <Slider
-                      key={idx}
-                      movies={movieRow}
-                      showArrows={showArrows}
-                    />
-                  </div>
-                </>
-              );
-            })}
+          <div className="gallery-title">
+            <div id="genre-title">My List</div>
+          </div>
+          {movieRows.map((movieRow, idx) => {
+            return (
+              <>
+                <Slider key={idx} movies={movieRow} showArrows={showArrows} />
+              </>
+            );
+          })}
         </>
       );
     } else {
