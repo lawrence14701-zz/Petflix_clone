@@ -21,9 +21,6 @@
 
 
 # Movie carousel and hovering over videos
-<!-- blank line -->
-![Alt Text](./app/assets/images/slider.gif)
-<!-- blank line -->
 ## Information about this feature
 * Netlix's iconic movie carousel incorporates an infinite scroll. In other words, the user can click indefinitely on an arrow and never reach an endpoint on the slider. Instead, the movies wrap around from the beginning. 
 * To implement this, it took some ingenuity in planning my code. First, I organized my movie data into a 2d array, with three sections: left, center, right. The center section will be the movies I am displaying on the page. The left and right sections are movies that I hid using CSS. The right/left movies get pushed into the center, depending on the arrow clicked.
