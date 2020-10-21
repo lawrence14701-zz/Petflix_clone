@@ -5,9 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta property='og:title' content='Petflix'/>
-    <meta property='og:image' content='./home.png'/>
-    <meta property='og:description' content='Description that will show in the preview'/>
-
+    <meta property='og:image' content="<%= image_url('home.png') %>"/>
+    <meta property='og:description' content='A clone of the netflix website except it includes our favorite pets as movie categories.'/>
+    <meta property='og:url' content='http://projectname.herokuapp.com/'/>
 
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
